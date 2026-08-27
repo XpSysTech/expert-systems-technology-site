@@ -1,29 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "997IcQWQyvE=",
-  "success": false,
+  "dgSpecHash": "BbTSq1bhBD4=",
+  "success": true,
   "projectFilePath": "E:\\POST\\DEVELOPMENT\\XPSYS-GIT\\XPSYS\\expert-systems-technology-site\\backend\\XpSys.PublicWebsite.Api\\XpSys.PublicWebsite.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\shake\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.11\\microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512",
     "C:\\Users\\shake\\.nuget\\packages\\microsoft.openapi\\2.7.5\\microsoft.openapi.2.7.5.nupkg.sha512"
   ],
   "logs": [
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "Unable to load the service index for source https://capricorngroupportfolio.pkgs.visualstudio.com/3949fb22-b61b-4168-8901-4751f4fa4481/_packaging/Microservice-Components/nuget/v3/index.json.\r\n  Response status code does not indicate success: 401 (Unauthorized).",
-      "projectPath": "E:\\POST\\DEVELOPMENT\\XPSYS-GIT\\XPSYS\\expert-systems-technology-site\\backend\\XpSys.PublicWebsite.Api\\XpSys.PublicWebsite.Api.csproj",
-      "filePath": "E:\\POST\\DEVELOPMENT\\XPSYS-GIT\\XPSYS\\expert-systems-technology-site\\backend\\XpSys.PublicWebsite.Api\\XpSys.PublicWebsite.Api.csproj",
-      "targetGraphs": []
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "Unable to load the service index for source https://capricorngroupportfolio.pkgs.visualstudio.com/3949fb22-b61b-4168-8901-4751f4fa4481/_packaging/Microservice-Components/nuget/v3/index.json.\r\n  Response status code does not indicate success: 401 (Unauthorized).",
-      "projectPath": "E:\\POST\\DEVELOPMENT\\XPSYS-GIT\\XPSYS\\expert-systems-technology-site\\backend\\XpSys.PublicWebsite.Api\\XpSys.PublicWebsite.Api.csproj",
-      "filePath": "E:\\POST\\DEVELOPMENT\\XPSYS-GIT\\XPSYS\\expert-systems-technology-site\\backend\\XpSys.PublicWebsite.Api\\XpSys.PublicWebsite.Api.csproj",
-      "targetGraphs": []
-    },
     {
       "code": "NU1900",
       "level": "Warning",

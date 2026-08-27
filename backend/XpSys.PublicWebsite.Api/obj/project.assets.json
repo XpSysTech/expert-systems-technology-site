@@ -36,6 +36,43 @@
             "related": ".pdb;.xml"
           }
         }
+      },
+      "XpSys.PublicWebsite.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "XpSys.PublicWebsite.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/XpSys.PublicWebsite.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/XpSys.PublicWebsite.Application.dll": {}
+        }
+      },
+      "XpSys.PublicWebsite.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/XpSys.PublicWebsite.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/XpSys.PublicWebsite.Domain.dll": {}
+        }
+      },
+      "XpSys.PublicWebsite.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "XpSys.PublicWebsite.Application": "1.0.0",
+          "XpSys.PublicWebsite.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/XpSys.PublicWebsite.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/XpSys.PublicWebsite.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -75,11 +112,28 @@
         "microsoft.openapi.2.7.5.nupkg.sha512",
         "microsoft.openapi.nuspec"
       ]
+    },
+    "XpSys.PublicWebsite.Application/1.0.0": {
+      "type": "project",
+      "path": "../XpSys.PublicWebsite.Application/XpSys.PublicWebsite.Application.csproj",
+      "msbuildProject": "../XpSys.PublicWebsite.Application/XpSys.PublicWebsite.Application.csproj"
+    },
+    "XpSys.PublicWebsite.Domain/1.0.0": {
+      "type": "project",
+      "path": "../XpSys.PublicWebsite.Domain/XpSys.PublicWebsite.Domain.csproj",
+      "msbuildProject": "../XpSys.PublicWebsite.Domain/XpSys.PublicWebsite.Domain.csproj"
+    },
+    "XpSys.PublicWebsite.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../XpSys.PublicWebsite.Infrastructure/XpSys.PublicWebsite.Infrastructure.csproj",
+      "msbuildProject": "../XpSys.PublicWebsite.Infrastructure/XpSys.PublicWebsite.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Microsoft.AspNetCore.OpenApi >= 10.0.11"
+      "Microsoft.AspNetCore.OpenApi >= 10.0.11",
+      "XpSys.PublicWebsite.Application >= 1.0.0",
+      "XpSys.PublicWebsite.Infrastructure >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -116,7 +170,14 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\POST\\DEVELOPMENT\\XPSYS-GIT\\XPSYS\\expert-systems-technology-site\\backend\\XpSys.PublicWebsite.Application\\XpSys.PublicWebsite.Application.csproj": {
+              "projectPath": "E:\\POST\\DEVELOPMENT\\XPSYS-GIT\\XPSYS\\expert-systems-technology-site\\backend\\XpSys.PublicWebsite.Application\\XpSys.PublicWebsite.Application.csproj"
+            },
+            "E:\\POST\\DEVELOPMENT\\XPSYS-GIT\\XPSYS\\expert-systems-technology-site\\backend\\XpSys.PublicWebsite.Infrastructure\\XpSys.PublicWebsite.Infrastructure.csproj": {
+              "projectPath": "E:\\POST\\DEVELOPMENT\\XPSYS-GIT\\XPSYS\\expert-systems-technology-site\\backend\\XpSys.PublicWebsite.Infrastructure\\XpSys.PublicWebsite.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -579,16 +640,6 @@
     }
   },
   "logs": [
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "Unable to load the service index for source https://capricorngroupportfolio.pkgs.visualstudio.com/3949fb22-b61b-4168-8901-4751f4fa4481/_packaging/Microservice-Components/nuget/v3/index.json.\r\n  Response status code does not indicate success: 401 (Unauthorized)."
-    },
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "Unable to load the service index for source https://capricorngroupportfolio.pkgs.visualstudio.com/3949fb22-b61b-4168-8901-4751f4fa4481/_packaging/Microservice-Components/nuget/v3/index.json.\r\n  Response status code does not indicate success: 401 (Unauthorized)."
-    },
     {
       "code": "NU1900",
       "level": "Warning",
