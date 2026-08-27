@@ -1,0 +1,9 @@
+import { Component } from '@angular/core';
+
+@Component({
+  imports: [],
+  selector: 'app-service-level-overview',
+  styleUrl: './service-level-overview.css',
+  templateUrl: './service-level-overview.html',
+})
+export class ServiceLevelOverview {}

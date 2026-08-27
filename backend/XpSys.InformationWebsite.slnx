@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="XpSys.PublicWebsite.Api.Tests/XpSys.PublicWebsite.Api.Tests.csproj" />
+  <Project Path="XpSys.PublicWebsite.Api/XpSys.PublicWebsite.Api.csproj" />
+  <Project Path="XpSys.PublicWebsite.Application.Tests/XpSys.PublicWebsite.Application.Tests.csproj" />
+  <Project Path="XpSys.PublicWebsite.Application/XpSys.PublicWebsite.Application.csproj" />
+  <Project Path="XpSys.PublicWebsite.Domain.Tests/XpSys.PublicWebsite.Domain.Tests.csproj" />
+  <Project Path="XpSys.PublicWebsite.Domain/XpSys.PublicWebsite.Domain.csproj" />
+  <Project Path="XpSys.PublicWebsite.Infrastructure.Tests/XpSys.PublicWebsite.Infrastructure.Tests.csproj" />
+  <Project Path="XpSys.PublicWebsite.Infrastructure/XpSys.PublicWebsite.Infrastructure.csproj" />
+</Solution>
