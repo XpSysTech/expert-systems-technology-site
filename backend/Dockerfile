@@ -6,10 +6,7 @@ COPY . .
 
 RUN dotnet restore XpSys.PublicWebsite.slnx
 
-RUN dotnet publish XpSys.PublicWebsite.Api/XpSys.PublicWebsite.Api.csproj \
-    -c Release \
-    -o /app/publish \
-    --no-restore
+RUN dotnet publish XpSys.PublicWebsite.Api/XpSys.PublicWebsite.Api.csproj -c Release -o /app/publish --no-restore
 
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime

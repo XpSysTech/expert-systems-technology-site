@@ -36,6 +36,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+frontend/xpsys-site/
+
 # =========================
 # Cloudflare / Wrangler
 # =========================
@@ -50,6 +52,8 @@ wrangler.toml.bak
 .env
 .env.*
 !.env.example
+.dev.vars
+.dev.vars.*
 
 # =========================
 # OS files
@@ -75,3 +79,5 @@ desktop.ini
 *.tmp
 *.temp
 *.log
+
+https://api.xpsys.com.na
