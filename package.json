@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "wrangler": "^4.127.1"
+  },
+  "scripts": {
+    "build:frontend": "npm --prefix frontend run build",
+    "test:worker": "vitest run",
+    "build:backend": "dotnet build backend/XpSys.PublicWebsite.slnx",
+    "test:frontend": "npm --prefix frontend test -- --watch=false",
+    "test": "npm run test:frontend && npm run test:worker && npm run test:backend",
+    "build": "npm run build:frontend && npm run build:backend",
+    "preview": "npm run build:frontend && wrangler dev",
+    "deploy": "npm run build:frontend && wrangler deploy"
+  }
+}
