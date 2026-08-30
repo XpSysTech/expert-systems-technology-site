@@ -1,0 +1,38 @@
+<footer class="bg-[#1f2222] text-white">
+  <div class="xpsys-container py-12 lg:py-16">
+    <div class="grid gap-12 border-b border-white/25 pb-14 lg:grid-cols-[1.4fr_2fr]">
+      <div>
+        <a routerLink="/" class="inline-block">
+          <img
+            src="/brand/expert-systems-technology-logo-dark.png"
+            alt="Expert Systems Technology"
+            class="h-auto w-full max-w-[30rem]"
+          />
+        </a>
+        <p class="xpsys-kicker mt-6 text-white/60">Expert Systems Technology</p>
+        <p class="mt-5 max-w-xl font-sans text-3xl leading-tight tracking-[-0.035em] md:text-5xl">
+          Software, operations and intelligence engineered as one system.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-8 md:grid-cols-3">
+        @for (group of groups; track group.title) {
+          <div>
+            <p class="xpsys-kicker text-white/50">{{ group.title }}</p>
+            <ul class="mt-5 space-y-3 text-sm" role="list">
+              @for (link of group.links; track link.path) {
+                <li><a [routerLink]="link.path" class="no-underline hover:text-red-400">{{ link.label }}</a></li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="grid gap-8 pt-8 text-xs text-white/60 md:grid-cols-2 lg:grid-cols-[1fr_auto_auto_auto]">
+      <p>© {{ year }} Expert Systems Technology CC</p>
+      <a routerLink="/legal/privacy" class="no-underline hover:text-white">Privacy</a>
+      <a routerLink="/legal/terms" class="no-underline hover:text-white">Terms</a>
+      <a routerLink="/legal/accessibility" class="no-underline hover:text-white">Accessibility</a>
+    </div>
+  </div>
+</footer>

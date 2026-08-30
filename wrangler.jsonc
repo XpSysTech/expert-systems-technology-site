@@ -1,0 +1,40 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+
+  "name": "expert-systems-technology-site",
+  "main": "./cloudflare/index.ts",
+  "compatibility_date": "2026-08-28",
+
+  "build": {
+    "command": "npm run build:cloudflare",
+    "watch_dir": [
+      "./frontend/src",
+      "./frontend/public",
+      "./cloudflare"
+    ]
+  },
+
+  "assets": {
+    "directory": "./frontend/dist/xpsys-site/browser",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api",
+      "/api/*"
+    ]
+  },
+
+  "routes": [
+    {
+      "pattern": "xpsystech.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.xpsystech.com",
+      "custom_domain": true
+    }
+  ],
+
+  "observability": {
+    "enabled": true
+  }
+}

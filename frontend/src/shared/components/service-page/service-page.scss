@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+.service-tile {
+  display: flex;
+  min-height: 13rem;
+  flex-direction: column;
+}
+
+.service-step {
+  display: flex;
+  min-height: 11rem;
+  flex-direction: column;
+}

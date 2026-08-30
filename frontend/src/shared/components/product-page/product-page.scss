@@ -1,0 +1,27 @@
+.product-signal {
+  background:
+    linear-gradient(135deg, transparent 0 44%, rgba(188, 27, 32, 0.95) 44% 49%, transparent 49%),
+    linear-gradient(45deg, transparent 0 68%, rgba(255, 255, 255, 0.1) 68% 72%, transparent 72%);
+}
+
+.product-signal::before,
+.product-signal::after {
+  position: absolute;
+  content: '';
+  background: var(--xpsys-red);
+  transform: rotate(45deg);
+}
+
+.product-signal::before {
+  right: 12%;
+  top: 17%;
+  width: clamp(2.5rem, 6vw, 6rem);
+  aspect-ratio: 1;
+}
+
+.product-signal::after {
+  right: 32%;
+  bottom: 18%;
+  width: clamp(1.25rem, 3vw, 3rem);
+  aspect-ratio: 1;
+}

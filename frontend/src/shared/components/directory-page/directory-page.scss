@@ -1,0 +1,170 @@
+:host {
+  display: block;
+}
+
+.directory-hero {
+  border-bottom: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 20%, transparent);
+}
+
+.directory-hero__layout {
+  display: grid;
+  min-height: clamp(18rem, 33vw, 24rem);
+  align-content: end;
+  gap: var(--space-6);
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.directory-hero h1 {
+  margin: var(--space-4) 0 0;
+  font-size: clamp(4rem, 9vw, 8rem);
+  letter-spacing: -0.06em;
+  line-height: 0.88;
+}
+
+.directory-hero__subtitle {
+  margin: var(--space-4) 0 0;
+  font-family: var(--font-heading);
+  font-size: var(--type-heading-3);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.directory-hero__introduction {
+  max-width: 28ch;
+  margin: 0;
+  border-top: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 22%, transparent);
+  padding-top: var(--space-4);
+  font-size: var(--type-lead);
+  line-height: 1.2;
+}
+
+.directory-section {
+  padding-block: clamp(2rem, 4vw, 4rem);
+}
+
+.directory-list {
+  border-top: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 20%, transparent);
+}
+
+.directory-row {
+  display: grid;
+  min-height: clamp(14rem, 25vw, 20rem);
+  gap: var(--space-4);
+  border-bottom: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 20%, transparent);
+  padding-block: var(--space-5);
+  color: inherit;
+  text-decoration: none;
+}
+
+.directory-row__context {
+  display: flex;
+  min-height: 7rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.directory-row__context p {
+  max-width: 23ch;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--type-body-large);
+  line-height: 1.15;
+}
+
+.directory-row__context span {
+  color: color-mix(in srgb, var(--color-brand-charcoal) 58%, transparent);
+  font-family: var(--font-label);
+  font-size: var(--type-caption);
+}
+
+.directory-row__marker {
+  align-self: center;
+  color: color-mix(in srgb, var(--color-brand-charcoal) 5%, transparent);
+  font-family: var(--font-heading);
+  font-size: clamp(6rem, 14vw, 12rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 0.75;
+  text-align: center;
+}
+
+.directory-row__destination {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.directory-row__destination h2 {
+  margin: 0;
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  letter-spacing: -0.06em;
+  line-height: 0.86;
+}
+
+.directory-row__destination > span {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  border-top: var(--border-thin) solid currentColor;
+  padding-top: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--type-caption);
+}
+
+.directory-row:hover .directory-row__destination,
+.directory-row:focus-visible .directory-row__destination {
+  color: var(--color-brand-red);
+}
+
+.directory-row:focus-visible {
+  outline: 0.125rem solid var(--color-brand-red);
+  outline-offset: 0.25rem;
+}
+
+.directory-cta {
+  border-top: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 20%, transparent);
+  background: var(--color-brand-mist);
+  padding-block: var(--space-5);
+}
+
+.directory-cta .xpsys-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.directory-cta p {
+  margin: 0;
+  font-size: var(--type-body-large);
+}
+
+.directory-cta .xpsys-button {
+  align-self: start;
+}
+
+@media (min-width: 48rem) {
+  .directory-cta .xpsys-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 64rem) {
+  .directory-hero__layout {
+    grid-template-columns: minmax(0, 1.4fr) minmax(20rem, 0.6fr);
+    align-items: end;
+  }
+
+  .directory-hero__introduction {
+    border-top: 0;
+    border-left: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 22%, transparent);
+    padding: 0 0 0 var(--space-5);
+  }
+
+  .directory-row {
+    grid-template-columns: minmax(13rem, 0.48fr) minmax(10rem, 0.32fr) minmax(0, 1.2fr);
+    align-items: stretch;
+  }
+}

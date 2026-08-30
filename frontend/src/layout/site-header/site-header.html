@@ -1,0 +1,144 @@
+<header class="site-header">
+  <div class="site-header__bar xpsys-container">
+    <a routerLink="/" class="site-header__brand" (click)="closeNavigation()">
+      <img
+        src="/brand/expert-systems-technology-logo.png"
+        alt="Expert Systems Technology"
+        class="site-header__logo"
+      />
+    </a>
+
+    <nav class="site-header__desktop-nav" aria-label="Primary navigation">
+      @for (item of navigation; track item.path) {
+        @if (item.menu; as menu) {
+          <div
+            class="nav-entry"
+            (mouseenter)="openDropdown(menu.id)"
+            (mouseleave)="closeDropdown(menu.id)"
+            (focusout)="handleFocusOut($event, menu.id)"
+          >
+            <a
+              [routerLink]="item.path"
+              routerLinkActive="site-header__link--active"
+              class="site-header__link"
+              (click)="closeNavigation()"
+            >
+              {{ item.label }}
+            </a>
+            <button
+              type="button"
+              class="nav-entry__toggle"
+              [class.nav-entry__toggle--open]="activeDropdown() === menu.id"
+              [attr.aria-expanded]="activeDropdown() === menu.id"
+              [attr.aria-controls]="'desktop-dropdown-' + menu.id"
+              [attr.aria-label]="'Open ' + item.label + ' menu'"
+              (click)="toggleDropdown(menu.id, $event)"
+            >
+              <span class="nav-entry__icon" aria-hidden="true"></span>
+            </button>
+
+            @if (activeDropdown() === menu.id) {
+              <div
+                [id]="'desktop-dropdown-' + menu.id"
+                class="nav-dropdown"
+                [class.nav-dropdown--industries]="menu.id === 'industries'"
+              >
+                <div class="nav-dropdown__groups">
+                  @for (group of menu.groups; track group.path) {
+                    <section class="nav-dropdown__group">
+                      <a [routerLink]="group.path" class="nav-dropdown__heading" (click)="closeNavigation()">
+                        {{ group.label }} <span aria-hidden="true">→</span>
+                      </a>
+                      <ul class="nav-dropdown__list" role="list">
+                        @for (link of group.links; track link.path) {
+                          <li>
+                            <a [routerLink]="link.path" class="nav-dropdown__link" (click)="closeNavigation()">
+                              {{ link.label }} <span aria-hidden="true">→</span>
+                            </a>
+                          </li>
+                        }
+                      </ul>
+                    </section>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+        } @else {
+          <a
+            [routerLink]="item.path"
+            routerLinkActive="site-header__link--active"
+            class="site-header__link"
+            (click)="closeNavigation()"
+          >
+            {{ item.label }}
+          </a>
+        }
+      }
+    </nav>
+
+    <a routerLink="/contact" class="site-header__contact xpsys-button" (click)="closeNavigation()">
+      <span>Talk to us</span><span aria-hidden="true">→</span>
+    </a>
+
+    <button
+      type="button"
+      class="site-header__menu-button"
+      [attr.aria-expanded]="isMenuOpen()"
+      aria-controls="mobile-navigation"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+    >
+      <span aria-hidden="true">{{ isMenuOpen() ? '×' : '☰' }}</span>
+    </button>
+  </div>
+
+  @if (isMenuOpen()) {
+    <nav id="mobile-navigation" class="site-header__mobile-nav" aria-label="Mobile navigation">
+      <div class="xpsys-container">
+        @for (item of navigation; track item.path) {
+          @if (item.menu; as menu) {
+            <div class="mobile-nav__section">
+              <div class="mobile-nav__row">
+                <a [routerLink]="item.path" class="site-header__mobile-link" (click)="closeNavigation()">
+                  {{ item.label }}
+                </a>
+                <button
+                  type="button"
+                  class="mobile-nav__toggle"
+                  [class.mobile-nav__toggle--open]="activeDropdown() === menu.id"
+                  [attr.aria-expanded]="activeDropdown() === menu.id"
+                  [attr.aria-controls]="'mobile-dropdown-' + menu.id"
+                  [attr.aria-label]="'Open ' + item.label + ' menu'"
+                  (click)="toggleDropdown(menu.id, $event)"
+                >
+                  <span class="nav-entry__icon" aria-hidden="true"></span>
+                </button>
+              </div>
+              @if (activeDropdown() === menu.id) {
+                <div [id]="'mobile-dropdown-' + menu.id" class="mobile-nav__groups">
+                  @for (group of menu.groups; track group.path) {
+                    <section>
+                      <a [routerLink]="group.path" class="mobile-nav__heading" (click)="closeNavigation()">
+                        {{ group.label }} <span aria-hidden="true">→</span>
+                      </a>
+                      @for (link of group.links; track link.path) {
+                        <a [routerLink]="link.path" class="mobile-nav__sub-link" (click)="closeNavigation()">
+                          {{ link.label }}
+                        </a>
+                      }
+                    </section>
+                  }
+                </div>
+              }
+            </div>
+          } @else {
+            <a [routerLink]="item.path" class="site-header__mobile-link" (click)="closeNavigation()">
+              {{ item.label }} <span aria-hidden="true">→</span>
+            </a>
+          }
+        }
+      </div>
+    </nav>
+  }
+</header>

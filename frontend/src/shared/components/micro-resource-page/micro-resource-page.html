@@ -1,0 +1,33 @@
+<app-section-nav
+  [brand]="content.brand"
+  [brandPath]="content.basePath"
+  [items]="navigation"
+  [label]="content.brand + ' sections'"
+/>
+
+<article>
+  <header class="border-b border-black/20">
+    <div class="xpsys-container grid min-h-[30rem] content-between gap-12 py-12 md:py-16 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
+      <div>
+        <p class="xpsys-kicker text-brand-red">{{ content.code }}</p>
+        <h1 class="xpsys-heading mt-10 max-w-[13ch]">{{ content.title }}</h1>
+      </div>
+      <div>
+        <p class="xpsys-lead">{{ content.introduction }}</p>
+        <a routerLink="/company" class="mt-8 inline-flex border-b border-black/30 pb-2 font-sans text-sm no-underline">
+          About Expert Systems Technology <span class="ml-8" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="xpsys-section">
+    <div class="xpsys-container">
+      <div class="grid border-t border-black/25 md:grid-cols-2 xl:grid-cols-3">
+        @for (card of cards; track card.code) {
+          <app-equal-card [content]="card" />
+        }
+      </div>
+    </div>
+  </section>
+</article>

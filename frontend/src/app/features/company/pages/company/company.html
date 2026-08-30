@@ -1,0 +1,82 @@
+<article>
+  <header class="company-hero">
+    <div class="xpsys-container">
+      <p class="xpsys-kicker text-brand-red">Expert Systems Technology / Company</p>
+      <div class="company-hero__heading">
+        <h1>Why we’re here</h1>
+        <p>We build systems that help institutions operate with clarity, continuity and confidence.</p>
+      </div>
+
+      <figure
+        class="company-visual"
+        role="img"
+        aria-label="Software, operations and intelligence working together as one dependable system"
+      >
+        <div class="company-visual__statement">
+          <span>Systems that carry</span>
+          <strong>responsibility.</strong>
+        </div>
+        <div class="company-visual__disciplines" aria-hidden="true">
+          <span>SOFTWARE</span>
+          <span>OPERATIONS</span>
+          <span>INTELLIGENCE</span>
+        </div>
+      </figure>
+    </div>
+  </header>
+
+  <section class="company-intro">
+    <div class="xpsys-container">
+      <p class="xpsys-kicker text-brand-red">Our purpose</p>
+      <p class="company-intro__lead">Good systems give people and institutions a stronger way to carry responsibility.</p>
+      <div class="company-intro__copy">
+        <p>Expert Systems Technology is a Namibian software, data and operational intelligence company.</p>
+        <p>We understand the operation, create a dependable system around it and improve that system as evidence accumulates.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="company-work">
+    <div class="xpsys-container">
+      <header class="company-work__header">
+        <p class="xpsys-kicker text-brand-red">01 / How we work</p>
+        <h2>What we do</h2>
+      </header>
+
+      <div class="company-principles">
+        @for (principle of principles; track principle.code) {
+          <article class="company-principle">
+            <div>
+              <p class="xpsys-kicker text-brand-red">{{ principle.code }}</p>
+              <h3>{{ principle.statement }}</h3>
+            </div>
+            <div class="company-principle__detail">
+              <h4>{{ principle.title }}</h4>
+              <p>{{ principle.description }}</p>
+              <a [routerLink]="principle.path">
+                {{ principle.action }} <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="company-future">
+    <div class="xpsys-container">
+      <div>
+        <p class="xpsys-kicker text-brand-red">02 / Where we’re going</p>
+        <h2>Where we’re going</h2>
+      </div>
+      <div>
+        <p class="company-future__lead">Building an enduring operating and technology company from Namibia.</p>
+        <p>We are expanding a connected portfolio of products, engineering capability and managed services designed to create long-term operational value.</p>
+        <div class="company-future__actions">
+          <a routerLink="/offerings" class="xpsys-button xpsys-button--red">Explore offerings <span aria-hidden="true">→</span></a>
+          <a routerLink="/contact" class="xpsys-button">Talk to us <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</article>

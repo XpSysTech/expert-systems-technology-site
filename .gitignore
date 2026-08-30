@@ -1,0 +1,83 @@
+# =========================
+# Visual Studio / .NET IDE
+# =========================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# =========================
+# .NET build output
+# =========================
+**/bin/
+**/obj/
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# =========================
+# Node / Angular
+# =========================
+node_modules/
+**/node_modules/
+
+dist/
+**/dist/
+
+.angular/
+**/.angular/
+
+coverage/
+**/coverage/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+frontend/xpsys-site/
+
+# =========================
+# Cloudflare / Wrangler
+# =========================
+.wrangler/
+.dev.vars
+.dev.vars.*
+wrangler.toml.bak
+
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# VS Code local-only files
+# =========================
+.vscode/*.log
+
+# Keep useful shared VS Code config if you later create it
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.temp
+*.log
+
+https://api.xpsystech.com

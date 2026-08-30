@@ -1,0 +1,44 @@
+<app-section-nav brand="Insights" brandPath="/insights" [items]="navigation" label="Insights sections" />
+
+<article>
+  <header class="border-b border-black/25">
+    <div class="xpsys-container grid min-h-[30rem] content-between gap-12 py-12 md:py-16 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
+      <div>
+        <p class="xpsys-kicker text-brand-red">Expert Systems Technology / Insights</p>
+        <h1 class="xpsys-display mt-12">Insights</h1>
+      </div>
+      <p class="xpsys-lead max-w-xl pb-2">
+        News, research and practical perspectives on software, operations and intelligence.
+      </p>
+    </div>
+  </header>
+
+  <section class="xpsys-section">
+    <div class="xpsys-container">
+      <div class="grid border-t border-black/25 md:grid-cols-2">
+        @for (section of sections; track section.title) {
+          <a
+            [routerLink]="section.path"
+            class="insights-card group border-b border-black/25 py-7 no-underline md:px-6 md:even:border-l lg:py-10"
+          >
+            <div
+              class="insights-visual relative min-h-64 overflow-hidden"
+              [attr.data-tone]="section.tone"
+              role="img"
+              [attr.aria-label]="'Editorial image placeholder for ' + section.title"
+            >
+              <span class="insights-visual__index xpsys-kicker">{{ section.code }}</span>
+              <span class="insights-visual__line" aria-hidden="true"></span>
+              <span class="insights-visual__mark" aria-hidden="true">EST</span>
+            </div>
+            <h2 class="insights-card__title text-3xl tracking-[-0.04em] md:text-4xl">{{ section.title }}</h2>
+            <p class="insights-card__description max-w-2xl leading-relaxed text-black/65">{{ section.description }}</p>
+            <span class="insights-card__action flex items-center justify-between border-b border-black/30 pb-3 font-sans text-sm">
+              {{ section.action }} <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+            </span>
+          </a>
+        }
+      </div>
+    </div>
+  </section>
+</article>
