@@ -5,6 +5,15 @@
   "main": "./cloudflare/index.ts",
   "compatibility_date": "2026-08-28",
 
+  "build": {
+    "command": "npm run build:cloudflare",
+    "watch_dir": [
+      "./frontend/src",
+      "./frontend/public",
+      "./cloudflare"
+    ]
+  },
+
   "assets": {
     "directory": "./frontend/dist/xpsys-site/browser",
     "binding": "ASSETS",
