@@ -1,0 +1,89 @@
+<article>
+  <app-section-nav
+    [brand]="content().name"
+    [brandPath]="'/products/' + product()"
+    [items]="sectionNavigation()"
+    [label]="content().name + ' sections'"
+  />
+
+  <section class="border-b border-black/20">
+    <div class="xpsys-container grid min-h-[38rem] content-between gap-14 py-10 md:py-16 lg:grid-cols-[1.45fr_0.75fr]">
+      <div class="self-end">
+        <p class="xpsys-kicker text-[#bc1b20]">{{ content().code }}</p>
+        <h1 class="xpsys-display mt-8">{{ content().name }}</h1>
+      </div>
+      <div class="self-end border-t border-black/20 pt-5 lg:border-l lg:border-t-0 lg:pl-8">
+        <p class="text-2xl leading-tight tracking-[-0.03em] md:text-4xl">{{ content().statement }}</p>
+        <p class="mt-6 leading-relaxed text-black/65">{{ content().description }}</p>
+      </div>
+      <div class="relative min-h-52 overflow-hidden bg-[#252626] lg:col-span-2 lg:min-h-72" role="img" [attr.aria-label]="'Temporary product image placeholder for ' + content().name">
+        <div class="product-signal absolute inset-0" aria-hidden="true"></div>
+        <p class="xpsys-kicker absolute bottom-5 left-5 text-white/55">Temporary image / {{ content().name }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="xpsys-section border-b border-black/20">
+    <div class="xpsys-container grid gap-12 lg:grid-cols-[0.62fr_1.38fr]">
+      <div>
+        <p class="xpsys-kicker">01 / What it coordinates</p>
+        <p class="mt-5 max-w-sm text-lg leading-relaxed text-black/65">Built for {{ content().audience }}.</p>
+      </div>
+      <div class="grid border-t border-black/25 sm:grid-cols-2">
+        @for (capability of content().capabilities; track capability; let index = $index) {
+          <div class="min-h-44 border-b border-black/20 p-5 sm:border-r">
+            <p class="xpsys-kicker text-[#bc1b20]">0{{ index + 1 }}</p>
+            <p class="mt-14 text-2xl tracking-[-0.03em]">{{ capability }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="xpsys-section bg-[#f2f2f0]">
+    <div class="xpsys-container">
+      <p class="xpsys-kicker">02 / Operational flow</p>
+      <h2 class="xpsys-heading mt-6 max-w-[12ch]">From activity to a usable record.</h2>
+      <ol class="mt-12 grid border-t border-black/30 sm:grid-cols-2 lg:grid-cols-6">
+        @for (step of content().workflow; track step; let index = $index) {
+          <li class="min-h-40 border-b border-black/25 p-4 lg:border-r">
+            <p class="xpsys-kicker text-[#bc1b20]">0{{ index + 1 }}</p>
+            <p class="mt-16 text-lg">{{ step }}</p>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="xpsys-section border-t border-black/20">
+    <div class="xpsys-container grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+      <div>
+        <p class="xpsys-kicker text-[#bc1b20]">03 / Next step</p>
+        @if (content().isConsumerProduct) {
+          <h2 class="mt-6 text-5xl leading-[0.95] tracking-[-0.05em] md:text-7xl">Get something done.</h2>
+          <p class="mt-7 max-w-lg text-lg leading-relaxed text-black/65">Open the Help Me marketplace to find a provider, or contact our team with a general question.</p>
+          <a href="https://helpmenamibia.com" class="xpsys-button xpsys-button--red mt-9" target="_blank" rel="noopener">Open Help Me <span aria-hidden="true">↗</span></a>
+        } @else {
+          <h2 class="mt-6 text-5xl leading-[0.95] tracking-[-0.05em] md:text-7xl">Request a product demonstration.</h2>
+          <p class="mt-7 max-w-lg text-lg leading-relaxed text-black/65">Tell us about your operation. We will prepare a focused walkthrough around your workflows and priorities.</p>
+        }
+      </div>
+
+      <form class="border-t border-black/30 pt-6" (submit)="submitEnquiry($event)">
+        <div class="grid gap-x-7 gap-y-5 md:grid-cols-2">
+          <label class="grid gap-2 text-sm">Name <input class="xpsys-field" name="name" autocomplete="name" required /></label>
+          <label class="grid gap-2 text-sm">Work email <input class="xpsys-field" name="email" type="email" autocomplete="email" required /></label>
+          <label class="grid gap-2 text-sm">Organisation <input class="xpsys-field" name="organisation" autocomplete="organization" /></label>
+          <label class="grid gap-2 text-sm">Phone <input class="xpsys-field" name="phone" type="tel" autocomplete="tel" /></label>
+          <label class="grid gap-2 text-sm md:col-span-2">How can we help? <textarea class="xpsys-field min-h-28 resize-y" name="message" required></textarea></label>
+        </div>
+        <button type="submit" class="xpsys-button xpsys-button--red mt-8 w-full md:w-auto">
+          {{ content().isConsumerProduct ? 'Send general enquiry' : 'Request a demo' }} <span aria-hidden="true">→</span>
+        </button>
+        @if (submitted()) {
+          <p class="mt-5 border-l-2 border-[#bc1b20] pl-4 text-sm" role="status">Thank you. Your enquiry has been captured for this preview; API delivery will be connected next.</p>
+        }
+      </form>
+    </div>
+  </section>
+</article>

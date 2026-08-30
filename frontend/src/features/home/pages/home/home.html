@@ -1,1 +1,144 @@
-<p>home works!</p>
+<section class="border-b border-black/20">
+  <div class="xpsys-container grid min-h-[calc(100dvh-5rem)] content-between gap-16 py-10 md:py-14 lg:grid-cols-[1.65fr_0.75fr] lg:gap-10">
+    <div class="self-end">
+      <p class="xpsys-kicker text-[#bc1b20]">EXPERT SYSTEMS TECHNOLOGY / Operational systems</p>
+      <h1 class="xpsys-display mt-8 max-w-[12ch]">Systems that turn operations into intelligence.</h1>
+    </div>
+
+    <div class="flex flex-col justify-between gap-12 border-t border-black/20 pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+      <p class="max-w-[30rem] text-xl leading-snug md:text-2xl">
+        We design software, operate critical workflows and build the data foundations that make better decisions possible.
+      </p>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+        <a routerLink="/products" class="xpsys-button xpsys-button--red">
+          <span>Explore our work</span><span aria-hidden="true">→</span>
+        </a>
+        <a routerLink="/contact" class="xpsys-button">
+          <span>Talk to us</span><span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="relative min-h-56 overflow-hidden bg-[#252626] lg:col-span-2 lg:min-h-72" aria-label="Temporary operational systems image placeholder" role="img">
+      <div class="absolute inset-0 home-signal" aria-hidden="true"></div>
+      <p class="xpsys-kicker absolute bottom-5 left-5 text-white/60">Image placeholder / Operations · Data · Intelligence</p>
+      <p class="absolute right-5 top-4 font-mono text-[0.6875rem] text-white/50">SYS.001 / LIVE</p>
+    </div>
+  </div>
+</section>
+
+<section class="xpsys-section border-b border-black/20">
+  <div class="xpsys-container grid gap-12 lg:grid-cols-[0.62fr_1.38fr]">
+    <div>
+      <p class="xpsys-kicker">01 / Our operating thesis</p>
+      <h2 class="mt-5 max-w-[12ch] text-3xl leading-tight tracking-[-0.04em] md:text-5xl">Operational work should compound into institutional knowledge.</h2>
+    </div>
+    <ol class="grid border-t border-black/20 sm:grid-cols-2 lg:grid-cols-4" aria-label="The Expert Systems Technology operational intelligence cycle">
+      @for (step of ['Operate', 'Capture', 'Understand', 'Improve']; track step; let index = $index) {
+        <li class="min-h-44 border-b border-black/20 p-5 sm:border-r lg:min-h-64">
+          <span class="xpsys-kicker text-[#bc1b20]">0{{ index + 1 }}</span>
+          <p class="mt-16 text-2xl tracking-[-0.035em] lg:mt-28">{{ step }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<section class="xpsys-section bg-[#f2f2f0]">
+  <div class="xpsys-container">
+    <div class="grid gap-6 border-b border-black/25 pb-8 md:grid-cols-2">
+      <p class="xpsys-kicker">02 / Three ways we work</p>
+      <h2 class="xpsys-heading">Build. Operate. Learn.</h2>
+    </div>
+    <div class="grid lg:grid-cols-3">
+      @for (item of workModes; track item.path) {
+        <a [routerLink]="item.path" class="group min-h-80 border-b border-black/20 p-6 no-underline lg:border-r lg:p-8">
+          <p class="xpsys-kicker text-[#bc1b20]">{{ item.code }}</p>
+          <h3 class="mt-14 text-4xl tracking-[-0.045em] md:text-5xl">{{ item.title }}</h3>
+          <p class="mt-8 max-w-md text-base leading-relaxed text-black/70">{{ item.description }}</p>
+          <span class="mt-12 inline-block text-2xl transition-transform group-hover:translate-x-2" aria-hidden="true">→</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="xpsys-section">
+  <div class="xpsys-container">
+    <div class="grid gap-6 border-t border-black/25 pt-7 lg:grid-cols-[0.62fr_1.38fr]">
+      <p class="xpsys-kicker">03 / Products</p>
+      <div>
+        <h2 class="xpsys-heading max-w-[13ch]">Software built around the operation.</h2>
+        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-black/65">Each product captures the work as it happens, creating a dependable operational record and a stronger basis for decisions.</p>
+      </div>
+    </div>
+
+    <div class="mt-14 grid border-t border-black/20 md:grid-cols-3">
+      @for (product of products; track product.path; let index = $index) {
+        <article class="group border-b border-black/20 md:border-r">
+          <div class="relative aspect-[5/3] overflow-hidden" [class.bg-[#252626]]="index === 1" [class.bg-[#dedede]]="index !== 1">
+            <div class="absolute inset-0 product-grid opacity-40" aria-hidden="true"></div>
+            <p class="xpsys-kicker absolute left-5 top-5" [class.text-white]="index === 1">Temporary image / {{ product.title }}</p>
+            <span class="absolute bottom-3 right-5 text-7xl font-light" [class.text-white]="index === 1">0{{ index + 1 }}</span>
+          </div>
+          <div class="p-6 lg:p-8">
+            <p class="xpsys-kicker text-[#bc1b20]">{{ product.code }}</p>
+            <h3 class="mt-5 text-4xl tracking-[-0.045em]">{{ product.title }}</h3>
+            <p class="mt-5 min-h-20 leading-relaxed text-black/65">{{ product.description }}</p>
+            <a [routerLink]="product.path" class="mt-9 flex border-t border-black/20 pt-4 text-sm no-underline">
+              Explore product <span class="ml-auto transition-transform group-hover:translate-x-2" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="bg-[#252626] text-white">
+  <div class="xpsys-container grid lg:grid-cols-[0.8fr_1.2fr]">
+    <div class="xpsys-section border-b border-white/20 lg:border-b-0 lg:border-r lg:pr-12">
+      <p class="xpsys-kicker text-white/50">04 / Managed responsibility</p>
+      <h2 class="mt-8 text-5xl leading-[0.95] tracking-[-0.05em] md:text-7xl">We do not stop at delivery.</h2>
+      <p class="mt-8 max-w-xl text-lg leading-relaxed text-white/65">We can operate the systems and workflows we build—measuring performance, resolving issues and improving the service over time.</p>
+      <a routerLink="/managed-services" class="xpsys-button mt-10 border-white text-white hover:bg-white hover:text-[#252626]">Explore managed services <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="xpsys-section lg:pl-12">
+      @for (service of ['Managed Web Services', 'Managed Business Operations']; track service; let index = $index) {
+        <a [routerLink]="index === 0 ? '/managed-services/managed-web-services' : '/managed-services/managed-business-operations'" class="group flex min-h-32 items-end border-t border-white/30 py-5 text-2xl no-underline md:text-4xl">
+          <span class="xpsys-kicker mr-8 text-white/40">0{{ index + 1 }}</span>{{ service }}
+          <span class="ml-auto transition-transform group-hover:translate-x-2" aria-hidden="true">→</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="xpsys-section border-b border-black/20">
+  <div class="xpsys-container grid gap-12 lg:grid-cols-[0.62fr_1.38fr]">
+    <div>
+      <p class="xpsys-kicker">05 / Industries</p>
+      <p class="mt-5 max-w-sm text-lg leading-relaxed text-black/65">Technology becomes useful when it understands the operating environment.</p>
+    </div>
+    <div class="border-t border-black/30">
+      @for (industry of industries; track industry) {
+        <a [routerLink]="'/industries/' + industry.toLowerCase().replaceAll(' & ', '-').replaceAll(' ', '-')" class="group flex items-center border-b border-black/30 py-5 text-2xl tracking-[-0.03em] no-underline md:text-4xl">
+          {{ industry }}<span class="ml-auto transition-transform group-hover:translate-x-2" aria-hidden="true">→</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="xpsys-section">
+  <div class="xpsys-container">
+    <p class="xpsys-kicker text-[#bc1b20]">06 / Begin with the operation</p>
+    <div class="mt-7 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <h2 class="xpsys-heading max-w-[13ch]">Tell us what needs to work better.</h2>
+      <div class="grid content-end gap-3 sm:grid-cols-2 lg:grid-cols-1">
+        <a routerLink="/contact" class="xpsys-button xpsys-button--red">Discuss a requirement <span aria-hidden="true">→</span></a>
+        <a routerLink="/products" class="xpsys-button">Explore products <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+<article class="equal-card" [class.equal-card--expanded]="expanded()">
+  <p class="xpsys-kicker text-brand-red">{{ content().code }}</p>
+  <h2 class="equal-card__title">{{ content().title }}</h2>
+  <p class="equal-card__description text-black/65" [class.equal-card__description--expanded]="expanded()">
+    {{ content().description }}
+  </p>
+  <div class="equal-card__actions">
+    @if (content().expandable) {
+      <button
+        type="button"
+        class="equal-card__action"
+        [attr.aria-expanded]="expanded()"
+        (click)="toggleExpanded()"
+      >
+        {{ expanded() ? 'Read less' : 'Read more' }}
+        <span aria-hidden="true">{{ expanded() ? '−' : '+' }}</span>
+      </button>
+    }
+    @if (content().path; as path) {
+      <a [routerLink]="path" class="equal-card__action">
+        {{ content().action ?? 'Explore' }}
+        <span aria-hidden="true">→</span>
+      </a>
+    }
+  </div>
+</article>

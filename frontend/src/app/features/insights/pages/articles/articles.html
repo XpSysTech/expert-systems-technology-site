@@ -1,1 +1,83 @@
-<p>articles works!</p>
+<app-section-nav brand="Blog" brandPath="/insights/articles" [items]="navigation" label="Blog sections" />
+
+<article>
+  <header class="blog-masthead bg-brand-charcoal text-white">
+    <div class="xpsys-container grid min-h-60 content-between py-8">
+      <p class="xpsys-kicker text-white/55">Expert Systems Technology / Editorial</p>
+      <div class="flex items-end justify-between gap-8">
+        <h1 class="text-6xl leading-none tracking-[-0.065em] md:text-8xl">Blog</h1>
+        <p class="hidden max-w-sm text-right text-sm text-white/60 md:block">Ideas for building and operating systems that matter.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="xpsys-container py-12 md:py-16">
+    <p class="xpsys-kicker">Newest posts</p>
+    <a [routerLink]="featured.path" class="featured-post group mt-6 grid border-y border-black/25 py-6 no-underline lg:grid-cols-[1.15fr_0.85fr]">
+      <div
+        class="editorial-visual editorial-visual--featured min-h-80"
+        [attr.data-tone]="featured.tone"
+        role="img"
+        [attr.aria-label]="'Editorial image placeholder for ' + featured.title"
+      >
+        <span class="editorial-visual__label">{{ featured.category }}</span>
+        <span class="editorial-visual__grid" aria-hidden="true"></span>
+      </div>
+      <div class="flex flex-col justify-between border-black/25 pt-6 lg:border-l lg:pl-8 lg:pt-0">
+        <div>
+          <p class="xpsys-kicker text-brand-red">{{ featured.category }}</p>
+          <h2 class="mt-5 text-4xl leading-[0.98] tracking-[-0.05em] md:text-6xl">{{ featured.title }}</h2>
+          <p class="mt-6 max-w-xl leading-relaxed text-black/65">{{ featured.summary }}</p>
+        </div>
+        <p class="mt-10 flex items-center justify-between border-t border-black/20 pt-4 text-sm">
+          <span>Expert Systems Technology Editorial · {{ featured.readingTime }}</span>
+          <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+        </p>
+      </div>
+    </a>
+
+    <div class="mt-8 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+      @for (post of newestPosts; track post.title) {
+        <a [routerLink]="post.path" class="post-card group no-underline">
+          <div
+            class="editorial-visual min-h-52"
+            [attr.data-tone]="post.tone"
+            role="img"
+            [attr.aria-label]="'Editorial image placeholder for ' + post.title"
+          >
+            <span class="editorial-visual__label">{{ post.category }}</span>
+            <span class="editorial-visual__grid" aria-hidden="true"></span>
+          </div>
+          <p class="post-card__category xpsys-kicker text-brand-red">{{ post.category }}</p>
+          <h2 class="post-card__title text-2xl leading-tight tracking-[-0.035em]">{{ post.title }}</h2>
+          <p class="post-card__summary text-sm leading-relaxed text-black/60">{{ post.summary }}</p>
+          <p class="post-card__action flex items-center justify-between border-t border-black/20 pt-3 text-xs">
+            <span>{{ post.readingTime }}</span><span aria-hidden="true">→</span>
+          </p>
+        </a>
+      }
+    </div>
+  </section>
+
+  @for (collection of collections; track collection.label; let collectionIndex = $index) {
+    <section class="border-t border-black/25" [class.bg-brand-mist]="collectionIndex % 2 !== 0">
+      <div class="xpsys-container py-14 md:py-20">
+        <div class="grid gap-6 lg:grid-cols-[0.65fr_1.35fr]">
+          <p class="xpsys-kicker text-brand-red">{{ collection.label }}</p>
+          <h2 class="text-4xl leading-none tracking-[-0.045em] md:text-6xl">{{ collection.title }}</h2>
+        </div>
+        <div class="mt-12 grid border-t border-black/25 md:grid-cols-3">
+          @for (post of collection.posts; track post.title) {
+            <a [routerLink]="post.path" class="collection-card group border-b border-black/25 py-6 no-underline md:border-r md:px-6">
+              <p class="xpsys-kicker">{{ post.category }}</p>
+              <h3 class="text-2xl leading-tight tracking-[-0.035em]">{{ post.title }}</h3>
+              <span class="flex items-center justify-between border-t border-black/20 pt-3 text-sm">
+                {{ post.readingTime }} <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          }
+        </div>
+      </div>
+    </section>
+  }
+</article>

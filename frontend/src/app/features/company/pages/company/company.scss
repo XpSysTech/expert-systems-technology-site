@@ -1,0 +1,174 @@
+:host {
+  display: block;
+}
+
+.company-hero {
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.company-hero__heading {
+  display: grid;
+  gap: var(--space-5);
+  align-items: end;
+  margin-top: var(--space-5);
+}
+
+.company-hero h1,
+.company-work h2,
+.company-future h2 {
+  margin: 0;
+  font-size: clamp(3.75rem, 8vw, 7.5rem);
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+}
+
+.company-hero__heading > p {
+  max-width: 28ch;
+  margin: 0;
+  border-top: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 22%, transparent);
+  padding-top: var(--space-4);
+  font-family: var(--font-heading);
+  font-size: var(--type-lead);
+  line-height: 1.15;
+}
+
+.company-intro {
+  border-block: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 22%, transparent);
+  padding-block: clamp(3rem, 6vw, 5.5rem);
+}
+
+.company-intro .xpsys-container {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.company-intro__lead {
+  max-width: 27ch;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--type-lead);
+  line-height: 1.15;
+}
+
+.company-intro__copy {
+  max-width: 52ch;
+  color: color-mix(in srgb, var(--color-brand-charcoal) 72%, transparent);
+  line-height: 1.55;
+}
+
+.company-intro__copy p:first-child {
+  margin-top: 0;
+}
+
+.company-work {
+  padding-block: clamp(3.5rem, 7vw, 7rem);
+}
+
+.company-work__header {
+  padding-bottom: var(--space-6);
+}
+
+.company-work__header h2 {
+  margin-top: var(--space-4);
+}
+
+.company-principles {
+  border-top: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 24%, transparent);
+}
+
+.company-principle {
+  display: grid;
+  gap: var(--space-6);
+  border-bottom: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 24%, transparent);
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.company-principle h3 {
+  max-width: 19ch;
+  margin: var(--space-4) 0 0;
+  font-size: var(--type-heading-2);
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+}
+
+.company-principle__detail h4 {
+  margin: 0;
+  font-size: var(--type-heading-3);
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.company-principle__detail p {
+  max-width: 48ch;
+  margin: var(--space-4) 0 0;
+  color: color-mix(in srgb, var(--color-brand-charcoal) 70%, transparent);
+  line-height: 1.55;
+}
+
+.company-principle__detail a {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+  border-bottom: var(--border-thin) solid var(--color-brand-charcoal);
+  padding-bottom: var(--space-2);
+  font-family: var(--font-heading);
+  text-decoration: none;
+}
+
+.company-future {
+  border-top: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 22%, transparent);
+  background: var(--color-brand-mist);
+  padding-block: clamp(3.5rem, 7vw, 7rem);
+}
+
+.company-future .xpsys-container {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.company-future h2 {
+  margin-top: var(--space-4);
+}
+
+.company-future__lead {
+  max-width: 28ch;
+  margin-top: 0;
+  font-family: var(--font-heading);
+  font-size: var(--type-lead);
+  line-height: 1.15;
+}
+
+.company-future__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+@media (min-width: 64rem) {
+  .company-hero__heading,
+  .company-future .xpsys-container {
+    grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 0.75fr);
+  }
+
+  .company-hero__heading > p,
+  .company-future > .xpsys-container > div:last-child {
+    border-top: 0;
+    border-left: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 22%, transparent);
+    padding-left: var(--space-6);
+  }
+
+  .company-intro .xpsys-container {
+    grid-template-columns: 0.35fr 0.75fr 1fr;
+  }
+
+  .company-principle {
+    grid-template-columns: minmax(0, 1.2fr) minmax(22rem, 0.8fr);
+  }
+
+  .company-principle__detail {
+    border-left: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 22%, transparent);
+    padding-left: var(--space-6);
+  }
+}

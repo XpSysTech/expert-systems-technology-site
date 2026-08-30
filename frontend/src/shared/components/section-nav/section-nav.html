@@ -1,0 +1,18 @@
+<nav class="section-nav border-b border-black/20 bg-white" [attr.aria-label]="label()">
+  <div class="xpsys-container flex items-center gap-7 overflow-x-auto">
+    <a [routerLink]="brandPath()" class="xpsys-kicker shrink-0 no-underline">{{ brand() }}</a>
+    <ul class="flex min-w-max items-center gap-6" role="list">
+      @for (item of items(); track item.path) {
+        <li>
+          <a
+            [routerLink]="item.path"
+            routerLinkActive="section-nav__link--active"
+            [routerLinkActiveOptions]="{ exact: item.exact ?? false }"
+            ariaCurrentWhenActive="page"
+            class="section-nav__link block py-4 text-sm no-underline"
+          >{{ item.label }}</a>
+        </li>
+      }
+    </ul>
+  </div>
+</nav>

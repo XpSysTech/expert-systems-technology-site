@@ -1,0 +1,43 @@
+<header class="catalog-hero">
+  <div class="catalog-hero__layout xpsys-container">
+    <div>
+      <p class="xpsys-kicker text-brand-red">Offerings / Services</p>
+      <h1 class="catalog-hero__title">Services</h1>
+    </div>
+    <div class="catalog-hero__pitch">
+      <p class="xpsys-lead">Long-term responsibility for software, operations and measurable outcomes.</p>
+      <div class="catalog-hero__actions">
+        <a href="#service-portfolio" class="xpsys-button xpsys-button--red">View services <span aria-hidden="true">↓</span></a>
+        <a routerLink="/contact" class="xpsys-button">Discuss a requirement <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="service-portfolio" class="catalog-section">
+  <div class="xpsys-container">
+    <div class="catalog-intro">
+      <p class="xpsys-kicker text-brand-red">01 / Service portfolio</p>
+      <div>
+        <h2>Choose where you need sustained ownership.</h2>
+        <p>Every service has a clear operating scope, accountable delivery and a path to continuous improvement.</p>
+      </div>
+    </div>
+
+    <div class="catalog-grid">
+      @for (service of services; track service.path) {
+        <app-sales-card [content]="service" />
+      }
+    </div>
+  </div>
+</section>
+
+<section class="catalog-cta">
+  <div class="xpsys-container">
+    <div>
+      <p class="xpsys-kicker text-brand-red">Start with the operation</p>
+      <h2>Tell us what needs an accountable owner.</h2>
+    </div>
+    <a routerLink="/contact" class="xpsys-button">Talk to our team <span aria-hidden="true">→</span></a>
+  </div>
+</section>

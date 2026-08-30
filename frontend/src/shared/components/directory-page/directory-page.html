@@ -1,0 +1,39 @@
+<header class="directory-hero">
+  <div class="directory-hero__layout xpsys-container">
+    <div>
+      <p class="xpsys-kicker text-brand-red">{{ content.eyebrow }}</p>
+      <h1>{{ content.title }}</h1>
+      @if (content.subtitle; as subtitle) {
+        <p class="directory-hero__subtitle">{{ subtitle }}</p>
+      }
+    </div>
+    <p class="directory-hero__introduction">{{ content.introduction }}</p>
+  </div>
+</header>
+
+<section class="directory-section">
+  <div class="xpsys-container">
+    <div class="directory-list">
+      @for (item of content.items; track item.path) {
+        <a [routerLink]="item.path" class="directory-row">
+          <div class="directory-row__context">
+            <p>{{ item.description }}</p>
+            <span>{{ item.code }}</span>
+          </div>
+          <span class="directory-row__marker" aria-hidden="true">{{ item.marker }}</span>
+          <div class="directory-row__destination">
+            <h2>{{ item.title }}</h2>
+            <span>{{ item.action }} <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="directory-cta">
+  <div class="xpsys-container">
+    <p>Not sure where your requirement fits?</p>
+    <a routerLink="/contact" class="xpsys-button">Talk to us <span aria-hidden="true">→</span></a>
+  </div>
+</section>

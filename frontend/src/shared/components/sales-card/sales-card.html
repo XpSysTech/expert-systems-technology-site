@@ -1,0 +1,22 @@
+<article class="sales-card">
+  <header class="sales-card__header">
+    <p class="xpsys-kicker text-brand-red">{{ content().code }}</p>
+    <p class="sales-card__audience">{{ content().audience }}</p>
+  </header>
+
+  <div class="sales-card__body">
+    <h2 class="sales-card__title">{{ content().title }}</h2>
+    <p class="sales-card__outcome">{{ content().outcome }}</p>
+    <p class="sales-card__description">{{ content().description }}</p>
+  </div>
+
+  <ul class="sales-card__capabilities" [attr.aria-label]="content().title + ' capabilities'">
+    @for (capability of content().capabilities; track capability) {
+      <li>{{ capability }}</li>
+    }
+  </ul>
+
+  <a [routerLink]="content().path" class="sales-card__action">
+    {{ content().action }} <span aria-hidden="true">→</span>
+  </a>
+</article>

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { PageShell } from './page-shell';
 
 describe('PageShell', () => {
@@ -8,6 +9,7 @@ describe('PageShell', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PageShell],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PageShell);

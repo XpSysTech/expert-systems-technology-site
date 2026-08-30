@@ -1,0 +1,36 @@
+.home-signal {
+  background:
+    linear-gradient(135deg, transparent 0 57%, rgba(188, 27, 32, 0.95) 57% 61%, transparent 61%),
+    linear-gradient(90deg, transparent 0 66%, rgba(255, 255, 255, 0.09) 66% 66.35%, transparent 66.35%),
+    linear-gradient(0deg, transparent 0 32%, rgba(255, 255, 255, 0.09) 32% 32.5%, transparent 32.5%);
+}
+
+.home-signal::before,
+.home-signal::after {
+  position: absolute;
+  content: '';
+  transform: rotate(45deg);
+}
+
+.home-signal::before {
+  right: 14%;
+  top: 17%;
+  width: clamp(3rem, 7vw, 7rem);
+  aspect-ratio: 1;
+  border: 0.75rem solid var(--xpsys-red);
+}
+
+.home-signal::after {
+  right: 36%;
+  bottom: 13%;
+  width: clamp(1.5rem, 3.5vw, 3.5rem);
+  aspect-ratio: 1;
+  background: var(--xpsys-red);
+}
+
+.product-grid {
+  background-image:
+    linear-gradient(to right, currentColor 0.0625rem, transparent 0.0625rem),
+    linear-gradient(to bottom, currentColor 0.0625rem, transparent 0.0625rem);
+  background-size: 2rem 2rem;
+}

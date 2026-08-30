@@ -1,0 +1,127 @@
+:host {
+  display: block;
+}
+
+.blog-masthead {
+  background-image:
+    linear-gradient(90deg, transparent 0 49.9%, rgb(255 255 255 / 0.12) 50% 50.1%, transparent 50.2%),
+    linear-gradient(0deg, transparent 0 49.9%, rgb(255 255 255 / 0.08) 50% 50.1%, transparent 50.2%);
+  background-size: 6rem 6rem;
+}
+
+.featured-post,
+.post-card {
+  transition: color var(--transition-fast);
+}
+
+.post-card {
+  display: grid;
+  grid-template-rows: 13rem 2rem 6.5rem 7rem var(--card-action-row);
+}
+
+.post-card__category {
+  align-self: end;
+}
+
+.post-card__title,
+.post-card__summary {
+  align-self: start;
+  margin-top: var(--space-2);
+  overflow: hidden;
+}
+
+.post-card__summary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.post-card__action {
+  align-self: end;
+  margin: 0;
+}
+
+.collection-card {
+  display: grid;
+  min-height: 20rem;
+  grid-template-rows: 1.5rem 1fr var(--card-action-row);
+}
+
+.collection-card h3 {
+  align-self: start;
+  margin-top: var(--space-7);
+}
+
+.featured-post:hover h2,
+.featured-post:focus-visible h2,
+.post-card:hover h2,
+.post-card:focus-visible h2 {
+  color: var(--color-brand-red);
+}
+
+.featured-post:focus-visible,
+.post-card:focus-visible {
+  outline: var(--border-thin) solid var(--color-brand-red);
+  outline-offset: var(--space-1);
+}
+
+.editorial-visual {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-brand-mist);
+  color: var(--color-brand-charcoal);
+}
+
+.editorial-visual[data-tone='charcoal'] {
+  background: var(--color-brand-charcoal);
+  color: var(--color-brand-white);
+}
+
+.editorial-visual[data-tone='red'] {
+  background: var(--color-brand-red);
+  color: var(--color-brand-white);
+}
+
+.editorial-visual[data-tone='warm'] {
+  background: var(--color-brand-warm);
+}
+
+.editorial-visual[data-tone='cool'] {
+  background: var(--color-brand-cool);
+}
+
+.editorial-visual[data-tone='green'] {
+  background: var(--color-brand-green);
+}
+
+.editorial-visual[data-tone='paper'] {
+  background: var(--color-brand-paper);
+}
+
+.editorial-visual__label {
+  position: absolute;
+  z-index: 1;
+  top: var(--space-4);
+  left: var(--space-4);
+  max-width: 18ch;
+  font-family: var(--font-heading);
+  font-size: var(--type-heading-3);
+  letter-spacing: -0.055em;
+  line-height: 0.9;
+}
+
+.editorial-visual__grid {
+  position: absolute;
+  inset: 18% -8% -25% 32%;
+  border: var(--border-thin) solid currentColor;
+  background-image:
+    linear-gradient(currentColor var(--border-thin), transparent var(--border-thin)),
+    linear-gradient(90deg, currentColor var(--border-thin), transparent var(--border-thin));
+  background-size: 3rem 3rem;
+  opacity: 0.2;
+  transform: rotate(-8deg);
+}
+
+.editorial-visual--featured .editorial-visual__label {
+  font-size: var(--type-heading-2);
+}

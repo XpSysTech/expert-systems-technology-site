@@ -1,1 +1,43 @@
-<p>products works!</p>
+<header class="catalog-hero">
+  <div class="catalog-hero__layout xpsys-container">
+    <div>
+      <p class="xpsys-kicker text-brand-red">Expert Systems Technology / Products</p>
+      <h1 class="catalog-hero__title">Products</h1>
+    </div>
+    <div class="catalog-hero__pitch">
+      <p class="xpsys-lead">Operational software we own, support and improve with the teams who use it.</p>
+      <div class="catalog-hero__actions">
+        <a href="#product-portfolio" class="xpsys-button xpsys-button--red">View products <span aria-hidden="true">↓</span></a>
+        <a routerLink="/contact" class="xpsys-button">Request a demo <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="product-portfolio" class="catalog-section">
+  <div class="xpsys-container">
+    <div class="catalog-intro">
+      <p class="xpsys-kicker text-brand-red">01 / Product portfolio</p>
+      <div>
+        <h2>Choose the operational system that fits the work.</h2>
+        <p>Each product has a focused website with its capabilities, documentation and next steps.</p>
+      </div>
+    </div>
+
+    <div class="catalog-grid">
+      @for (product of products; track product.path) {
+        <app-sales-card [content]="product" />
+      }
+    </div>
+  </div>
+</section>
+
+<section class="catalog-cta">
+  <div class="xpsys-container">
+    <div>
+      <p class="xpsys-kicker text-brand-red">Need a closer fit?</p>
+      <h2>Show us the workflow that needs to work better.</h2>
+    </div>
+    <a routerLink="/contact" class="xpsys-button">Discuss your requirements <span aria-hidden="true">→</span></a>
+  </div>
+</section>
