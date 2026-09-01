@@ -22,13 +22,13 @@ export class SiteFooter {
 
   protected readonly groups: readonly FooterGroup[] = [
     {
-      title: 'Offerings',
+      title: 'Products & Services',
       links: [
-        { label: 'All Offerings', path: '/offerings' },
         { label: 'Products', path: '/products' },
+        { label: 'Clinic OS', path: '/products/clinic-os' },
+        { label: 'Help Me', path: '/products/help-me' },
         { label: 'Services', path: '/services' },
-        { label: 'Software Engineering', path: '/services/software-engineering' },
-        { label: 'Industries', path: '/industries' },
+        { label: 'Managed Web Services', path: '/services/managed-web-services' },
       ],
     },
     {

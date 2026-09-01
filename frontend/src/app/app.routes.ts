@@ -118,30 +118,6 @@ const industriesDirectory: DirectoryPageData = {
   ],
 };
 
-const offerings: DirectoryPageData = {
-  eyebrow: 'EXPERT SYSTEMS TECHNOLOGY / OUR OFFERINGS',
-  title: 'Our Offerings',
-  introduction: 'Choose an owned product or an accountable service.',
-  items: [
-    {
-      code: '/0.1',
-      marker: 'P',
-      title: 'Products',
-      description: 'Operational software owned, supported and continuously improved by our teams.',
-      path: '/products',
-      action: 'Explore products',
-    },
-    {
-      code: '/0.2',
-      marker: 'S',
-      title: 'Services',
-      description: 'Managed operations and engineering with clear long-term responsibility.',
-      path: '/services',
-      action: 'Explore services',
-    },
-  ],
-};
-
 const company: HubPageData = {
   eyebrow: 'EXPERT SYSTEMS TECHNOLOGY / Company',
   title: 'Built for long-term operational value.',
@@ -338,7 +314,11 @@ export const routes: Routes = [
     title: 'Expert Systems Technology | Software, Operations & Intelligence',
     loadComponent: () => import('../features/home/pages/home/home').then((module) => module.Home),
   },
-  directoryRoute('offerings', offerings),
+  {
+    path: 'offerings',
+    pathMatch: 'full',
+    redirectTo: 'services',
+  },
   {
     path: 'services',
     title: 'Services | Expert Systems Technology',

@@ -21,22 +21,21 @@ describe('SiteHeader', () => {
     expect(component).toBeTruthy();
   });
 
-  it('exposes Offerings as the primary product and services entry point', () => {
-    expect(fixture.nativeElement.textContent).toContain('Offerings');
+  it('uses the requested top-level navigation order without Offerings or Resources', () => {
+    const links = Array.from(
+      fixture.nativeElement.querySelectorAll('.site-header__desktop-nav .site-header__link') as NodeListOf<HTMLAnchorElement>,
+    ).map((link) => link.textContent?.trim());
+
+    expect(links).toEqual(['Products', 'Services', 'Industries', 'Insights', 'Company', 'Contact']);
+    expect(fixture.nativeElement.textContent).not.toContain('Offerings');
+    expect(fixture.nativeElement.textContent).not.toContain('Resources');
   });
 
-  it('opens the Offerings dropdown from its icon and exposes product and service links', () => {
-    const toggle = fixture.nativeElement.querySelector(
-      'button[aria-label="Open Offerings menu"]',
-    ) as HTMLButtonElement | null;
+  it('links the managed website call to action to Contact', () => {
+    const callToAction = fixture.nativeElement.querySelector('.site-header__contact') as HTMLAnchorElement | null;
 
-    toggle?.click();
-    fixture.detectChanges();
-
-    const content = fixture.nativeElement.textContent as string;
-    expect(toggle?.getAttribute('aria-expanded')).toBe('true');
-    expect(content).toContain('Clinic OS');
-    expect(content).toContain('Managed Web Services');
+    expect(callToAction?.textContent).toContain('Get a Managed Website');
+    expect(callToAction?.getAttribute('href')).toBe('/contact');
   });
 
   it('closes a dropdown when the pointer leaves its navigation entry', () => {
@@ -68,7 +67,7 @@ describe('SiteHeader', () => {
 
   it('closes a dropdown when the user clicks outside the header', () => {
     const toggle = fixture.nativeElement.querySelector(
-      'button[aria-label="Open Offerings menu"]',
+      'button[aria-label="Open Industries menu"]',
     ) as HTMLButtonElement | null;
 
     toggle?.click();

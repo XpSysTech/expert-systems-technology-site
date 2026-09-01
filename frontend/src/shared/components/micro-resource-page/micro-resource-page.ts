@@ -13,12 +13,12 @@ export interface MicroResourcePageData {
 }
 
 const fallbackPage: MicroResourcePageData = {
-  brand: 'Offering',
-  basePath: '/offerings',
+  brand: 'Expert Systems Technology',
+  basePath: '/',
   code: 'RESOURCE / OVERVIEW',
-  title: 'Offering resource',
-  introduction: 'Supporting information for this Expert Systems Technology offering.',
-  workflowPath: '/offerings',
+  title: 'Resource',
+  introduction: 'Supporting information from Expert Systems Technology.',
+  workflowPath: '/',
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {

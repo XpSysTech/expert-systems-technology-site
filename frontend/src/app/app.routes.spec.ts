@@ -3,10 +3,13 @@ import { routes } from './app.routes';
 describe('application routes', () => {
   const hasRoute = (path: string): boolean => routes.some((route) => route.path === path);
 
-  it('provides the Offerings, Products and Services directories', () => {
-    expect(hasRoute('offerings')).toBe(true);
+  it('provides Products and Services directories and retires the Offerings page', () => {
+    const retiredOfferingsRoute = routes.find((route) => route.path === 'offerings');
+
     expect(hasRoute('products')).toBe(true);
     expect(hasRoute('services')).toBe(true);
+    expect(retiredOfferingsRoute?.redirectTo).toBe('services');
+    expect(retiredOfferingsRoute?.loadComponent).toBeUndefined();
   });
 
   it('provides a standalone route for every service micro-site', () => {

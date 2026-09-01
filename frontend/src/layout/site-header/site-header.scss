@@ -38,8 +38,9 @@
 
 .site-header__contact {
   display: inline-flex;
-  min-width: 9rem;
+  min-width: clamp(12rem, 16vw, 15rem);
   margin-left: auto;
+  white-space: nowrap;
 }
 
 .site-header__menu-button,
@@ -72,6 +73,10 @@
   color: inherit;
   font-family: var(--font-heading);
   text-decoration: none;
+}
+
+.site-header__mobile-cta {
+  margin-block: var(--space-4);
 }
 
 .site-header__mobile-link,
@@ -195,7 +200,7 @@
   }
 
   .site-header__contact {
-    min-width: 9rem;
+    min-width: clamp(12rem, 16vw, 15rem);
     margin-left: 0;
   }
 

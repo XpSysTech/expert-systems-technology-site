@@ -9,6 +9,7 @@ This file applies to the whole repository. More specific instructions in `fronte
 - `frontend/` — Angular 22 standalone application, statically rendered for production.
 - `backend/` — ASP.NET Core 10 API organized into Domain, Application, Infrastructure, and Api projects.
 - `cloudflare/` — Cloudflare Worker entry point that serves frontend assets and handles/proxies `/api` traffic.
+- `docs/SEO.md` — source of truth for public-page SEO, metadata, structured data, and prerendering requirements.
 - `wrangler.jsonc` — Cloudflare deployment, asset, route, and observability configuration.
 - `package.json` — repository-level build, test, preview, and deployment commands.
 
@@ -23,6 +24,23 @@ The Help Me services listing in `frontend/src/app/features/products/help-me/` is
 - Do not edit generated output or dependencies: `node_modules/`, `frontend/dist/`, `bin/`, `obj/`, coverage output, or generated lockfiles unless dependency changes require them.
 - Update tests with behavior changes. Prefer focused tests during development and the full relevant suite before handoff.
 - Keep user-facing content accessible, responsive, and suitable for static rendering; do not assume browser globals are available during SSR/build-time rendering.
+
+## Public-page SEO
+
+Follow `docs/SEO.md` as the detailed source of truth. The repository-wide minimum is summarized below.
+
+Every public page must provide:
+
+- a unique, descriptive `<title>`;
+- a page-specific meta description;
+- a canonical URL that uses the configured public origin rather than an untrusted request host;
+- one clear primary `<h1>`;
+- semantic landmarks and sectioning elements;
+- descriptive internal-link text that communicates the destination without relying on surrounding context;
+- valid, page-relevant structured data when it materially helps search engines understand the content; and
+- prerendering for stable marketing and informational routes when compatible with the existing Angular rendering setup.
+
+Add or update tests when SEO behavior changes. If a public marketing route cannot be prerendered, document the technical reason and preserve server-rendering compatibility where possible.
 
 ## Common commands
 
@@ -46,4 +64,5 @@ When changing only one area, run its focused checks first. Before completing a c
 - Relevant automated tests pass and new behavior has meaningful coverage.
 - Public/API contract changes are reflected on both sides of the boundary.
 - Configuration and documentation are updated when commands, environment variables, routes, or deployment behavior change.
+- New or changed public pages satisfy the public-page SEO requirements and remain stable during prerendering.
 - No secrets, generated artifacts, debugging code, or placeholder implementations were added accidentally.

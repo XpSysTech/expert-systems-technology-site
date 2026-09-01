@@ -1,7 +1,7 @@
 import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
-type DropdownMenuId = 'offerings' | 'industries';
+type DropdownMenuId = 'industries';
 
 interface NavigationLink {
   readonly label: string;
@@ -34,33 +34,8 @@ export class SiteHeader {
   protected readonly activeDropdown = signal<DropdownMenuId | null>(null);
 
   protected readonly navigation: readonly NavigationItem[] = [
-    {
-      label: 'Offerings',
-      path: '/offerings',
-      menu: {
-        id: 'offerings',
-        groups: [
-          {
-            label: 'Products',
-            path: '/products',
-            links: [
-              { label: 'Clinic OS', path: '/products/clinic-os' },
-              { label: 'Pharmacy OS', path: '/products/pharmacy-os' },
-              { label: 'Help Me', path: '/products/help-me' },
-            ],
-          },
-          {
-            label: 'Services',
-            path: '/services',
-            links: [
-              { label: 'Managed Web Services', path: '/services/managed-web-services' },
-              { label: 'Managed Business Services', path: '/services/managed-business-services' },
-              { label: 'Software Engineering Services', path: '/services/software-engineering' },
-            ],
-          },
-        ],
-      },
-    },
+    { label: 'Products', path: '/products' },
+    { label: 'Services', path: '/services' },
     {
       label: 'Industries',
       path: '/industries',
@@ -82,7 +57,7 @@ export class SiteHeader {
     },
     { label: 'Insights', path: '/insights' },
     { label: 'Company', path: '/company' },
-    { label: 'Resources', path: '/resources' },
+    { label: 'Contact', path: '/contact' },
   ];
 
   protected toggleMenu(): void {

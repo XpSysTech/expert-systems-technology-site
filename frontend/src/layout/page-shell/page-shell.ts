@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, DestroyRef, HostListener, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet } from '@angular/router';
+import { Event as RouterEvent, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { SiteFooter } from '../site-footer/site-footer';
 import { SiteHeader } from '../site-header/site-header';
 
@@ -20,7 +20,7 @@ export class PageShell {
   protected readonly showScrollTop = signal(false);
 
   constructor() {
-    this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((event) => {
+    this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((event: RouterEvent) => {
       if (event instanceof NavigationStart) {
         this.isNavigating.set(true);
       }

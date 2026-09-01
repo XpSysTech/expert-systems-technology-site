@@ -1,10 +1,31 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-interface HomeCard {
+interface HomeAction {
+  readonly label: string;
+  readonly path: string;
+}
+
+interface ManagedWebClass {
   readonly code: string;
   readonly title: string;
-  readonly description: string;
+  readonly summary: string;
+  readonly commercialModel: string;
+  readonly responsibilities: readonly string[];
+  readonly primaryAction: HomeAction;
+}
+
+interface ProductInDevelopment {
+  readonly code: string;
+  readonly title: string;
+  readonly summary: string;
+  readonly path: string;
+}
+
+interface InsightFeature {
+  readonly type: 'Article' | 'Case Study' | 'Note';
+  readonly title: string;
+  readonly summary: string;
   readonly path: string;
 }
 
@@ -15,52 +36,91 @@ interface HomeCard {
   templateUrl: './home.html',
 })
 export class Home {
-  protected readonly workModes: readonly HomeCard[] = [
+  protected readonly operatingThesis: readonly string[] = [
+    'Operations',
+    'Data',
+    'Information',
+    'Insight',
+    'Decision',
+    'Improvement',
+  ];
+
+  protected readonly managedWebClasses: readonly ManagedWebClass[] = [
     {
-      code: '01 / PRODUCTS',
-      title: 'Software products',
-      description: 'Operational systems designed, owned and continuously improved by our team.',
-      path: '/products',
+      code: '01 / MANAGED WEBSITE',
+      title: 'Managed Website',
+      summary: 'Information and marketing websites operated as dependable business infrastructure.',
+      commercialModel: 'N$1,200–N$5,000+ monthly',
+      responsibilities: ['Design and development', 'Hosting, deployment and SSL', 'Monitoring, maintenance and support'],
+      primaryAction: { label: 'Scope My Website', path: '/contact' },
     },
     {
-      code: '02 / OPERATE',
-      title: 'Managed services',
-      description: 'Ongoing responsibility for digital and business operations, with measurable service levels.',
-      path: '/managed-services',
+      code: '02 / MANAGED WEB PLATFORM',
+      title: 'Managed Web Platform',
+      summary: 'Websites with lightweight application functionality, accounts, portals, APIs or integrations.',
+      commercialModel: 'Scoped monthly engagement',
+      responsibilities: ['Authentication and access', 'Application and data connectivity', 'Telemetry, backups and security'],
+      primaryAction: { label: 'Scope My Platform', path: '/contact' },
     },
     {
-      code: '03 / ENGINEER',
-      title: 'Software engineering',
-      description: 'Purpose-built systems for operations that cannot be solved with generic software.',
-      path: '/engineering',
+      code: '03 / MANAGED APPLICATION',
+      title: 'Managed Application',
+      summary: 'Business-critical portals, systems and applications requiring deeper operational responsibility.',
+      commercialModel: 'Consultation required',
+      responsibilities: ['Production infrastructure', 'Release and incident management', 'Monitoring, recovery and capacity'],
+      primaryAction: { label: 'Book a Consultation', path: '/contact' },
     },
   ];
 
-  protected readonly products: readonly HomeCard[] = [
+  protected readonly managedWebProcess: readonly string[] = [
+    'Consultation',
+    'Classification',
+    'Scope',
+    'Design & Development',
+    'Deployment',
+    'Managed Operation',
+  ];
+
+  protected readonly products: readonly ProductInDevelopment[] = [
     {
       code: 'PRODUCT / 01',
       title: 'Clinic OS',
-      description: 'A connected operating system for clinical workflows, records and practice intelligence.',
+      summary: 'A clinic operating system being designed around clinical workflows, patient records, structured data capture and operational visibility.',
       path: '/products/clinic-os',
     },
     {
       code: 'PRODUCT / 02',
-      title: 'Pharmacy OS',
-      description: 'Operational software for dispensing, inventory, customer care and pharmacy performance.',
-      path: '/products/pharmacy-os',
-    },
-    {
-      code: 'PRODUCT / 03',
       title: 'Help Me',
-      description: 'A service marketplace connecting people who need work done with trusted local providers.',
+      summary: 'A digital services marketplace being developed to connect customers with service providers through a structured platform.',
       path: '/products/help-me',
     },
   ];
 
-  protected readonly industries: readonly string[] = [
-    'Healthcare',
-    'Mining & Resources',
-    'Professional Services',
-    'Government',
+  protected readonly healthcareKnowledge: readonly string[] = [
+    'Industry Perspective',
+    'Healthcare Showcase',
+    'Case Studies',
+    'Related Research',
+  ];
+
+  protected readonly insights: readonly InsightFeature[] = [
+    {
+      type: 'Article',
+      title: 'Websites are operational systems, not digital brochures.',
+      summary: 'Why uptime, security, change, measurement and ongoing responsibility matter after launch.',
+      path: '/insights/articles',
+    },
+    {
+      type: 'Case Study',
+      title: 'Designing a healthcare website around trust and action.',
+      summary: 'A practical look at healthcare information, clear journeys and dependable web operations.',
+      path: '/case-studies',
+    },
+    {
+      type: 'Note',
+      title: 'Why Expert Systems Technology is starting narrow.',
+      summary: 'Sell what exists, show what is being built and expand public claims only when capability is real.',
+      path: '/company/about',
+    },
   ];
 }
