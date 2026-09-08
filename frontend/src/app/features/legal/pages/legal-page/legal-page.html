@@ -1,0 +1,36 @@
+<main>
+  <header class="policy-hero">
+    <div class="xpsys-container">
+      <p class="xpsys-kicker text-brand-red">{{ policy.eyebrow }}</p>
+      <div class="policy-hero__grid">
+        <h1 class="xpsys-heading">{{ policy.title }}</h1>
+        <div>
+          <p class="xpsys-lead">{{ policy.introduction }}</p>
+          <p class="policy-updated">Last updated {{ policy.updated }}</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="xpsys-container policy-layout">
+    <nav aria-label="Legal pages" class="policy-nav">
+      <a routerLink="/legal/privacy" routerLinkActive="is-active">Privacy</a>
+      <a routerLink="/legal/terms" routerLinkActive="is-active">Terms</a>
+      <a routerLink="/legal/accessibility" routerLinkActive="is-active">Accessibility</a>
+      <a routerLink="/sitemap" routerLinkActive="is-active">Sitemap</a>
+    </nav>
+    <article class="policy-content">
+      @for (section of policy.sections; track section.title; let index = $index) {
+        <section [attr.aria-labelledby]="'policy-section-' + index">
+          <p class="xpsys-kicker text-brand-red">{{ (index + 1).toString().padStart(2, '0') }}</p>
+          <h2 [id]="'policy-section-' + index">{{ section.title }}</h2>
+          @for (paragraph of section.paragraphs; track paragraph) { <p>{{ paragraph }}</p> }
+          @if (section.items) {
+            <ul>@for (item of section.items; track item) { <li>{{ item }}</li> }</ul>
+          }
+        </section>
+      }
+      <a class="xpsys-button" routerLink="/contact"><span>Contact XpSys</span><span aria-hidden="true">→</span></a>
+    </article>
+  </div>
+</main>

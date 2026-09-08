@@ -1,0 +1,10 @@
+:host { display: block; }
+.sitemap { padding-block: clamp(3rem, 8vw, 8rem); }
+.sitemap h1 { margin-top: 2.5rem; }
+.sitemap > .xpsys-lead { margin-top: 2rem; max-width: 40rem; }
+.sitemap__groups { display: grid; gap: 0; margin-top: clamp(3rem, 7vw, 7rem); }
+.sitemap__groups section { border-top: 1px solid rgb(0 0 0 / 20%); padding-block: 2rem; }
+.sitemap__groups h2 { font-size: 1.5rem; font-weight: var(--font-weight-medium); margin-bottom: 1.5rem; }
+.sitemap__groups ul { list-style: none; margin: 0; padding: 0; }
+.sitemap__groups a { border-bottom: 1px solid rgb(0 0 0 / 15%); color: inherit; display: flex; justify-content: space-between; padding-block: .85rem; text-decoration: none; }
+@media (min-width: 48rem) { .sitemap__groups { grid-template-columns: repeat(2, 1fr); } .sitemap__groups section { padding: 2.5rem; } }

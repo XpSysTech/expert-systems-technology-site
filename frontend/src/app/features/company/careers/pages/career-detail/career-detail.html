@@ -1,0 +1,88 @@
+<article class="career-detail-page">
+  <app-section-nav
+    brand="Careers"
+    brandPath="/company/careers"
+    label="Careers sections"
+    [items]="navigation"
+  />
+
+  <header class="career-detail-hero">
+    <div class="xpsys-container career-detail-hero__layout">
+      <div>
+        <p class="xpsys-kicker text-brand-red">{{ content.eyebrow }}</p>
+        <h1>{{ content.title }}</h1>
+      </div>
+      <div class="career-detail-hero__aside">
+        <p class="career-detail-hero__lead">{{ content.introduction }}</p>
+        <div class="career-detail-hero__actions">
+          <a [routerLink]="content.primaryCta.path" class="xpsys-button xpsys-button--red">
+            {{ content.primaryCta.label }} <span aria-hidden="true">→</span>
+          </a>
+          <a routerLink="/company/careers" class="xpsys-button">
+            Careers overview <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  @if (content.positions; as positions) {
+    <section class="career-positions" aria-labelledby="positions-title">
+      <div class="xpsys-container">
+        <header class="career-detail-heading">
+          <p class="xpsys-kicker text-brand-red">01 / OPEN POSITIONS</p>
+          <h2 id="positions-title">Published opportunities.</h2>
+          <p>Specific openings will include the role scope, requirements, location and application instructions. The table below reflects our current published recruiting status.</p>
+        </header>
+        <div class="career-position-table" tabindex="0" aria-label="Current position status">
+          <table>
+            <thead>
+              <tr><th scope="col">Area</th><th scope="col">Location</th><th scope="col">Status</th><th scope="col">Next step</th></tr>
+            </thead>
+            <tbody>
+              @for (position of positions; track position.area) {
+                <tr>
+                  <th scope="row">{{ position.area }}</th>
+                  <td>{{ position.location }}</td>
+                  <td>{{ position.status }}</td>
+                  <td><a routerLink="/contact">Introduce yourself <span aria-hidden="true">→</span></a></td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  }
+
+  @for (section of content.sections; track section.code; let index = $index) {
+    <section
+      class="career-story"
+      [class.career-story--mist]="section.tone === 'mist'"
+      [class.career-story--dark]="section.tone === 'dark'"
+      [attr.aria-labelledby]="'career-section-' + index"
+    >
+      <div class="xpsys-container career-story__layout">
+        <div class="career-story__title">
+          <p class="xpsys-kicker" [class.text-brand-red]="section.tone !== 'dark'">{{ section.code }}</p>
+          <h2 [id]="'career-section-' + index">{{ section.title }}</h2>
+        </div>
+        <div class="career-story__body">
+          @for (paragraph of section.body; track paragraph) {
+            <p>{{ paragraph }}</p>
+          }
+          @if (section.items; as items) {
+            <ol class="career-story__steps">
+              @for (item of items; track item; let itemIndex = $index) {
+                <li><span>{{ (itemIndex + 1).toString().padStart(2, '0') }}</span>{{ item }}</li>
+              }
+            </ol>
+          }
+          @if (section.cta; as cta) {
+            <a [routerLink]="cta.path" class="career-story__link">{{ cta.label }} <span aria-hidden="true">→</span></a>
+          }
+        </div>
+      </div>
+    </section>
+  }
+</article>

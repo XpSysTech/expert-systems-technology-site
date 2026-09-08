@@ -2,7 +2,7 @@
   <div class="site-header__bar xpsys-container">
     <a routerLink="/" class="site-header__brand" (click)="closeNavigation()">
       <img
-        src="/brand/expert-systems-technology-logo.png"
+        src="/brand/Icon_version2_red_black.png"
         alt="Expert Systems Technology"
         class="site-header__logo"
       />
@@ -64,6 +64,10 @@
               </div>
             }
           </div>
+        } @else if (item.unavailable) {
+          <span class="site-header__link site-header__link--unavailable" aria-disabled="true" title="Insights will be published soon">
+            {{ item.label }}
+          </span>
         } @else {
           <a
             [routerLink]="item.path"
@@ -77,7 +81,7 @@
       }
     </nav>
 
-    <a routerLink="/contact" class="site-header__contact xpsys-button" (click)="closeNavigation()">
+    <a routerLink="/services/managed-web-services/managed-website" fragment="scope-website" class="site-header__contact xpsys-button" (click)="closeNavigation()">
       <span>Get a Managed Website</span><span aria-hidden="true">→</span>
     </a>
 
@@ -132,13 +136,17 @@
                 </div>
               }
             </div>
+          } @else if (item.unavailable) {
+            <span class="site-header__mobile-link site-header__mobile-link--unavailable" aria-disabled="true">
+              {{ item.label }} <span>Coming soon</span>
+            </span>
           } @else {
             <a [routerLink]="item.path" class="site-header__mobile-link" (click)="closeNavigation()">
               {{ item.label }} <span aria-hidden="true">→</span>
             </a>
           }
         }
-        <a routerLink="/contact" class="site-header__mobile-cta xpsys-button xpsys-button--red" (click)="closeNavigation()">
+        <a routerLink="/services/managed-web-services/managed-website" fragment="scope-website" class="site-header__mobile-cta xpsys-button xpsys-button--red" (click)="closeNavigation()">
           <span>Get a Managed Website</span><span aria-hidden="true">→</span>
         </a>
       </div>

@@ -1,7 +1,7 @@
 import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
-type DropdownMenuId = 'industries';
+type DropdownMenuId = 'services' | 'industries';
 
 interface NavigationLink {
   readonly label: string;
@@ -19,6 +19,7 @@ interface DropdownMenu {
 
 interface NavigationItem extends NavigationLink {
   readonly menu?: DropdownMenu;
+  readonly unavailable?: boolean;
 }
 
 @Component({
@@ -35,7 +36,24 @@ export class SiteHeader {
 
   protected readonly navigation: readonly NavigationItem[] = [
     { label: 'Products', path: '/products' },
-    { label: 'Services', path: '/services' },
+    {
+      label: 'Services',
+      path: '/services',
+      menu: {
+        id: 'services',
+        groups: [
+          {
+            label: 'Managed Web Services',
+            path: '/services/managed-web-services',
+            links: [
+              { label: 'Managed Website', path: '/services/managed-web-services/managed-website' },
+              { label: 'Managed Web Platform', path: '/services/managed-web-services/managed-web-platform' },
+              { label: 'Managed Application', path: '/services/managed-web-services/managed-application' },
+            ],
+          },
+        ],
+      },
+    },
     {
       label: 'Industries',
       path: '/industries',
@@ -47,15 +65,15 @@ export class SiteHeader {
             path: '/industries',
             links: [
               { label: 'Healthcare', path: '/industries/healthcare' },
-              { label: 'Mining & Resources', path: '/industries/mining-resources' },
-              { label: 'Professional Services', path: '/industries/professional-services' },
-              { label: 'Government', path: '/industries/government' },
+              { label: 'Mining', path: '/industries/mining' },
+              { label: 'Services', path: '/industries/services' },
+              { label: 'Waste Management', path: '/industries/waste-management' },
             ],
           },
         ],
       },
     },
-    { label: 'Insights', path: '/insights' },
+    { label: 'Insights', path: '/insights', unavailable: true },
     { label: 'Company', path: '/company' },
     { label: 'Contact', path: '/contact' },
   ];

@@ -1,0 +1,72 @@
+<form class="managed-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <app-form-stepper [steps]="steps" [activeStep]="activeStep()" [maxVisited]="maxVisited()" label="Website scoping progress" (stepChange)="goTo($event)" />
+
+  @if (activeStep() === 0) {
+    <section class="step-panel" formGroupName="organisation" aria-labelledby="website-step-organisation">
+      <div class="step-panel__header"><p class="xpsys-kicker text-brand-red">STEP 01</p><h3 id="website-step-organisation">Tell us about the organisation.</h3></div>
+      <div class="step-grid step-grid--wide">
+        <label class="field">Organisation <input formControlName="organisation" autocomplete="organization" />
+          @if (form.controls.organisation.controls.organisation.touched && form.controls.organisation.controls.organisation.invalid) { <span class="field__error">Organisation is required.</span> }
+        </label>
+        <label class="field">Industry <select formControlName="industry"><option value="">Select an industry</option>@for (industry of ['Healthcare', 'Mining & Resources', 'Professional Services', 'Government', 'Retail', 'Education', 'Other']; track industry) { <option [value]="industry">{{ industry }}</option> }</select></label>
+        <label class="field">Current website, if any <input formControlName="currentWebsite" type="url" placeholder="https://" /></label>
+      </div>
+    </section>
+  }
+  @if (activeStep() === 1) {
+    <section class="step-panel" formGroupName="project" aria-labelledby="website-step-goals">
+      <div class="step-panel__header"><p class="xpsys-kicker text-brand-red">STEP 02</p><h3 id="website-step-goals">What should the website achieve?</h3></div>
+      <div class="step-grid">
+        <label class="field">Website type <select formControlName="websiteType"><option value="">Select a website type</option><option>Company website</option><option>Marketing website</option><option>Information website</option><option>Campaign or launch website</option><option>Not sure</option></select></label>
+        <fieldset><legend class="xpsys-kicker">Primary goals</legend><div class="choice-grid">@for (goal of ['Explain our services', 'Generate enquiries', 'Build trust', 'Publish information', 'Recruit people', 'Replace an outdated site']; track goal) { <label class="choice"><input type="checkbox" [checked]="form.controls.project.controls.goals.value.includes(goal)" (change)="toggleGoal(goal, $event)" />{{ goal }}</label> }</div></fieldset>
+        <label class="field">Another goal <textarea formControlName="otherGoal"></textarea></label>
+      </div>
+    </section>
+  }
+  @if (activeStep() === 2) {
+    <section class="step-panel" formGroupName="content" aria-labelledby="website-step-content">
+      <div class="step-panel__header"><p class="xpsys-kicker text-brand-red">STEP 03</p><h3 id="website-step-content">Content and functionality.</h3></div>
+      <div class="step-grid step-grid--wide">
+        <label class="field">Approximate number of pages <select formControlName="approximatePages"><option value="">Select a range</option><option>1–5 pages</option><option>6–15 pages</option><option>16–30 pages</option><option>More than 30 pages</option><option>Not sure</option></select></label>
+        <label class="field">Content status <select formControlName="contentStatus"><option value="">Select content status</option><option>Ready to use</option><option>Needs editing</option><option>Needs to be created</option><option>Mixed / not sure</option></select></label>
+        <label class="field">Forms, integrations or special functionality <textarea formControlName="functionality" placeholder="Describe what visitors should be able to do."></textarea></label>
+      </div>
+    </section>
+  }
+  @if (activeStep() === 3) {
+    <section class="step-panel" formGroupName="operation" aria-labelledby="website-step-operation">
+      <div class="step-panel__header"><p class="xpsys-kicker text-brand-red">STEP 04</p><h3 id="website-step-operation">Launch and ongoing operation.</h3></div>
+      <div class="step-grid step-grid--wide">
+        <label class="field">Preferred launch window <select formControlName="launchWindow"><option value="">Select a window</option><option>Within 1 month</option><option>1–3 months</option><option>3–6 months</option><option>Exploratory / not sure</option></select></label>
+        <label class="field">Expected content update frequency <select formControlName="updateFrequency"><option value="">Select a frequency</option><option>Weekly</option><option>Monthly</option><option>Occasionally</option><option>Not sure</option></select></label>
+        <label class="field">Optional project scope or brief <textarea formControlName="projectScope" placeholder="Paste an existing brief or add any context that will help us evaluate the work."></textarea></label>
+      </div>
+    </section>
+  }
+  @if (activeStep() === 4) {
+    <section class="step-panel" formGroupName="contact" aria-labelledby="website-step-contact">
+      <div class="step-panel__header"><p class="xpsys-kicker text-brand-red">STEP 05</p><h3 id="website-step-contact">Where should we respond?</h3></div>
+      <div class="step-grid step-grid--wide">
+        <label class="field">Name <input formControlName="name" autocomplete="name" /></label>
+        <label class="field">Email <input formControlName="email" type="email" autocomplete="email" /></label>
+        <label class="field">Phone <input formControlName="phone" type="tel" autocomplete="tel" /></label>
+        <label class="field">Preferred contact method <select formControlName="preference"><option value="">Select a method</option><option>Phone</option><option>WhatsApp</option><option>Email</option></select></label>
+        <label class="choice"><input type="checkbox" formControlName="consent" />I consent to Expert Systems Technology using these details to evaluate the scope and contact me.</label>
+      </div>
+    </section>
+  }
+  @if (activeStep() === 5) {
+    <section class="step-panel" aria-labelledby="website-step-review">
+      <div class="step-panel__header"><p class="xpsys-kicker text-brand-red">STEP 06</p><h3 id="website-step-review">Review the initial scope.</h3></div>
+      <div class="review-grid"><article class="review-card"><h3>Organisation</h3><p>{{ form.controls.organisation.controls.organisation.value }}</p></article><article class="review-card"><h3>Website</h3><p>{{ form.controls.project.controls.websiteType.value }}</p></article><article class="review-card"><h3>Goals</h3><p>{{ form.controls.project.controls.goals.value.join(', ') }}</p></article><article class="review-card"><h3>Launch</h3><p>{{ form.controls.operation.controls.launchWindow.value }}</p></article></div>
+      <p class="step-note">This is an initial scope, not a quotation. We will evaluate the work and call you back to confirm requirements and next steps.</p>
+    </section>
+  }
+
+  <div class="step-actions">
+    @if (activeStep() > 0) { <button class="xpsys-button" type="button" (click)="back()"><span>Back</span><span aria-hidden="true">←</span></button> }
+    @if (activeStep() < steps.length - 1) { <button class="xpsys-button xpsys-button--red" type="button" (click)="next()"><span>Continue</span><span aria-hidden="true">→</span></button> }
+    @else { <button class="xpsys-button xpsys-button--red" type="submit"><span>Send website scope</span><span aria-hidden="true">→</span></button> }
+  </div>
+  @if (submissionResult()) { <p class="submission-status" role="status">Your website scope has been passed to our team. We will evaluate it and call you back.</p> }
+</form>

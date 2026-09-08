@@ -122,7 +122,15 @@
     <div class="mt-12 grid border-l border-black/20 md:grid-cols-2">
       @for (product of products; track product.path; let index = $index) {
         <article class="border-b border-r border-black/20">
-          <div class="product-development-panel relative min-h-52 overflow-hidden" [class.product-development-panel--dark]="index === 0" aria-hidden="true">
+          <div
+            class="product-development-panel relative min-h-52 overflow-hidden"
+            [class.product-development-panel--dark]="index === 0"
+            [class.product-development-panel--artwork]="product.artwork"
+            aria-hidden="true"
+          >
+            @if (product.artwork) {
+              <img [src]="product.artwork" alt="" class="product-development-panel__artwork" />
+            }
             <span class="absolute bottom-5 right-6 text-7xl font-light">0{{ index + 1 }}</span>
           </div>
           <div class="p-6 lg:p-8">
@@ -171,10 +179,10 @@
     <div class="grid gap-8 lg:grid-cols-[0.65fr_1.35fr]">
       <div>
         <p class="xpsys-kicker text-brand-red">06 / INSIGHTS</p>
-        <h2 id="insights-title" class="xpsys-heading mt-6 max-w-[9ch]">Publish what we learn.</h2>
+        <h2 id="insights-title" class="xpsys-heading mt-6 max-w-[9ch]">What we learn, we share.</h2>
       </div>
       <p class="max-w-2xl self-end leading-relaxed text-black/70">
-        Insights should make practical thinking visible through distinct articles, case studies, research, reports, announcements and company notes.
+        We are preparing practical guidance and lessons from our work to help organisations make clearer decisions about websites, software, data and operations. Insights will be published as the evidence and ideas are ready.
       </p>
     </div>
 
@@ -184,8 +192,8 @@
           <p class="xpsys-kicker text-brand-red">{{ insight.type }}</p>
           <h3 class="mt-10 text-2xl leading-tight tracking-[-0.035em] md:text-3xl">{{ insight.title }}</h3>
           <p class="mt-6 leading-relaxed text-black/65">{{ insight.summary }}</p>
-          <a [routerLink]="insight.path" class="mt-auto flex border-t border-black/20 pt-4 font-sans text-sm no-underline" [attr.aria-label]="'Read more: ' + insight.title">
-            Read more <span class="ml-auto" aria-hidden="true">→</span>
+          <a [routerLink]="insight.path" class="mt-auto flex border-t border-black/20 pt-4 font-sans text-sm no-underline" [attr.aria-label]="insight.action + ': ' + insight.title">
+            {{ insight.action }} <span class="ml-auto" aria-hidden="true">→</span>
           </a>
         </article>
       }
@@ -193,17 +201,59 @@
   </div>
 </section>
 
-<section id="company-direction" class="border-y border-black/20 py-[clamp(3.5rem,7vw,7rem)]" aria-labelledby="company-direction-title">
-  <div class="xpsys-container grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-    <div>
-      <p class="xpsys-kicker text-brand-red">07 / COMPANY DIRECTION</p>
-      <h2 id="company-direction-title" class="xpsys-heading mt-6 max-w-[10ch]">Build. Operate. Learn.</h2>
-    </div>
-    <div class="self-end">
-      <p class="max-w-xl leading-relaxed text-black/70">
-        Year One is focused: Managed Web Services now, Clinic OS and Help Me in development, Healthcare as the first industry hub, and a longer-term direction toward software, data and operational intelligence.
+<section id="partner-voices" class="partner-voices" aria-labelledby="partner-voices-title">
+  <div class="xpsys-container">
+    <div class="partner-voices__header">
+      <div>
+        <p class="xpsys-kicker text-brand-red">07 / PARTNER VOICES</p>
+        <h2 id="partner-voices-title" class="xpsys-heading partner-voices__title">What our partners say about working with us.</h2>
+      </div>
+      <p class="partner-voices__intro">
+        This space is ready for verified perspectives from organisations and specialists who work alongside XpSys. Partner stories will be published once approved.
       </p>
-      <a routerLink="/company/about" class="xpsys-button mt-8">Read About XpSys <span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="partner-carousel" aria-roledescription="carousel" aria-label="Partner stories">
+      <div class="partner-carousel__toolbar">
+        <p class="xpsys-kicker" aria-live="polite">
+          {{ (activePartnerVoice() + 1).toString().padStart(2, '0') }} / {{ partnerVoices.length.toString().padStart(2, '0') }}
+        </p>
+        <div class="partner-carousel__controls">
+          <button type="button" class="partner-carousel__control" aria-label="Previous partner story" (click)="showPreviousPartnerVoice()">
+            <span aria-hidden="true">←</span>
+          </button>
+          <button type="button" class="partner-carousel__control" aria-label="Next partner story" (click)="showNextPartnerVoice()">
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="partner-carousel__viewport">
+        <div class="partner-carousel__track">
+          @for (voice of visiblePartnerVoices(); track voice.id) {
+            <article class="partner-voice-card" data-partner-card>
+              <div>
+                <p class="xpsys-kicker text-brand-red">Partner story placeholder</p>
+                <p class="partner-voice-card__organisation">{{ voice.organisation }}</p>
+              </div>
+
+              @if (voice.image) {
+                <img class="partner-voice-card__portrait" [src]="voice.image" [alt]="voice.person" />
+              } @else {
+                <div class="partner-voice-card__portrait-placeholder" aria-hidden="true">
+                  <span>Portrait</span>
+                </div>
+              }
+
+              <blockquote class="partner-voice-card__quote">{{ voice.quote }}</blockquote>
+              <footer class="partner-voice-card__person">
+                <strong>{{ voice.person }}</strong>
+                <span>{{ voice.role }}</span>
+              </footer>
+            </article>
+          }
+        </div>
+      </div>
     </div>
   </div>
 </section>

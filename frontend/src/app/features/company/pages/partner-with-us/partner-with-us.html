@@ -1,0 +1,57 @@
+<main>
+  <header class="partner-enquiry-hero">
+    <div class="xpsys-container partner-enquiry-hero__layout">
+      <div>
+        <p class="xpsys-kicker text-brand-red">EXPERT SYSTEMS TECHNOLOGY / COMPANY / PARTNERS</p>
+        <h1>Partner With Us</h1>
+      </div>
+      <p>Tell us where your expertise, technology or delivery capability could create a stronger outcome together.</p>
+    </div>
+  </header>
+
+  <section class="partner-enquiry-content" aria-labelledby="partnership-form-title">
+    <div class="xpsys-container partner-enquiry-content__layout">
+      <aside>
+        <p class="xpsys-kicker text-brand-red">START A CONVERSATION</p>
+        <h2>Build better systems together.</h2>
+        <p>Share the essentials. We will review the enquiry and route it to the appropriate team member.</p>
+      </aside>
+
+      <form class="partner-enquiry-form" (submit)="submitPartnership($event)">
+        <h2 id="partnership-form-title">How could we work together?</h2>
+        <div class="partner-enquiry-form__fields">
+          <label>Name <input class="xpsys-field" name="name" autocomplete="name" required /></label>
+          <label>Work email <input class="xpsys-field" name="email" type="email" autocomplete="email" required /></label>
+          <label>Organisation <input class="xpsys-field" name="organisation" autocomplete="organization" required /></label>
+          <label>Organisation website <input class="xpsys-field" name="website" type="url" autocomplete="url" /></label>
+          <label class="partner-enquiry-form__full">Primary expertise
+            <input class="xpsys-field" name="expertise" placeholder="For example: healthcare operations, implementation, software, field services" required />
+          </label>
+          <label>Partnership interest
+            <select class="xpsys-field" name="partnershipType" required>
+              <option value="">Select one</option>
+              <option>Referral partnership</option>
+              <option>Delivery collaboration</option>
+              <option>Technology or integration partnership</option>
+              <option>Industry or domain collaboration</option>
+            </select>
+          </label>
+          <label>Relevant industries
+            <input class="xpsys-field" name="industries" placeholder="For example: healthcare, mining" />
+          </label>
+          <label class="partner-enquiry-form__full">Proposed collaboration
+            <textarea class="xpsys-field partner-enquiry-form__message" name="proposal" required></textarea>
+          </label>
+          <label class="partner-enquiry-form__full partner-enquiry-form__consent">
+            <input name="consent" type="checkbox" required />
+            <span>I consent to Expert Systems Technology using these details to respond to this partnership enquiry.</span>
+          </label>
+        </div>
+        <button type="submit" class="xpsys-button xpsys-button--red">Send partnership enquiry <span aria-hidden="true">→</span></button>
+        @if (submitted()) {
+          <p class="partner-enquiry-form__status" role="status">Thank you. Your partnership enquiry has been passed to our team for review.</p>
+        }
+      </form>
+    </div>
+  </section>
+</main>

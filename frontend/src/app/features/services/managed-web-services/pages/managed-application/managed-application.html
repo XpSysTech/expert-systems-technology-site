@@ -1,0 +1,114 @@
+<main>
+  <header class="detail-hero">
+    <div class="xpsys-container detail-hero__grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">MANAGED WEB SERVICES / MANAGED APPLICATION</p>
+        <h1>Business-critical software,<br />continuously operated.</h1>
+      </div>
+      <div class="detail-hero__statement">
+        <p>For complex portals, SaaS products, operational dashboards, billing, workflow and transactional applications.</p>
+        <p class="price-statement">Custom Monthly Engagement — Consultation Required</p>
+        <div class="detail-actions">
+          <a class="xpsys-button xpsys-button--red" href="#book-consultation">Book Consultation <span aria-hidden="true">↓</span></a>
+          <a class="xpsys-button" href="#application-responsibility">View Responsibility <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="detail-section" aria-labelledby="application-for">
+    <div class="xpsys-container detail-grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">01 / WHO THIS IS FOR</p>
+        <h2 id="application-for">When software sits inside the operation.</h2>
+      </div>
+      <div class="detail-copy">
+        <p>Managed Application is for systems whose reliability, workflows, transactions or data directly affect customers, staff, revenue or core service delivery.</p>
+        <p>Typical examples include large portals, SaaS applications, internal systems, booking and billing platforms, workflow systems and multi-user operational products.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="application-responsibility" class="detail-section detail-section--mist" aria-labelledby="critical-responsibility">
+    <div class="xpsys-container">
+      <p class="xpsys-kicker text-brand-red">02 / BUSINESS-CRITICAL RESPONSIBILITY</p>
+      <h2 id="critical-responsibility">Operation is part of the architecture.</h2>
+      <div class="content-grid">
+        <article class="content-card">
+          <h3>What Expert Systems Technology may operate</h3>
+          <p>Application services, APIs, databases, production infrastructure, telemetry, deployments, release workflows, backup/restore and contract-defined incident operations.</p>
+        </article>
+        <article class="content-card">
+          <h3>Customer responsibility</h3>
+          <p>Business policy, authorised data use, internal process ownership, timely decisions, user administration and responsibilities assigned by the contract.</p>
+        </article>
+        <article class="content-card">
+          <h3>Capacity & incidents</h3>
+          <p>Capacity planning, service levels, escalation, response and recovery are scoped against actual criticality rather than assumed from a package name.</p>
+        </article>
+        <article class="content-card">
+          <h3>Security & reliability</h3>
+          <p>Identity, permissions, environment isolation, observability, backup and recovery are designed around the application’s data and operating risk.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section detail-section--charcoal" aria-labelledby="application-architecture">
+    <div class="xpsys-container detail-grid">
+      <div>
+        <p class="xpsys-kicker">03 / ARCHITECTURE & ENVIRONMENTS</p>
+        <h2 id="application-architecture">Built to release,<br />observe and recover.</h2>
+        <p class="detail-copy">The final architecture may include separate development and production environments, controlled deployment, structured logging, monitoring, backups and tested recovery responsibilities.</p>
+      </div>
+      <ol class="architecture-flow">
+        @for (stage of ['Architecture & controls', 'Environments & delivery', 'Monitoring & release', 'Capacity & incidents']; track stage; let index = $index) {
+          <li><span>{{ (index + 1).toString().padStart(2, '0') }}</span>{{ stage }}</li>
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="detail-section" aria-labelledby="commercial-model">
+    <div class="xpsys-container detail-grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">04 / COMMERCIAL MODEL</p>
+        <h2 id="commercial-model">Custom Monthly Engagement.</h2>
+      </div>
+      <div class="detail-copy">
+        <p>No artificially precise public range is shown. Pricing follows functional scope, users, integrations, data, infrastructure, service levels, support and operational responsibility.</p>
+        <p>Consultation is required before classification and scope can be confirmed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section detail-section--mist" aria-labelledby="ownership-title">
+    <div class="xpsys-container detail-grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">05 / OWNERSHIP & OPERATION</p>
+        <h2 id="ownership-title">The contract defines the model.</h2>
+      </div>
+      <aside class="ownership-note">
+        <p>Managed Application normally uses contract-defined licensing and operation terms. It does not mean that a customer never owns anything, and it does not promise full ownership.</p>
+        <p>Ownership and intellectual property are contractual. A prospect requiring a fully bespoke owned system needs a separate discussion about delivery and ongoing operation.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="detail-section" aria-labelledby="application-faq">
+    <div class="xpsys-container detail-grid">
+      <div><p class="xpsys-kicker text-brand-red">06 / FAQ</p><h2 id="application-faq">Before consultation.</h2></div>
+      <app-faq-list [items]="faqs" />
+    </div>
+  </section>
+
+  <section id="book-consultation" class="detail-section detail-section--mist" aria-labelledby="consultation-title">
+    <div class="xpsys-container">
+      <div class="form-intro">
+        <div><p class="xpsys-kicker text-brand-red">07 / PRE-CONSULTATION</p><h2 id="consultation-title">Give us the operating context.</h2></div>
+        <p class="detail-copy">This short intake captures the problem, expected users, key requirements, criticality and a proposed consultation time. Do not include sensitive production data.</p>
+      </div>
+      <app-application-consultation-form />
+    </div>
+  </section>
+</main>

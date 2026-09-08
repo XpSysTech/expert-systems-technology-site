@@ -1,0 +1,108 @@
+<article class="careers-page">
+  <app-section-nav
+    brand="Careers"
+    brandPath="/company/careers"
+    label="Careers sections"
+    [items]="navigation"
+  />
+
+  <header class="careers-hero">
+    <div class="xpsys-container careers-hero__layout">
+      <div>
+        <p class="xpsys-kicker text-brand-red">EXPERT SYSTEMS TECHNOLOGY / CAREERS</p>
+        <h1>Build systems that matter after launch.</h1>
+      </div>
+      <div class="careers-hero__aside">
+        <p>Join a Namibian technology company working across software, operations and intelligence.</p>
+        <a routerLink="/company/careers/open-positions" class="xpsys-button xpsys-button--red">Explore open roles <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="xpsys-container">
+      <div class="careers-hero__field" aria-hidden="true">
+        <span>BUILD</span>
+        <span>OPERATE</span>
+        <span>LEARN</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="careers-section careers-intro" aria-labelledby="careers-who-title">
+    <div class="xpsys-container careers-split">
+      <div>
+        <p class="xpsys-kicker text-brand-red">01 / WHO WE ARE</p>
+        <h2 id="careers-who-title">A company built around responsible systems work.</h2>
+      </div>
+      <div class="careers-copy">
+        <p>Expert Systems Technology is a Namibian software, data and operational intelligence company.</p>
+        <p>We work close to the operation, understand before automating and build for continuity. That calls for people who care about clarity, craft and the consequences of technical decisions.</p>
+        <a routerLink="/company/about">Get to know Expert Systems Technology <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="careers-section careers-section--mist" aria-labelledby="role-types-title">
+    <div class="xpsys-container">
+      <header class="careers-section__heading">
+        <p class="xpsys-kicker text-brand-red">02 / TYPES OF ROLES</p>
+        <h2 id="role-types-title">Different disciplines.<br />One operating system.</h2>
+      </header>
+      <div class="career-role-grid">
+        @for (role of roleTypes; track role.code) {
+          <article>
+            <span>{{ role.code }}</span>
+            <h3>{{ role.title }}</h3>
+            <p>{{ role.description }}</p>
+            <a routerLink="/company/careers/open-positions">Open roles and applications <span aria-hidden="true">→</span></a>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="careers-section" aria-labelledby="recruiting-title">
+    <div class="xpsys-container careers-recruiting">
+      <div>
+        <p class="xpsys-kicker text-brand-red">03 / CURRENTLY RECRUITING</p>
+        <h2 id="recruiting-title">See what is open now.</h2>
+      </div>
+      <div>
+        <p>We publish role-specific opportunities only when the scope, expectations and application path are ready. There are currently no role-specific positions published.</p>
+        <a routerLink="/company/careers/open-positions" class="xpsys-button">View recruiting status <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="careers-section careers-mission" aria-labelledby="mission-title">
+    <div class="xpsys-container careers-split">
+      <div>
+        <p class="xpsys-kicker">04 / OUR MISSION</p>
+        <h2 id="mission-title">Make important work easier to understand and operate.</h2>
+      </div>
+      <div class="careers-copy">
+        <p>We build and operate software that helps organisations coordinate work, preserve dependable records and improve decisions over time.</p>
+        <p>The mission demands technical depth, practical judgment and respect for the operating environment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="careers-section" aria-labelledby="people-title">
+    <div class="xpsys-container">
+      <header class="careers-section__heading careers-section__heading--split">
+        <div>
+          <p class="xpsys-kicker text-brand-red">05 / OUR PEOPLE</p>
+          <h2 id="people-title">People who can cross boundaries.</h2>
+        </div>
+        <p>Small teams need people who can move between disciplines without losing ownership of the outcome.</p>
+      </header>
+      <div class="careers-people">
+        <article><span>ENGINEER</span><h3>Build with the operating context in view.</h3></article>
+        <article><span>OPERATOR</span><h3>Notice what must remain dependable.</h3></article>
+        <article><span>COLLABORATOR</span><h3>Make reasoning and responsibility visible.</h3></article>
+      </div>
+      <div class="careers-final-action">
+        <a routerLink="/company/careers/life-at-expert-systems-technology" class="xpsys-button xpsys-button--red">Explore life at XpSys <span aria-hidden="true">→</span></a>
+        <a routerLink="/company/careers/getting-hired" class="xpsys-button">Learn about getting hired <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</article>

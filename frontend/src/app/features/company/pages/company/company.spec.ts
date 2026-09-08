@@ -15,15 +15,20 @@ describe('Company', () => {
     await fixture.whenStable();
   });
 
-  it('presents the company purpose, operating principles and direction', () => {
+  it('presents the company identity, linked areas and direction', () => {
     const content = fixture.nativeElement.textContent as string;
 
-    expect(content).toContain('Why we’re here');
-    expect(content).toContain('What we do');
-    expect(content).toContain('Where we’re going');
+    expect(content).toContain('Systems for work that needs to work.');
+    expect(content).toContain('A company built around the operation.');
+    expect(content).toContain('Build. Operate. Learn.');
   });
 
-  it('provides a destination for every operating principle', () => {
-    expect(fixture.nativeElement.querySelectorAll('.company-principle a')).toHaveLength(5);
+  it('provides a destination for every XpSys area without an industry-focus section', () => {
+    const content = fixture.nativeElement.textContent as string;
+
+    expect(fixture.nativeElement.querySelectorAll('.company-principle a')).toHaveLength(6);
+    expect(fixture.nativeElement.textContent).toContain('Careers at XpSys');
+    expect(fixture.nativeElement.textContent).toContain('Partners and affiliations');
+    expect(content).not.toContain('Where we are focused');
   });
 });

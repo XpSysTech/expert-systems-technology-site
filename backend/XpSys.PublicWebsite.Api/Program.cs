@@ -1,10 +1,17 @@
+using XpSys.PublicWebsite.Application.Enquiries;
+using XpSys.PublicWebsite.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddProblemDetails();
+builder.Services.AddSingleton(TimeProvider.System);
+builder.Services.AddScoped<SubmitManagedWebPlatformEnquiryHandler>();
+builder.Services.AddScoped<SubmitManagedApplicationEnquiryHandler>();
+builder.Services.AddScoped<SubmitManagedWebsiteEnquiryHandler>();
+builder.Services.AddScoped<SubmitCallbackEnquiryHandler>();
+builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
@@ -21,3 +28,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program;

@@ -1,4 +1,6 @@
 @use "tailwindcss";
+@use "./app/features/services/managed-web-services/pages/managed-website/managed-website-global";
+@use "./app/features/services/managed-web-services/pages/overview/overview-global";
 
 :root {
   /* Brand palette: edit these values to recolour the complete site. */

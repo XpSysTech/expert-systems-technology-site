@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 interface HomeAction {
@@ -16,6 +16,7 @@ interface ManagedWebClass {
 }
 
 interface ProductInDevelopment {
+  readonly artwork?: string;
   readonly code: string;
   readonly title: string;
   readonly summary: string;
@@ -23,10 +24,20 @@ interface ProductInDevelopment {
 }
 
 interface InsightFeature {
-  readonly type: 'Article' | 'Case Study' | 'Note';
+  readonly type: 'Article' | 'Practical Guide' | 'Note';
   readonly title: string;
   readonly summary: string;
   readonly path: string;
+  readonly action: string;
+}
+
+interface PartnerVoice {
+  readonly id: string;
+  readonly organisation: string;
+  readonly person: string;
+  readonly role: string;
+  readonly quote: string;
+  readonly image?: string;
 }
 
 @Component({
@@ -36,6 +47,8 @@ interface InsightFeature {
   templateUrl: './home.html',
 })
 export class Home {
+  protected readonly activePartnerVoice = signal(0);
+
   protected readonly operatingThesis: readonly string[] = [
     'Operations',
     'Data',
@@ -83,12 +96,14 @@ export class Home {
 
   protected readonly products: readonly ProductInDevelopment[] = [
     {
+      artwork: '/products/clinic-os-product-card.svg',
       code: 'PRODUCT / 01',
       title: 'Clinic OS',
       summary: 'A clinic operating system being designed around clinical workflows, patient records, structured data capture and operational visibility.',
       path: '/products/clinic-os',
     },
     {
+      artwork: '/products/help-me-nam-product-card.svg',
       code: 'PRODUCT / 02',
       title: 'Help Me',
       summary: 'A digital services marketplace being developed to connect customers with service providers through a structured platform.',
@@ -106,21 +121,79 @@ export class Home {
   protected readonly insights: readonly InsightFeature[] = [
     {
       type: 'Article',
-      title: 'Websites are operational systems, not digital brochures.',
-      summary: 'Why uptime, security, change, measurement and ongoing responsibility matter after launch.',
+      title: 'Your website is part of how your business operates.',
+      summary: 'Availability, security, content changes and ongoing maintenance all matter after launch.',
       path: '/insights/articles',
+      action: 'Read the article',
     },
     {
-      type: 'Case Study',
+      type: 'Practical Guide',
       title: 'Designing a healthcare website around trust and action.',
-      summary: 'A practical look at healthcare information, clear journeys and dependable web operations.',
-      path: '/case-studies',
+      summary: 'Learn how clear information, accessible journeys and dependable operation help patients take the right next step.',
+      path: '/insights/articles',
+      action: 'Read the guide',
     },
     {
       type: 'Note',
-      title: 'Why Expert Systems Technology is starting narrow.',
-      summary: 'Sell what exists, show what is being built and expand public claims only when capability is real.',
-      path: '/company/about',
+      title: 'Why clear service boundaries lead to better websites.',
+      summary: 'Defined scope, ownership and ongoing responsibility make delivery clearer and help the website remain dependable after launch.',
+      path: '/insights/articles',
+      action: 'Read the note',
     },
   ];
+
+  // Replace these records with approved partner details and optional portrait paths.
+  protected readonly partnerVoices: readonly PartnerVoice[] = [
+    {
+      id: 'partner-story-01',
+      organisation: 'Partner story 01',
+      person: 'Partner name',
+      role: 'Role and organisation',
+      quote: 'Add an approved account of the challenge, the collaboration and the outcome here.',
+    },
+    {
+      id: 'partner-story-02',
+      organisation: 'Partner story 02',
+      person: 'Partner name',
+      role: 'Role and organisation',
+      quote: 'Add an approved perspective on what it is like to work with the XpSys team here.',
+    },
+    {
+      id: 'partner-story-03',
+      organisation: 'Partner story 03',
+      person: 'Partner name',
+      role: 'Role and organisation',
+      quote: 'Add an approved example of the practical value created through the partnership here.',
+    },
+    {
+      id: 'partner-story-04',
+      organisation: 'Partner story 04',
+      person: 'Partner name',
+      role: 'Role and organisation',
+      quote: 'Add an approved reflection on delivery, communication and shared responsibility here.',
+    },
+    {
+      id: 'partner-story-05',
+      organisation: 'Partner story 05',
+      person: 'Partner name',
+      role: 'Role and organisation',
+      quote: 'Add an approved account of the result and what the organisation can do better now.',
+    },
+  ];
+
+  protected readonly visiblePartnerVoices = computed(() => {
+    const start = this.activePartnerVoice();
+
+    return this.partnerVoices.map((_, offset) => this.partnerVoices[(start + offset) % this.partnerVoices.length]);
+  });
+
+  protected showPreviousPartnerVoice(): void {
+    this.activePartnerVoice.update((current) =>
+      (current - 1 + this.partnerVoices.length) % this.partnerVoices.length,
+    );
+  }
+
+  protected showNextPartnerVoice(): void {
+    this.activePartnerVoice.update((current) => (current + 1) % this.partnerVoices.length);
+  }
 }

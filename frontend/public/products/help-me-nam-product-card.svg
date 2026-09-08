@@ -1,0 +1,172 @@
+<svg width="1218" height="687" viewBox="0 0 1218 687" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1218" height="687" fill="white"/>
+<rect x="68" y="144" width="1055" height="377" rx="50" fill="white"/>
+<path d="M135.699 405V259.545H175.188V316.364H227.461V259.545H266.949V405H227.461V348.182H175.188V405H135.699ZM338.54 406.989C326.892 406.989 316.855 404.763 308.426 400.312C300.046 395.814 293.583 389.375 289.037 380.994C284.539 372.566 282.29 362.481 282.29 350.739C282.29 339.47 284.563 329.621 289.108 321.193C293.654 312.765 300.069 306.207 308.355 301.52C316.641 296.832 326.419 294.489 337.688 294.489C345.926 294.489 353.384 295.767 360.06 298.324C366.736 300.881 372.442 304.598 377.176 309.474C381.911 314.304 385.557 320.175 388.114 327.088C390.671 334.001 391.949 341.79 391.949 350.455V359.545H294.506V337.955H355.87C355.822 334.83 355.017 332.083 353.455 329.716C351.94 327.301 349.88 325.431 347.276 324.105C344.719 322.732 341.807 322.045 338.54 322.045C335.368 322.045 332.456 322.732 329.804 324.105C327.153 325.431 325.022 327.277 323.412 329.645C321.85 332.012 321.021 334.782 320.926 337.955V361.25C320.926 364.754 321.66 367.879 323.128 370.625C324.596 373.371 326.703 375.526 329.449 377.088C332.195 378.651 335.51 379.432 339.392 379.432C342.091 379.432 344.553 379.053 346.779 378.295C349.051 377.538 350.993 376.449 352.603 375.028C354.212 373.561 355.396 371.809 356.154 369.773H391.949C390.718 377.348 387.806 383.93 383.213 389.517C378.621 395.057 372.536 399.366 364.961 402.443C357.432 405.473 348.625 406.989 338.54 406.989ZM447.152 259.545V405H407.947V259.545H447.152ZM467.127 445.909V295.909H506.047V314.943H506.9C508.32 311.25 510.403 307.865 513.15 304.787C515.896 301.662 519.305 299.176 523.377 297.33C527.449 295.436 532.184 294.489 537.581 294.489C544.778 294.489 551.62 296.406 558.107 300.241C564.641 304.077 569.944 310.114 574.016 318.352C578.135 326.591 580.195 337.292 580.195 350.455C580.195 363.049 578.23 373.49 574.3 381.776C570.417 390.062 565.209 396.241 558.675 400.312C552.188 404.384 545.062 406.42 537.297 406.42C532.184 406.42 527.614 405.592 523.59 403.935C519.613 402.23 516.203 399.934 513.363 397.045C510.569 394.11 508.415 390.795 506.9 387.102H506.331V445.909H467.127ZM505.479 350.455C505.479 355.758 506.166 360.35 507.539 364.233C508.959 368.068 510.948 371.051 513.505 373.182C516.109 375.265 519.21 376.307 522.809 376.307C526.407 376.307 529.461 375.289 531.971 373.253C534.527 371.17 536.469 368.21 537.794 364.375C539.167 360.492 539.854 355.852 539.854 350.455C539.854 345.057 539.167 340.44 537.794 336.605C536.469 332.723 534.527 329.763 531.971 327.727C529.461 325.644 526.407 324.602 522.809 324.602C519.21 324.602 516.109 325.644 513.505 327.727C510.948 329.763 508.959 332.723 507.539 336.605C506.166 340.44 505.479 345.057 505.479 350.455Z" fill="#222222"/>
+<rect x="620" y="211" width="446" height="243" rx="50" fill="#FF4B16"/>
+<path d="M697.943 393.331V284.24H735.159V304.979H736.295C738.568 298.161 742.451 292.763 747.943 288.786C753.436 284.808 759.97 282.82 767.545 282.82C775.216 282.82 781.821 284.856 787.361 288.928C792.901 292.952 796.239 298.303 797.375 304.979H798.511C800.358 298.303 804.288 292.952 810.301 288.928C816.314 284.856 823.369 282.82 831.466 282.82C841.93 282.82 850.405 286.181 856.892 292.905C863.426 299.628 866.693 308.577 866.693 319.752V393.331H827.489V329.695C827.489 324.912 826.281 321.172 823.866 318.473C821.452 315.727 818.208 314.354 814.136 314.354C810.112 314.354 806.916 315.727 804.548 318.473C802.228 321.172 801.068 324.912 801.068 329.695V393.331H763.568V329.695C763.568 324.912 762.361 321.172 759.946 318.473C757.531 315.727 754.288 314.354 750.216 314.354C747.517 314.354 745.197 314.969 743.256 316.2C741.314 317.431 739.799 319.207 738.71 321.527C737.669 323.8 737.148 326.522 737.148 329.695V393.331H697.943ZM938.302 395.32C926.654 395.32 916.616 393.094 908.188 388.644C899.808 384.145 893.344 377.706 888.799 369.325C884.301 360.897 882.052 350.812 882.052 339.07C882.052 327.801 884.325 317.952 888.87 309.524C893.415 301.096 899.831 294.538 908.117 289.851C916.403 285.163 926.181 282.82 937.45 282.82C945.688 282.82 953.146 284.098 959.822 286.655C966.498 289.212 972.203 292.929 976.938 297.805C981.673 302.635 985.319 308.506 987.876 315.419C990.433 322.332 991.711 330.121 991.711 338.786V347.877H894.268V326.286H955.631C955.584 323.161 954.779 320.414 953.217 318.047C951.701 315.632 949.642 313.762 947.038 312.436C944.481 311.063 941.569 310.377 938.302 310.377C935.129 310.377 932.218 311.063 929.566 312.436C926.915 313.762 924.784 315.609 923.174 317.976C921.612 320.343 920.783 323.113 920.688 326.286V349.581C920.688 353.085 921.422 356.21 922.89 358.956C924.358 361.702 926.465 363.857 929.211 365.419C931.957 366.982 935.272 367.763 939.154 367.763C941.853 367.763 944.315 367.384 946.54 366.627C948.813 365.869 950.754 364.78 952.364 363.359C953.974 361.892 955.158 360.14 955.915 358.104H991.711C990.48 365.68 987.568 372.261 982.975 377.848C978.382 383.388 972.298 387.697 964.722 390.774C957.194 393.805 948.387 395.32 938.302 395.32Z" fill="white"/>
+<g clip-path="url(#clip0_3339_53)">
+<rect width="288" height="96" transform="translate(0 591)" fill="#FDB612"/>
+<circle cx="12" cy="603" r="1" fill="black"/>
+<circle cx="84" cy="603" r="1" fill="black"/>
+<circle cx="156" cy="603" r="1" fill="black"/>
+<circle cx="228" cy="603" r="1" fill="black"/>
+<circle cx="12" cy="627" r="1" fill="black"/>
+<circle cx="84" cy="627" r="1" fill="black"/>
+<circle cx="156" cy="627" r="1" fill="black"/>
+<circle cx="228" cy="627" r="1" fill="black"/>
+<circle cx="12" cy="651" r="1" fill="black"/>
+<circle cx="84" cy="651" r="1" fill="black"/>
+<circle cx="156" cy="651" r="1" fill="black"/>
+<circle cx="228" cy="651" r="1" fill="black"/>
+<circle cx="12" cy="675" r="1" fill="black"/>
+<circle cx="84" cy="675" r="1" fill="black"/>
+<circle cx="156" cy="675" r="1" fill="black"/>
+<circle cx="228" cy="675" r="1" fill="black"/>
+<circle cx="60" cy="675" r="1" fill="black"/>
+<circle cx="132" cy="675" r="1" fill="black"/>
+<circle cx="204" cy="675" r="1" fill="black"/>
+<circle cx="276" cy="675" r="1" fill="black"/>
+<circle cx="60" cy="651" r="1" fill="black"/>
+<circle cx="132" cy="651" r="1" fill="black"/>
+<circle cx="204" cy="651" r="1" fill="black"/>
+<circle cx="276" cy="651" r="1" fill="black"/>
+<circle cx="60" cy="627" r="1" fill="black"/>
+<circle cx="132" cy="627" r="1" fill="black"/>
+<circle cx="204" cy="627" r="1" fill="black"/>
+<circle cx="276" cy="627" r="1" fill="black"/>
+<circle cx="60" cy="603" r="1" fill="black"/>
+<circle cx="132" cy="603" r="1" fill="black"/>
+<circle cx="204" cy="603" r="1" fill="black"/>
+<circle cx="276" cy="603" r="1" fill="black"/>
+<circle cx="36" cy="603" r="1" fill="black"/>
+<circle cx="108" cy="603" r="1" fill="black"/>
+<circle cx="180" cy="603" r="1" fill="black"/>
+<circle cx="252" cy="603" r="1" fill="black"/>
+<circle cx="36" cy="627" r="1" fill="black"/>
+<circle cx="108" cy="627" r="1" fill="black"/>
+<circle cx="180" cy="627" r="1" fill="black"/>
+<circle cx="252" cy="627" r="1" fill="black"/>
+<circle cx="36" cy="651" r="1" fill="black"/>
+<circle cx="108" cy="651" r="1" fill="black"/>
+<circle cx="180" cy="651" r="1" fill="black"/>
+<circle cx="252" cy="651" r="1" fill="black"/>
+<circle cx="36" cy="675" r="1" fill="black"/>
+<circle cx="108" cy="675" r="1" fill="black"/>
+<circle cx="180" cy="675" r="1" fill="black"/>
+<circle cx="252" cy="675" r="1" fill="black"/>
+</g>
+<g clip-path="url(#clip1_3339_53)">
+<rect width="288" height="96" transform="translate(288 591)" fill="#FDB612"/>
+<circle cx="300" cy="603" r="1" fill="black"/>
+<circle cx="372" cy="603" r="1" fill="black"/>
+<circle cx="444" cy="603" r="1" fill="black"/>
+<circle cx="516" cy="603" r="1" fill="black"/>
+<circle cx="300" cy="627" r="1" fill="black"/>
+<circle cx="372" cy="627" r="1" fill="black"/>
+<circle cx="444" cy="627" r="1" fill="black"/>
+<circle cx="516" cy="627" r="1" fill="black"/>
+<circle cx="300" cy="651" r="1" fill="black"/>
+<circle cx="372" cy="651" r="1" fill="black"/>
+<circle cx="444" cy="651" r="1" fill="black"/>
+<circle cx="516" cy="651" r="1" fill="black"/>
+<circle cx="300" cy="675" r="1" fill="black"/>
+<circle cx="372" cy="675" r="1" fill="black"/>
+<circle cx="444" cy="675" r="1" fill="black"/>
+<circle cx="516" cy="675" r="1" fill="black"/>
+<circle cx="348" cy="675" r="1" fill="black"/>
+<circle cx="420" cy="675" r="1" fill="black"/>
+<circle cx="492" cy="675" r="1" fill="black"/>
+<circle cx="564" cy="675" r="1" fill="black"/>
+<circle cx="348" cy="651" r="1" fill="black"/>
+<circle cx="420" cy="651" r="1" fill="black"/>
+<circle cx="492" cy="651" r="1" fill="black"/>
+<circle cx="564" cy="651" r="1" fill="black"/>
+<circle cx="348" cy="627" r="1" fill="black"/>
+<circle cx="420" cy="627" r="1" fill="black"/>
+<circle cx="492" cy="627" r="1" fill="black"/>
+<circle cx="564" cy="627" r="1" fill="black"/>
+<circle cx="348" cy="603" r="1" fill="black"/>
+<circle cx="420" cy="603" r="1" fill="black"/>
+<circle cx="492" cy="603" r="1" fill="black"/>
+<circle cx="564" cy="603" r="1" fill="black"/>
+<circle cx="324" cy="603" r="1" fill="black"/>
+<circle cx="396" cy="603" r="1" fill="black"/>
+<circle cx="468" cy="603" r="1" fill="black"/>
+<circle cx="540" cy="603" r="1" fill="black"/>
+<circle cx="324" cy="627" r="1" fill="black"/>
+<circle cx="396" cy="627" r="1" fill="black"/>
+<circle cx="468" cy="627" r="1" fill="black"/>
+<circle cx="540" cy="627" r="1" fill="black"/>
+<circle cx="324" cy="651" r="1" fill="black"/>
+<circle cx="396" cy="651" r="1" fill="black"/>
+<circle cx="468" cy="651" r="1" fill="black"/>
+<circle cx="540" cy="651" r="1" fill="black"/>
+<circle cx="324" cy="675" r="1" fill="black"/>
+<circle cx="396" cy="675" r="1" fill="black"/>
+<circle cx="468" cy="675" r="1" fill="black"/>
+<circle cx="540" cy="675" r="1" fill="black"/>
+</g>
+<g clip-path="url(#clip2_3339_53)">
+<rect width="288" height="96" transform="translate(576 591)" fill="#FDB612"/>
+<circle cx="588" cy="603" r="1" fill="black"/>
+<circle cx="660" cy="603" r="1" fill="black"/>
+<circle cx="732" cy="603" r="1" fill="black"/>
+<circle cx="804" cy="603" r="1" fill="black"/>
+<circle cx="588" cy="627" r="1" fill="black"/>
+<circle cx="660" cy="627" r="1" fill="black"/>
+<circle cx="732" cy="627" r="1" fill="black"/>
+<circle cx="804" cy="627" r="1" fill="black"/>
+<circle cx="588" cy="651" r="1" fill="black"/>
+<circle cx="660" cy="651" r="1" fill="black"/>
+<circle cx="732" cy="651" r="1" fill="black"/>
+<circle cx="804" cy="651" r="1" fill="black"/>
+<circle cx="588" cy="675" r="1" fill="black"/>
+<circle cx="660" cy="675" r="1" fill="black"/>
+<circle cx="732" cy="675" r="1" fill="black"/>
+<circle cx="804" cy="675" r="1" fill="black"/>
+<circle cx="636" cy="675" r="1" fill="black"/>
+<circle cx="708" cy="675" r="1" fill="black"/>
+<circle cx="780" cy="675" r="1" fill="black"/>
+<circle cx="852" cy="675" r="1" fill="black"/>
+<circle cx="636" cy="651" r="1" fill="black"/>
+<circle cx="708" cy="651" r="1" fill="black"/>
+<circle cx="780" cy="651" r="1" fill="black"/>
+<circle cx="852" cy="651" r="1" fill="black"/>
+<circle cx="636" cy="627" r="1" fill="black"/>
+<circle cx="708" cy="627" r="1" fill="black"/>
+<circle cx="780" cy="627" r="1" fill="black"/>
+<circle cx="852" cy="627" r="1" fill="black"/>
+<circle cx="636" cy="603" r="1" fill="black"/>
+<circle cx="708" cy="603" r="1" fill="black"/>
+<circle cx="780" cy="603" r="1" fill="black"/>
+<circle cx="852" cy="603" r="1" fill="black"/>
+<circle cx="612" cy="603" r="1" fill="black"/>
+<circle cx="684" cy="603" r="1" fill="black"/>
+<circle cx="756" cy="603" r="1" fill="black"/>
+<circle cx="828" cy="603" r="1" fill="black"/>
+<circle cx="612" cy="627" r="1" fill="black"/>
+<circle cx="684" cy="627" r="1" fill="black"/>
+<circle cx="756" cy="627" r="1" fill="black"/>
+<circle cx="828" cy="627" r="1" fill="black"/>
+<circle cx="612" cy="651" r="1" fill="black"/>
+<circle cx="684" cy="651" r="1" fill="black"/>
+<circle cx="756" cy="651" r="1" fill="black"/>
+<circle cx="828" cy="651" r="1" fill="black"/>
+<circle cx="612" cy="675" r="1" fill="black"/>
+<circle cx="684" cy="675" r="1" fill="black"/>
+<circle cx="756" cy="675" r="1" fill="black"/>
+<circle cx="828" cy="675" r="1" fill="black"/>
+</g>
+<rect x="864" y="591" width="354" height="96" fill="#FF4B16"/>
+<defs>
+<clipPath id="clip0_3339_53">
+<rect width="288" height="96" fill="white" transform="translate(0 591)"/>
+</clipPath>
+<clipPath id="clip1_3339_53">
+<rect width="288" height="96" fill="white" transform="translate(288 591)"/>
+</clipPath>
+<clipPath id="clip2_3339_53">
+<rect width="288" height="96" fill="white" transform="translate(576 591)"/>
+</clipPath>
+</defs>
+</svg>

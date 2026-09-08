@@ -1,0 +1,17 @@
+<nav class="stepper" [attr.aria-label]="label()">
+  <ol>
+    @for (step of steps(); track step; let index = $index) {
+      <li [class.stepper__item--active]="activeStep() === index" [class.stepper__item--complete]="index < activeStep()">
+        <button
+          type="button"
+          [disabled]="index > maxVisited()"
+          [attr.aria-current]="activeStep() === index ? 'step' : null"
+          (click)="selectStep(index)"
+        >
+          <span class="stepper__number">{{ (index + 1).toString().padStart(2, '0') }}</span>
+          <span class="stepper__label">{{ step }}</span>
+        </button>
+      </li>
+    }
+  </ol>
+</nav>

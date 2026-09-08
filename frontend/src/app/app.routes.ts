@@ -2,6 +2,8 @@ import { Route, Routes } from '@angular/router';
 import type { DirectoryPageData } from '../shared/components/directory-page/directory-page';
 import type { HubPageData } from '../shared/components/hub-page/hub-page';
 import type { MicroResourcePageData } from '../shared/components/micro-resource-page/micro-resource-page';
+import type { CompanyDetailPageData } from './features/company/pages/company-detail/company-detail';
+import { productMicroPage } from './features/products/data/product-microsites.data';
 
 const loadHubPage = () =>
   import('../shared/components/hub-page/hub-page').then((module) => module.HubPage);
@@ -11,6 +13,12 @@ const loadDirectoryPage = () =>
 
 const loadMicroResourcePage = () =>
   import('../shared/components/micro-resource-page/micro-resource-page').then((module) => module.MicroResourcePage);
+
+const loadCompanyDetail = () =>
+  import('./features/company/pages/company-detail/company-detail').then((module) => module.CompanyDetail);
+
+const loadCareerDetail = () =>
+  import('./features/company/careers/pages/career-detail/career-detail').then((module) => module.CareerDetail);
 
 function hubRoute(path: string, page: HubPageData): Route {
   return {
@@ -35,22 +43,27 @@ function microResourceRoute(path: string, page: MicroResourcePageData): Route {
     path,
     title: `${page.title} | ${page.brand} | Expert Systems Technology`,
     loadComponent: loadMicroResourcePage,
-    data: { microPage: page },
+    data: { microPage: page, description: page.introduction },
   };
 }
 
-const managedServices: HubPageData = {
-  eyebrow: 'EXPERT SYSTEMS TECHNOLOGY / Managed services',
-  title: 'Ongoing responsibility. Measurable improvement.',
-  introduction: 'We operate digital and business workflows, capture what happens and continuously improve the service.',
-  ctaLabel: 'Request a callback',
-  ctaPath: '/contact',
-  items: [
-    { code: '01 / DIGITAL', title: 'Managed Web Services', description: 'Strategy, engineering, hosting, monitoring, maintenance, analytics and support as one managed service.', path: '/managed-services/managed-web-services' },
-    { code: '02 / OPERATIONS', title: 'Managed Business Operations', description: 'Customer care, sales and software support operations with structured reporting and accountable service levels.', path: '/managed-services/managed-business-operations' },
-    { code: '03 / MODEL', title: 'Operate and improve', description: 'Define responsibility, operate the workflow, capture activity, measure outcomes and improve the system.' },
-  ],
-};
+function companyDetailRoute(path: string, page: CompanyDetailPageData, description: string): Route {
+  return {
+    path,
+    title: `${page.title} | Expert Systems Technology`,
+    data: { companyPage: page, description },
+    loadComponent: loadCompanyDetail,
+  };
+}
+
+function careerDetailRoute(path: string, careerPage: string, title: string, description: string): Route {
+  return {
+    path,
+    title: `${title} | Careers | Expert Systems Technology`,
+    data: { careerPage, description },
+    loadComponent: loadCareerDetail,
+  };
+}
 
 const engineering: HubPageData = {
   eyebrow: 'EXPERT SYSTEMS TECHNOLOGY / Software engineering',
@@ -70,10 +83,10 @@ const industries: HubPageData = {
   title: 'Technology grounded in operating context.',
   introduction: 'Useful systems reflect the environment in which decisions, records and work actually happen.',
   items: [
-    { code: '01 / HEALTH', title: 'Healthcare', description: 'Clinical workflows, patient records, dispensing, billing and operational visibility.', path: '/industries/healthcare' },
-    { code: '02 / RESOURCES', title: 'Mining & Resources', description: 'Workforce, asset, contractor and operational information across distributed environments.', path: '/industries/mining-resources' },
-    { code: '03 / BUSINESS', title: 'Professional Services', description: 'Customer work, service delivery, knowledge capture and management reporting.', path: '/industries/professional-services' },
-    { code: '04 / PUBLIC', title: 'Government', description: 'Dependable workflows, public records, service delivery and accountable reporting.', path: '/industries/government' },
+    { code: '01 / HEALTH', title: 'Healthcare', description: 'Clinical workflows, patient records and connected operational visibility.', path: '/industries/healthcare' },
+    { code: '02 / MINING', title: 'Mining', description: 'Workforce, asset, contractor and operational information across distributed environments.', path: '/industries/mining' },
+    { code: '03 / SERVICES', title: 'Services', description: 'Customer work, service delivery, knowledge capture and accountable reporting.', path: '/industries/services' },
+    { code: '04 / WASTE', title: 'Waste Management', description: 'Collection, routing, assets, service records and environmental accountability.', path: '/industries/waste-management' },
   ],
 };
 
@@ -94,26 +107,26 @@ const industriesDirectory: DirectoryPageData = {
     {
       code: '/0.2',
       marker: 'M',
-      title: 'Mining & Resources',
+      title: 'Mining',
       description: 'Coordinate workforce, assets, contractors and distributed operations.',
-      path: '/industries/mining-resources',
-      action: 'Explore resources',
+      path: '/industries/mining',
+      action: 'Explore mining',
     },
     {
       code: '/0.3',
       marker: 'B',
-      title: 'Professional Services',
+      title: 'Services',
       description: 'Make customer work, delivery and management reporting visible.',
-      path: '/industries/professional-services',
+      path: '/industries/services',
       action: 'Explore services',
     },
     {
       code: '/0.4',
-      marker: 'G',
-      title: 'Government',
-      description: 'Support dependable public workflows and accountable service delivery.',
-      path: '/industries/government',
-      action: 'Explore government',
+      marker: 'W',
+      title: 'Waste Management',
+      description: 'Connect collection, routing, assets, customer service and accountable reporting.',
+      path: '/industries/waste-management',
+      action: 'Explore waste management',
     },
   ],
 };
@@ -169,12 +182,6 @@ const subpage: HubPageData = {
   ],
 };
 
-const legalPage: HubPageData = {
-  eyebrow: 'EXPERT SYSTEMS TECHNOLOGY / Legal',
-  title: 'Clear terms for using this website.',
-  introduction: 'This legal route is prepared for approved policy content. Final legal wording must be reviewed before publication.',
-  items: [],
-};
 
 const productDeepPaths: readonly string[] = [
   'products/clinic-os/capabilities',
@@ -251,8 +258,6 @@ const productMicroSites: readonly MicroSiteConfig[] = [
 
 const serviceMicroSites: readonly MicroSiteConfig[] = [
   { slug: 'managed-web-services', brand: 'Managed Web Services', basePath: '/services/managed-web-services', workflowSegment: 'how-it-works' },
-  { slug: 'managed-business-services', brand: 'Managed Business Services', basePath: '/services/managed-business-services', workflowSegment: 'how-it-works' },
-  { slug: 'software-engineering', brand: 'Software Engineering Services', basePath: '/services/software-engineering', workflowSegment: 'how-it-works' },
 ];
 
 function createMicroResourceRoutes(site: MicroSiteConfig): readonly Route[] {
@@ -277,7 +282,90 @@ function createMicroResourceRoutes(site: MicroSiteConfig): readonly Route[] {
   );
 }
 
-const productMicroResourceRoutes: readonly Route[] = productMicroSites.flatMap(createMicroResourceRoutes);
+const curatedProductSegments: Readonly<Record<'clinic-os' | 'help-me', readonly string[]>> = {
+  'clinic-os': ['capabilities', 'tour', 'compliance', 'roadmap', 'resources', 'early-access', 'documentation', 'workflows', 'security', 'integrations', 'customers', 'intelligence', 'faq', 'faqs'],
+  'help-me': ['capabilities', 'tour', 'for-customers', 'for-providers', 'trust-safety', 'marketplace-operations', 'partners', 'transparency', 'roadmap', 'resources', 'early-access', 'documentation', 'how-it-works', 'customers', 'providers', 'security', 'faq', 'faqs'],
+};
+
+const howWeWork: CompanyDetailPageData = {
+  eyebrow: 'EXPERT SYSTEMS TECHNOLOGY / COMPANY / HOW WE WORK',
+  title: 'How We Work',
+  introduction: 'We begin with the real operation, make responsibility clear and build systems that can be operated and improved with confidence.',
+  marker: 'W',
+  items: [
+    { code: '01 / PRINCIPLE', title: 'Start with the real work.', description: 'We understand the people, information, constraints and decisions involved before deciding what a system should change.' },
+    { code: '02 / ENGINEERING', title: 'Design for durable change.', description: 'Architecture, data boundaries and integrations should make future improvement safer—not harder.' },
+    { code: '03 / DELIVERY', title: 'Make responsibility clear.', description: 'Scope, ownership, service boundaries and the decisions needed to move forward are agreed before delivery begins.' },
+    { code: '04 / OPERATION', title: 'Build for the operating environment.', description: 'Reliability, maintainability, monitoring and controlled change are considered as part of the work—not after launch.' },
+    { code: '05 / CONFIDENTIALITY', title: 'Request only what the work needs.', description: 'We request only necessary information. Access stays with the responsible team, and non-public information is not shared without authorisation.' },
+    { code: '06 / IMPROVEMENT', title: 'Learn through real use.', description: 'Useful systems improve through evidence, operational feedback and deliberate decisions about what matters next.' },
+  ],
+  ctaLabel: 'Discuss your project',
+  ctaPath: '/contact',
+  heroCtaLabel: 'Explore Managed Web Services',
+  heroCtaPath: '/services/managed-web-services',
+};
+
+const securityAndTrust: CompanyDetailPageData = {
+  eyebrow: 'EXPERT SYSTEMS TECHNOLOGY / COMPANY / TRUST',
+  title: 'Security & Trust',
+  introduction: 'Trust is part of the service boundary: responsible information handling, controlled access and clear operational responsibility.',
+  marker: 'S',
+  items: [
+    { code: '01 / COMMITMENT', title: 'Handle information responsibly.', description: 'We treat responsible information handling, reliable operation and transparent boundaries as part of every engagement.' },
+    { code: '02 / CONFIDENTIALITY', title: 'Protect confidential business context.', description: 'Processes, SOPs, commercial information, credentials and other non-public material are handled only as needed for agreed work.' },
+    { code: '03 / MINIMISATION', title: 'Request less. Limit access.', description: 'We request only necessary information and limit access to the people responsible for delivering the work.' },
+    { code: '04 / SECURITY', title: 'Apply practical service security.', description: 'Where included in the service, this can cover sensible hardening, HTTPS, dependency maintenance, access controls, backups, monitoring and controlled changes.' },
+    { code: '05 / BOUNDARIES', title: 'Name responsibilities clearly.', description: 'We distinguish XpSys responsibilities from client and third-party platform responsibilities so the service boundary remains understandable.' },
+    { code: '06 / COMMUNICATION', title: 'Communicate important changes.', description: 'Material service issues and planned changes are handled through clear communication within the agreed engagement.' },
+    { code: '07 / LEGAL', title: 'Read the supporting policies.', description: 'Our public legal pages explain how website information is handled and how to raise accessibility or general enquiries.', linkLabel: 'View Privacy, Terms and Accessibility', linkPath: '/legal/privacy' },
+  ],
+  ctaLabel: 'Discuss security requirements',
+  ctaPath: '/contact',
+  heroCtaLabel: 'Contact XpSys about your project',
+  heroCtaPath: '/contact',
+};
+
+const partners: CompanyDetailPageData = {
+  eyebrow: 'EXPERT SYSTEMS TECHNOLOGY / COMPANY / PARTNERS',
+  title: 'Partners',
+  introduction: 'We work with partners when complementary capability makes delivery clearer, stronger and more useful for customers.',
+  marker: 'P',
+  items: [
+    { code: '01 / WHY PARTNER', title: 'Complementary capability, disciplined delivery.', description: 'Partnerships matter when specialist expertise, technology or delivery capacity creates a clearer outcome for the customer.' },
+    { code: '02 / WHO', title: 'For specialists who strengthen the work.', description: 'We welcome conversations with consultancies, implementation partners, domain experts, service providers, technology vendors and referral partners.' },
+    { code: '03 / WAYS TO WORK', title: 'Choose a model that fits the work.', description: 'A relationship may involve referrals, delivery collaboration, product integration or shared industry capability.', linkLabel: 'Explore partnership models', linkPath: '/company/partners/partnership-models' },
+    { code: '04 / PARTNERSHIP', title: 'Keep roles, scope and standards clear.', description: 'Good partnerships protect client confidentiality, respect each team, agree responsibilities and maintain the quality the work requires.' },
+    { code: '05 / FOCUS', title: 'Focused on consequential operating work.', description: 'Our current areas of focus include healthcare, waste management, mining and services.', linkLabel: 'Explore industries', linkPath: '/industries' },
+  ],
+  ctaLabel: 'Partner with XpSys',
+  ctaPath: '/company/partners/partner-with-us',
+  heroCtaLabel: 'Start a partnership conversation',
+  heroCtaPath: '/company/partners/partner-with-us',
+};
+
+const partnershipModels: CompanyDetailPageData = {
+  eyebrow: 'EXPERT SYSTEMS TECHNOLOGY / COMPANY / PARTNERS / MODELS',
+  title: 'Partnership Models',
+  introduction: 'We choose the simplest collaboration model that makes responsibility clear and improves the customer outcome.',
+  marker: 'M',
+  items: [
+    { code: '01 / REFERRAL', title: 'Referral partnerships.', description: 'Introduce work where XpSys is a strong fit, with clear expectations about the relationship and next steps.' },
+    { code: '02 / DELIVERY', title: 'Delivery collaboration.', description: 'Combine complementary skills in a shared engagement while keeping scope, client communication and ownership clear.' },
+    { code: '03 / TECHNOLOGY', title: 'Technology and integration partnerships.', description: 'Connect suitable platforms or specialist tools when they strengthen a customer system and the integration is supportable.' },
+    { code: '04 / INDUSTRY', title: 'Industry and domain collaboration.', description: 'Work with organisations whose local context and domain expertise makes the solution more useful in practice.' },
+  ],
+  ctaLabel: 'Start a partnership conversation',
+  ctaPath: '/company/partners/partner-with-us',
+};
+
+const curatedProductRoutes: readonly Route[] = (Object.entries(curatedProductSegments) as readonly ['clinic-os' | 'help-me', readonly string[]][])
+  .flatMap(([slug, segments]) => segments.map((segment) => microResourceRoute(`products/${slug}/${segment}`, productMicroPage(slug, segment))));
+
+const productMicroResourceRoutes: readonly Route[] = [
+  ...curatedProductRoutes,
+  ...productMicroSites.filter((site) => site.slug === 'pharmacy-os').flatMap(createMicroResourceRoutes),
+];
 const serviceMicroResourceRoutes: readonly Route[] = serviceMicroSites.flatMap(createMicroResourceRoutes);
 
 const managedServiceDeepPaths: readonly string[] = [
@@ -321,58 +409,104 @@ export const routes: Routes = [
   },
   {
     path: 'services',
-    title: 'Services | Expert Systems Technology',
-    loadComponent: () => import('./features/services/pages/services/services').then((module) => module.Services),
+    pathMatch: 'full',
+    redirectTo: 'services/managed-web-services',
   },
   {
     path: 'services/managed-web-services',
     title: 'Managed Web Services | Expert Systems Technology',
+    data: {
+      description: 'Managed websites, web platforms and applications developed and continuously operated by Expert Systems Technology.',
+    },
     loadComponent: () => import('./features/services/managed-web-services/pages/overview/overview').then((module) => module.Overview),
   },
   {
+    path: 'services/managed-web-services/managed-website',
+    title: 'Managed Website | Expert Systems Technology',
+    data: {
+      description: 'A professionally developed company website with hosting, monitoring, maintenance and ongoing technical operation.',
+    },
+    loadComponent: () => import('./features/services/managed-web-services/pages/managed-website/managed-website').then((module) => module.ManagedWebsite),
+  },
+  {
+    path: 'services/managed-web-services/managed-web-platform',
+    title: 'Managed Web Platform | Expert Systems Technology',
+    data: {
+      description: 'A scoped monthly engagement for portals, booking systems, dashboards and authenticated database-backed web experiences.',
+    },
+    loadComponent: () => import('./features/services/managed-web-services/pages/managed-web-platform/managed-web-platform').then((module) => module.ManagedWebPlatform),
+  },
+  {
+    path: 'services/managed-web-services/managed-application',
+    title: 'Managed Application | Expert Systems Technology',
+    data: {
+      description: 'A custom monthly engagement for complex or business-critical applications requiring ongoing operational responsibility.',
+    },
+    loadComponent: () => import('./features/services/managed-web-services/pages/managed-application/managed-application').then((module) => module.ManagedApplication),
+  },
+  {
     path: 'services/managed-business-services',
-    title: 'Managed Business Services | Expert Systems Technology',
-    loadComponent: () => import('./features/services/managed-business-services/pages/overview/overview').then((module) => module.Overview),
+    pathMatch: 'full',
+    redirectTo: 'services/managed-web-services',
   },
   {
     path: 'services/software-engineering',
-    title: 'Software Engineering Services | Expert Systems Technology',
-    loadComponent: () => import('./features/services/software-engineering/pages/overview/overview').then((module) => module.Overview),
+    pathMatch: 'full',
+    redirectTo: 'services/managed-web-services',
   },
   ...serviceMicroResourceRoutes,
   {
     path: 'products',
     title: 'Products | Expert Systems Technology',
+    data: { description: 'Explore Clinic OS and Help Me, two Expert Systems Technology products in development for healthcare operations and local service delivery in Namibia.' },
     loadComponent: () => import('./features/products/pages/products/products').then((module) => module.Products),
   },
   {
     path: 'products/clinic-os',
     title: 'Clinic OS | Expert Systems Technology',
+    data: { description: 'Clinic OS is a clinic management system in development for connected patient journeys, clinical workflows and practice operations.' },
     loadComponent: () => import('./features/products/clinic-os/pages/overview/overview').then((module) => module.Overview),
   },
   {
     path: 'products/pharmacy-os',
     title: 'Pharmacy OS | Expert Systems Technology',
+    data: { description: 'Pharmacy OS is an exploratory product concept for connected pharmacy operations and is not currently offered for sale.' },
     loadComponent: () => import('./features/products/pharmacy-os/pages/overview/overview').then((module) => module.Overview),
   },
   {
     path: 'products/help-me',
     title: 'Help Me Services Marketplace | Expert Systems Technology',
+    data: { description: 'Help Me is a Namibia services marketplace in development, connecting customers and local providers from discovery through completed work.' },
     loadComponent: () => import('./features/products/help-me/pages/overview/overview').then((module) => module.Overview),
   },
   ...productMicroResourceRoutes,
-  ...productDeepPaths.map((path) => hubRoute(path, subpage)),
-  hubRoute('managed-services', managedServices),
-  hubRoute('managed-services/managed-web-services', { ...managedServices, eyebrow: 'MANAGED SERVICE / WEB', title: 'Websites operated as dependable business infrastructure.' }),
-  hubRoute('managed-services/managed-business-operations', { ...managedServices, eyebrow: 'MANAGED SERVICE / OPERATIONS', title: 'Structured customer, sales and support operations.' }),
-  ...managedServiceDeepPaths.map((path) => hubRoute(path, subpage)),
+  ...productDeepPaths.map((path) => {
+    const [, slug, section] = path.split('/');
+    const site = productMicroSites.find((candidate) => candidate.slug === slug) ?? productMicroSites[0];
+    const label = section.split('-').map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`).join(' ');
+    return microResourceRoute(path, {
+      brand: site.brand,
+      basePath: site.basePath,
+      code: `${site.brand.toUpperCase()} / ${label.toUpperCase()}`,
+      title: label === 'Faq' ? 'Frequently Asked Questions' : label,
+      introduction: `${label} information for teams evaluating and operating ${site.brand}.`,
+      workflowPath: `${site.basePath}/${site.workflowSegment}`,
+    });
+  }),
+  { path: 'managed-services', pathMatch: 'full', redirectTo: 'services/managed-web-services' },
+  { path: 'managed-services/managed-web-services', pathMatch: 'full', redirectTo: 'services/managed-web-services' },
+  { path: 'managed-services/managed-business-operations', pathMatch: 'full', redirectTo: 'services/managed-web-services' },
+  ...managedServiceDeepPaths.map((path): Route => ({ path, redirectTo: 'services/managed-web-services' })),
   hubRoute('engineering', engineering),
   ...engineeringDeepPaths.map((path) => hubRoute(path, engineering)),
   directoryRoute('industries', industriesDirectory),
   hubRoute('industries/healthcare', industries),
-  hubRoute('industries/mining-resources', industries),
-  hubRoute('industries/professional-services', industries),
-  hubRoute('industries/government', industries),
+  hubRoute('industries/mining', { ...industries, eyebrow: 'EXPERT SYSTEMS TECHNOLOGY / INDUSTRIES / MINING', title: 'Connect distributed mining work with dependable operational records.' }),
+  hubRoute('industries/services', { ...industries, eyebrow: 'EXPERT SYSTEMS TECHNOLOGY / INDUSTRIES / SERVICES', title: 'Make customer work and service delivery easier to operate.' }),
+  hubRoute('industries/waste-management', { ...industries, eyebrow: 'EXPERT SYSTEMS TECHNOLOGY / INDUSTRIES / WASTE MANAGEMENT', title: 'Coordinate collection, assets and accountable environmental service.' }),
+  { path: 'industries/mining-resources', pathMatch: 'full', redirectTo: 'industries/mining' },
+  { path: 'industries/professional-services', pathMatch: 'full', redirectTo: 'industries/services' },
+  { path: 'industries/government', pathMatch: 'full', redirectTo: 'industries' },
   {
     path: 'insights',
     title: 'Insights | Expert Systems Technology',
@@ -398,33 +532,93 @@ export const routes: Routes = [
   hubRoute('resources/faqs', resources),
   hubRoute('resources/security', resources),
   hubRoute('docs', { ...resources, eyebrow: 'EXPERT SYSTEMS TECHNOLOGY / Documentation', title: 'Understand, configure and operate our products.' }),
-  hubRoute('docs/clinic-os', subpage),
+  microResourceRoute('docs/clinic-os', productMicroPage('clinic-os', 'documentation')),
   hubRoute('docs/pharmacy-os', subpage),
-  hubRoute('docs/help-me', subpage),
+  microResourceRoute('docs/help-me', productMicroPage('help-me', 'documentation')),
   {
     path: 'company',
     title: 'Company | Expert Systems Technology',
+    data: { description: 'Learn what Expert Systems Technology is building, how we work and how our products, managed web services and partnerships support real operations.' },
     loadComponent: () => import('./features/company/pages/company/company').then((module) => module.Company),
   },
   {
     path: 'company/about',
     title: 'About | Expert Systems Technology',
+    data: { description: 'Learn what Expert Systems Technology is building, how we work and how our products, managed web services and partnerships support real operations.' },
     loadComponent: () => import('./features/company/pages/company/company').then((module) => module.Company),
   },
-  hubRoute('company/principles', company),
-  hubRoute('company/engineering-philosophy', company),
-  hubRoute('company/security', company),
-  hubRoute('company/careers', company),
-  hubRoute('company/partners', company),
+  companyDetailRoute('company/how-we-work', howWeWork, 'Learn how Expert Systems Technology combines practical operating principles and engineering discipline to build and improve dependable systems.'),
+  { path: 'company/principles', pathMatch: 'full', redirectTo: 'company/how-we-work' },
+  { path: 'company/engineering-philosophy', pathMatch: 'full', redirectTo: 'company/how-we-work' },
+  companyDetailRoute('company/security', securityAndTrust, 'Learn how Expert Systems Technology approaches access, continuity, auditability and responsible system operation.'),
+  {
+    path: 'company/careers',
+    title: 'Careers | Expert Systems Technology',
+    data: { description: 'Explore careers, role types, recruiting information and working life at Expert Systems Technology in Namibia.' },
+    loadComponent: () => import('./features/company/careers/pages/careers/careers').then((module) => module.Careers),
+  },
+  careerDetailRoute(
+    'company/careers/open-positions',
+    'open-positions',
+    'Open Positions',
+    'View current recruiting status and published career opportunities at Expert Systems Technology in Namibia.',
+  ),
+  careerDetailRoute(
+    'company/careers/getting-hired',
+    'getting-hired',
+    'Getting Hired',
+    'Learn what to expect from the role-relevant interview and hiring process at Expert Systems Technology.',
+  ),
+  careerDetailRoute(
+    'company/careers/students-and-early-talent',
+    'students-and-early-talent',
+    'Students & Early Talent',
+    'Learn how Expert Systems Technology approaches internships, graduate opportunities and early-career development.',
+  ),
+  careerDetailRoute(
+    'company/careers/life-at-expert-systems-technology',
+    'life-at-expert-systems-technology',
+    'Life at Expert Systems Technology',
+    'Learn about the working principles, communication, wellbeing and expectations that shape life at Expert Systems Technology.',
+  ),
+  companyDetailRoute('company/partners', partners, 'Learn how Expert Systems Technology approaches delivery partnerships and complementary capability.'),
+  companyDetailRoute('company/partners/partnership-models', partnershipModels, 'Explore referral, delivery, technology and industry partnership models at Expert Systems Technology.'),
+  {
+    path: 'company/partners/partner-with-us',
+    title: 'Partner With Us | Expert Systems Technology',
+    data: { description: 'Start a partnership conversation with Expert Systems Technology by sharing your organisation, expertise and proposed collaboration.' },
+    loadComponent: () => import('./features/company/pages/partner-with-us/partner-with-us').then((module) => module.PartnerWithUs),
+  },
   {
     path: 'contact',
     title: 'Contact | Expert Systems Technology',
     loadComponent: () => import('./features/contact/pages/contact/contact').then((module) => module.Contact),
   },
-  hubRoute('legal/privacy', legalPage),
-  hubRoute('legal/terms', legalPage),
-  hubRoute('legal/cookies', legalPage),
-  hubRoute('legal/accessibility', legalPage),
+  {
+    path: 'legal/privacy',
+    title: 'Privacy Notice | Expert Systems Technology',
+    data: { policy: 'privacy', description: 'How Expert Systems Technology collects, uses, protects and retains information submitted through this website.' },
+    loadComponent: () => import('./features/legal/pages/legal-page/legal-page').then((module) => module.LegalPage),
+  },
+  {
+    path: 'legal/terms',
+    title: 'Website Terms | Expert Systems Technology',
+    data: { policy: 'terms', description: 'Terms that apply when using the Expert Systems Technology public website and submitting an enquiry.' },
+    loadComponent: () => import('./features/legal/pages/legal-page/legal-page').then((module) => module.LegalPage),
+  },
+  { path: 'legal/cookies', pathMatch: 'full', redirectTo: 'legal/privacy' },
+  {
+    path: 'legal/accessibility',
+    title: 'Accessibility | Expert Systems Technology',
+    data: { policy: 'accessibility', description: 'The accessibility approach, current features and feedback channel for the Expert Systems Technology website.' },
+    loadComponent: () => import('./features/legal/pages/legal-page/legal-page').then((module) => module.LegalPage),
+  },
+  {
+    path: 'sitemap',
+    title: 'Sitemap | Expert Systems Technology',
+    data: { description: 'Browse the public pages for Expert Systems Technology products, managed web services, industries, insights and company information.' },
+    loadComponent: () => import('./features/legal/pages/sitemap/sitemap').then((module) => module.Sitemap),
+  },
   hubRoute('**', {
     eyebrow: 'ERROR / 404',
     title: 'This route does not exist.',

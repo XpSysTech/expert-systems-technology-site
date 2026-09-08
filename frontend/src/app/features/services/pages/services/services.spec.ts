@@ -15,11 +15,11 @@ describe('Services', () => {
     await fixture.whenStable();
   });
 
-  it('renders all service categories', () => {
+  it('renders the currently available service', () => {
     const content = fixture.nativeElement.textContent as string;
     expect(content).toContain('Managed Web Services');
-    expect(content).toContain('Managed Business Services');
-    expect(content).toContain('Software Engineering Services');
+    expect(content).not.toContain('Managed Business Services');
+    expect(content).not.toContain('Software Engineering Services');
   });
 
   it('links every service proposition to its detailed page', () => {
@@ -28,10 +28,6 @@ describe('Services', () => {
       (link) => link.getAttribute('href'),
     );
 
-    expect(hrefs).toEqual([
-      '/services/managed-web-services',
-      '/services/managed-business-services',
-      '/services/software-engineering',
-    ]);
+    expect(hrefs).toEqual(['/services/managed-web-services']);
   });
 });

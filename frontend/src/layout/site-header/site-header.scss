@@ -91,6 +91,17 @@
   padding-block: var(--space-3);
 }
 
+.site-header__mobile-link--unavailable {
+  color: color-mix(in srgb, var(--color-brand-charcoal) 45%, transparent);
+  cursor: not-allowed;
+}
+
+.site-header__mobile-link--unavailable span {
+  font-family: var(--font-label);
+  font-size: var(--type-micro);
+  text-transform: uppercase;
+}
+
 .mobile-nav__section,
 .site-header__mobile-nav > .xpsys-container > .site-header__mobile-link {
   border-bottom: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 18%, transparent);
@@ -202,6 +213,12 @@
   .site-header__contact {
     min-width: clamp(12rem, 16vw, 15rem);
     margin-left: 0;
+  }
+
+  .site-header__link--unavailable {
+    border-bottom-color: transparent;
+    color: color-mix(in srgb, var(--color-brand-charcoal) 45%, transparent);
+    cursor: not-allowed;
   }
 
   .site-header__menu-button,

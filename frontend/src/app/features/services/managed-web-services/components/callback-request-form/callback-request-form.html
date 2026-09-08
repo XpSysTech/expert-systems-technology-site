@@ -1,0 +1,16 @@
+<form class="managed-form callback-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <app-form-stepper [steps]="steps" [activeStep]="activeStep()" [maxVisited]="maxVisited()" label="Callback request progress" (stepChange)="goTo($event)" />
+  @if (activeStep() === 0) {
+    <section class="step-panel" formGroupName="contact"><div class="step-panel__header"><p class="xpsys-kicker text-brand-red">STEP 01</p><h3>How can we reach you?</h3></div><div class="step-grid step-grid--wide">
+      <label class="field">Name <input formControlName="name" autocomplete="name" /></label><label class="field">Organisation <input formControlName="organisation" autocomplete="organization" /></label><label class="field">Phone <input formControlName="phone" type="tel" autocomplete="tel" /></label><label class="field">Email, optional <input formControlName="email" type="email" autocomplete="email" /></label><label class="field">Best time to call <select formControlName="bestTime"><option value="">Select a time</option><option>Morning</option><option>Afternoon</option><option>After 17:00</option><option>Any business hour</option></select></label><label class="choice"><input type="checkbox" formControlName="consent" />I consent to Expert Systems Technology using these details to contact me.</label>
+    </div></section>
+  }
+  @if (activeStep() === 1) {
+    <section class="step-panel" formGroupName="request"><div class="step-panel__header"><p class="xpsys-kicker text-brand-red">STEP 02</p><h3>What would you like to discuss?</h3></div><div class="step-grid"><label class="field">Service of interest <select formControlName="serviceInterest"><option value="">Select a service</option><option>Managed Website</option><option>Managed Web Platform</option><option>Managed Application</option><option>Help me choose</option></select></label><label class="field">Optional project scope or brief <textarea formControlName="projectScope" placeholder="Paste a scope or briefly describe the project."></textarea></label></div></section>
+  }
+  @if (activeStep() === 2) {
+    <section class="step-panel"><div class="step-panel__header"><p class="xpsys-kicker text-brand-red">STEP 03</p><h3>Review your callback request.</h3></div><div class="review-grid"><article class="review-card"><h3>Contact</h3><p>{{ form.controls.contact.controls.name.value }} · {{ form.controls.contact.controls.phone.value }}</p></article><article class="review-card"><h3>Discuss</h3><p>{{ form.controls.request.controls.serviceInterest.value }}</p></article></div><p class="step-note">A team member will review the request and call you during the selected time window.</p></section>
+  }
+  <div class="step-actions">@if (activeStep() > 0) { <button class="xpsys-button" type="button" (click)="back()"><span>Back</span><span aria-hidden="true">←</span></button> } @if (activeStep() < 2) { <button class="xpsys-button xpsys-button--red" type="button" (click)="next()"><span>Continue</span><span aria-hidden="true">→</span></button> } @else { <button class="xpsys-button xpsys-button--red" type="submit"><span>Request a callback</span><span aria-hidden="true">→</span></button> }</div>
+  @if (submissionResult()) { <p class="submission-status" role="status">Your callback request has been passed to our team. A team member will call you back.</p> }
+</form>

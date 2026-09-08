@@ -15,6 +15,8 @@ describe('SalesCard', () => {
     fixture.componentRef.setInput('content', {
       code: '01 / PRODUCT',
       title: 'Clinic OS',
+      image: '/products/clinic-os-product-card.svg',
+      imageAlt: 'Clinic OS logo and icon',
       audience: 'Clinical teams',
       outcome: 'One dependable clinical record.',
       description: 'Connected workflows for daily care.',
@@ -32,5 +34,7 @@ describe('SalesCard', () => {
     expect(content).toContain('Clinic OS');
     expect(content).toContain('Patient records');
     expect(link?.getAttribute('href')).toBe('/products/clinic-os');
+    expect(fixture.nativeElement.querySelector('img')?.getAttribute('src')).toBe('/products/clinic-os-product-card.svg');
+    expect(fixture.nativeElement.querySelector('img')?.getAttribute('alt')).toBe('Clinic OS logo and icon');
   });
 });

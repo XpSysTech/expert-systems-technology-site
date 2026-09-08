@@ -1,1 +1,25 @@
-<p>faq-list works!</p>
+<div class="faq" role="list" [attr.aria-label]="label()">
+  @for (item of items(); track item[0]; let index = $index) {
+    <article class="faq__item" role="listitem" [class.faq__item--open]="openIndex() === index">
+      <h3>
+        <button
+          type="button"
+          class="faq__trigger"
+          [attr.aria-expanded]="openIndex() === index"
+          [attr.aria-controls]="'faq-answer-' + index"
+          (click)="toggle(index)"
+        >
+          <span>{{ item[0] }}</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+      </h3>
+      <div
+        class="faq__answer"
+        [id]="'faq-answer-' + index"
+        [attr.hidden]="openIndex() === index ? null : ''"
+      >
+        <p>{{ item[1] }}</p>
+      </div>
+    </article>
+  }
+</div>
