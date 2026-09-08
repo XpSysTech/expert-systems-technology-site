@@ -39,10 +39,25 @@ Use `src/app/features/products/help-me/` as the feature-shape reference:
 - Containers own spacing between siblings, reusable components own internal spacing, and `gap` is preferred for sibling relationships.
 - Maintain WCAG 2.2 AA semantics, keyboard operation, visible focus, labels, contrast, and non-color cues. Respect `prefers-reduced-motion`.
 
+## Public-page SEO implementation
+
+Follow `../docs/SEO.md` as the detailed source of truth. The Angular-specific implementation requirements below supplement that standard.
+
+- Give every public route a unique, descriptive page title through Angular route metadata or the established SEO service.
+- Set a page-specific meta description; do not reuse a generic site description on distinct public pages.
+- Emit one canonical URL per public page. Build it from the configured production origin and normalized route, never directly from an untrusted request host or forwarded header.
+- Render exactly one clear primary `<h1>` that describes the page's main subject. Do not use heading levels for visual styling alone.
+- Use semantic landmarks and sectioning elements such as `main`, `header`, `nav`, `section`, `article`, and `footer` where they communicate the document structure.
+- Use descriptive internal-link text. Avoid ambiguous standalone labels such as “click here” or repeated “read more” links without an accessible name that identifies the destination.
+- Add valid JSON-LD only when a schema type accurately represents visible page content. Keep structured data synchronized with the rendered title, description, URL, organization, article, product, service, or breadcrumb information it describes.
+- Add stable marketing and informational routes to the existing Angular prerender configuration when they do not depend on user-specific, request-specific, or browser-only state.
+- Preserve SSR and prerender compatibility in SEO logic: guard browser globals, produce deterministic metadata, and avoid deriving canonical URLs from runtime-only client state.
+
 ## Tests and validation
 
 - Keep a colocated Vitest spec for every component, service, pipe, directive, and interceptor with behavior worth testing.
 - Test observable behavior and contracts rather than private implementation details. Include loading, empty, error, and accessibility-relevant states when applicable.
+- For new or changed public pages, test the route title, meta description, canonical URL, single primary `<h1>`, and any structured data or prerender registration introduced by the change.
 - Use Angular TestBed for Angular units and mock only external boundaries.
 - Run from this directory:
 
@@ -51,7 +66,7 @@ npm test -- --watch=false
 npm run build
 ```
 
-For visual changes, inspect representative desktop and mobile layouts and check that static rendering completes without hydration/browser-global errors.
+For visual changes, inspect representative desktop and mobile layouts and check that static rendering completes without hydration/browser-global errors. For public-route changes, also confirm the production build prerenders the expected stable routes.
 
 ## Content and API changes
 

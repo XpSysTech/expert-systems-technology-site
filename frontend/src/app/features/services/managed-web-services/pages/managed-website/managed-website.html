@@ -1,0 +1,146 @@
+<main>
+  <header class="detail-hero website-hero">
+    <div class="xpsys-container detail-hero__grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">MANAGED WEB SERVICES / MANAGED WEBSITE</p>
+        <h1>A public website,<br />properly operated.</h1>
+        <p class="website-hero__descriptor">A managed service for organisations that need their public presence to keep working after launch.</p>
+      </div>
+      <div class="detail-hero__statement">
+        <p>Present your organisation clearly, give visitors a useful next step and keep the underlying website in dependable hands.</p>
+        <p class="price-statement">Indicative N$1,200–N$5,000+ monthly</p>
+        <div class="detail-actions">
+          <a class="xpsys-button xpsys-button--red" href="#scope-website">Scope My Website <span aria-hidden="true">→</span></a>
+          <a class="xpsys-button" routerLink="/services/managed-web-services/managed-web-platform">Need accounts or workflows? <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="scope-website" class="detail-section website-scope" aria-labelledby="scope-website-title">
+    <div class="xpsys-container">
+      <div class="website-scope__intro">
+        <div>
+          <p class="xpsys-kicker text-brand-red">01 / SCOPE MY WEBSITE</p>
+          <h2 id="scope-website-title">Start with the website work that matters now.</h2>
+        </div>
+        <div class="detail-copy">
+          <p>Build an initial scope in a few steps. We will review the project and call you back before confirming a proposal.</p>
+          <p class="website-scope__note">You do not need every answer before you begin. The form helps us understand the pages, visitor actions and ongoing support that may be useful.</p>
+        </div>
+      </div>
+      <app-website-scope-form />
+    </div>
+  </section>
+
+  <section class="detail-section" aria-labelledby="website-for">
+    <div class="xpsys-container detail-grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">02 / WHO THIS IS FOR</p>
+        <h2 id="website-for">Your web presence needs an operator, not only a launch.</h2>
+      </div>
+      <div class="detail-copy">
+        <p>Managed Website is for organisations that need a credible, secure and maintained public web presence without application-grade accounts, workflows or databases.</p>
+        <p>It can cover a new build or the assessed migration of an existing website.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section detail-section--mist website-capabilities" aria-labelledby="website-capabilities-title">
+    <div class="xpsys-container">
+      <div class="website-capabilities__intro">
+        <div>
+          <p class="xpsys-kicker text-brand-red">03 / WHAT YOUR WEBSITE MAY INCLUDE</p>
+          <h2 id="website-capabilities-title">Useful public functionality, chosen for your organisation.</h2>
+        </div>
+        <p class="detail-copy">The final website is tailored to your priorities. These are capability areas we can assess together, rather than a list of features every website must have.</p>
+      </div>
+      <div class="website-capability-grid">
+        @for (group of capabilityGroups; track group.title) {
+          <article class="website-capability-card">
+            <span>{{ group.number }}</span>
+            <h3>{{ group.title }}</h3>
+            <p>{{ group.copy }}</p>
+            <p class="website-capability-card__examples">{{ group.examples }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section detail-section--mist" aria-labelledby="website-responsibility">
+    <div class="xpsys-container">
+      <p class="xpsys-kicker text-brand-red">04 / OPERATING RESPONSIBILITY</p>
+      <h2 id="website-responsibility">One managed service around the public site.</h2>
+      <p class="website-responsibility__intro">Hover or focus a responsibility to see how it supports the ongoing service.</p>
+      <div class="content-grid content-grid--three website-responsibility-grid">
+        @for (item of responsibilities; track item.title) {
+          <article class="content-card content-card--interactive" tabindex="0">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.copy }}</p>
+            <p class="content-card__more">{{ item.more }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section detail-section--charcoal" aria-labelledby="website-process">
+    <div class="xpsys-container website-delivery">
+      <header class="website-delivery__intro">
+        <div>
+        <p class="xpsys-kicker">05 / DELIVERY PROCESS</p>
+          <h2 id="website-process">A website project with an operating plan.</h2>
+        </div>
+        <p>We define the work before we build, confirm the launch conditions and remain responsible for the agreed service after your website is live.</p>
+      </header>
+
+      <ol class="website-delivery__stages">
+        @for (stage of deliveryStages; track stage.title) {
+          <li class="website-delivery__stage">
+            <span class="website-delivery__number">{{ stage.number }}</span>
+            <h3>{{ stage.title }}</h3>
+            <p>{{ stage.copy }}</p>
+            <p class="website-delivery__outcome"><span>You leave with</span>{{ stage.outcome }}</p>
+          </li>
+        }
+      </ol>
+
+      <aside class="website-delivery__roles" aria-label="Delivery responsibilities">
+        <p class="xpsys-kicker">WORKING TOGETHER</p>
+        <div>
+          <h3>Your role</h3>
+          <p>Share context, make decisions and keep the right people involved as the work takes shape.</p>
+        </div>
+        <div>
+          <h3>Our role</h3>
+          <p>Turn the agreed scope into a website that is launched, monitored and maintained within clear service boundaries.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="detail-section" aria-labelledby="website-pricing">
+    <div class="xpsys-container detail-grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">06 / MONTHLY MODEL</p>
+        <h2 id="website-pricing">The range is guidance,<br />not a quote.</h2>
+      </div>
+      <div class="detail-copy">
+        <p>The monthly amount depends on site size, content volume, integrations, traffic, support expectations and the operational responsibility assigned to Expert Systems Technology.</p>
+        <p>Final scope, ownership, domain access and service responsibilities are documented contractually.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section detail-section--mist" aria-labelledby="website-faq">
+    <div class="xpsys-container detail-grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">07 / FAQ</p>
+        <h2 id="website-faq">Before we scope.</h2>
+      </div>
+      <app-faq-list [items]="faqs" />
+    </div>
+  </section>
+
+</main>

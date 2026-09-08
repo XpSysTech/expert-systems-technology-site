@@ -1,1 +1,196 @@
-<app-service-page service="managed-web-services" />
+<main class="managed-page">
+  <header class="managed-hero">
+    <div class="xpsys-container managed-hero__grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">EXPERT SYSTEMS TECHNOLOGY / MANAGED WEB SERVICES</p>
+        <h1>Your web presence,<br />continuously operated.</h1>
+      </div>
+      <div class="managed-hero__statement">
+        <p>We design, develop, host, manage, maintain, monitor and secure your web environment as an ongoing technical service.</p>
+        <div class="managed-actions">
+          <a class="xpsys-button xpsys-button--red" href="#help-me-choose">Help Me Choose <span aria-hidden="true">↓</span></a>
+          <a class="xpsys-button" href="#service-types">View Service Types <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="service-types" class="managed-section managed-section--mist" aria-labelledby="service-types-title">
+    <div class="xpsys-container">
+      <div class="section-intro">
+        <p class="xpsys-kicker text-brand-red">01 / SERVICE OPTIONS</p>
+        <h2 id="service-types-title">Choose what your project<br />needs to do.</h2>
+        <p>Start with a managed website, add connected platform features, or scope a business-critical application. We will help confirm the right fit.</p>
+      </div>
+      <div class="classification-grid">
+        @for (classification of classifications; track classification.slug) {
+          <article class="classification-card">
+            <p class="xpsys-kicker text-brand-red">{{ classification.code }}</p>
+            <h3>{{ classification.title }}</h3>
+            <p class="classification-card__audience">{{ classification.audience }}</p>
+            <p>{{ classification.summary }}</p>
+            <strong>{{ classification.price }}</strong>
+            <div class="classification-card__actions">
+              <a class="classification-card__link" [routerLink]="['/services/managed-web-services', classification.slug]">{{ classification.action }} <span aria-hidden="true">→</span></a>
+              <a class="classification-card__link classification-card__link--scope" [routerLink]="['/services/managed-web-services', classification.slug]" [fragment]="classification.slug === 'managed-website' ? 'scope-website' : classification.slug === 'managed-web-platform' ? 'scope-platform' : 'book-consultation'">Scope this project <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="managed-web-meaning" class="managed-section managed-meaning" aria-labelledby="managed-meaning-title">
+    <div class="xpsys-container">
+      <header class="managed-meaning__intro">
+        <div>
+          <p class="xpsys-kicker text-brand-red">02 / WHAT MANAGED MEANS</p>
+          <h2 id="managed-meaning-title">Delivery is a milestone.<br />Operation is the service.</h2>
+        </div>
+        <div class="managed-copy">
+          <p>A once-off website project can end at handover.</p>
+          <p>Managed Web Services means responsibility continues after launch. We remain responsible for the agreed technical operation of your website: keeping it deployed, available, monitored, maintained and improved within the defined service scope.</p>
+          <p>The exact responsibilities, service levels and change boundaries are confirmed in your selected package, contract and scoped engagement.</p>
+        </div>
+      </header>
+
+      <dl class="managed-meaning__comparison" aria-label="Once-off project and managed service comparison">
+        <div>
+          <dt>Once-off project</dt>
+          <dd>Build <span aria-hidden="true">→</span> Deliver <span aria-hidden="true">→</span> Handover</dd>
+        </div>
+        <div>
+          <dt>Managed service</dt>
+          <dd>Build <span aria-hidden="true">→</span> Deploy <span aria-hidden="true">→</span> Operate <span aria-hidden="true">→</span> Monitor <span aria-hidden="true">→</span> Maintain <span aria-hidden="true">→</span> Improve</dd>
+        </div>
+      </dl>
+
+      <div class="managed-meaning__responsibility">
+        <p class="xpsys-kicker text-brand-red">MANAGED RESPONSIBILITY</p>
+        <div class="managed-meaning__responsibility-heading">
+          <h3>Responsibility continues across the life of the website.</h3>
+          <p>Select a stage to see what ongoing technical responsibility means throughout a managed web engagement.</p>
+        </div>
+      </div>
+
+      <div class="managed-meaning__stages" aria-label="Managed website lifecycle stages">
+        @for (stage of lifecycleStages; track stage.label; let index = $index) {
+          <button
+            type="button"
+            [class.is-selected]="selectedLifecycleIndex() === index"
+            [attr.aria-pressed]="selectedLifecycleIndex() === index"
+            (click)="selectLifecycleStage(index)"
+          >
+            <span>{{ (index + 1).toString().padStart(2, '0') }}</span>
+            {{ stage.label }}
+          </button>
+        }
+      </div>
+
+      <article class="managed-meaning__detail" aria-live="polite">
+        <div class="managed-meaning__stage-name">
+          <span>{{ (selectedLifecycleIndex() + 1).toString().padStart(2, '0') }}</span>
+          <h3>{{ selectedLifecycleStage().label }}</h3>
+        </div>
+        <div>
+          <p class="xpsys-kicker">WHAT THIS MEANS</p>
+          <p>{{ selectedLifecycleStage().description }}</p>
+          <p class="xpsys-kicker managed-meaning__list-label">RESPONSIBILITIES</p>
+          <ul>
+            @for (item of selectedLifecycleStage().responsibilities; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        </div>
+      </article>
+
+      <aside class="managed-meaning__scope-note">
+        <p class="xpsys-kicker text-brand-red">SCOPE BOUNDARY</p>
+        <p><strong>Managed does not mean unlimited development or unrestricted change.</strong> The responsibilities included in your service are defined by the selected package, agreement and approved scope.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="managed-section" aria-labelledby="responsibility-title">
+    <div class="xpsys-container">
+      <div class="section-intro section-intro--wide">
+        <p class="xpsys-kicker text-brand-red">03 / WHAT EACH SERVICE COVERS</p>
+        <h2 id="responsibility-title">Compare the typical scope.</h2>
+        <p>Use this guide to compare what is normally included. Your final proposal will confirm the exact responsibilities for your project.</p>
+      </div>
+      <div class="responsibility-table" tabindex="0" aria-label="Scrollable responsibility comparison">
+        <table>
+          <thead><tr><th scope="col">Responsibility</th><th scope="col">Website</th><th scope="col">Platform</th><th scope="col">Application</th></tr></thead>
+          <tbody>@for (row of responsibilities; track row.responsibility) { <tr><th scope="row">{{ row.responsibility }}</th><td><span class="scope-label">{{ row.website }}</span></td><td><span class="scope-label">{{ row.platform }}</span></td><td><span class="scope-label">{{ row.application }}</span></td></tr> }</tbody>
+        </table>
+      </div>
+      <p class="table-note">Final responsibility follows the contract and scoped engagement.</p>
+    </div>
+  </section>
+
+  <section class="managed-section managed-section--charcoal" aria-labelledby="process-title">
+    <div class="xpsys-container delivery-process">
+      <header class="delivery-process__intro">
+        <div>
+          <p class="xpsys-kicker">04 / HOW IT WORKS</p>
+          <h2 id="process-title">A clear path from the first conversation to ongoing operation.</h2>
+        </div>
+        <p>Every project is scoped differently. These phases show how we establish the right service, agree responsibility and remain involved after launch.</p>
+      </header>
+
+      <ol class="delivery-process__phases">
+        @for (phase of deliveryPhases; track phase.title) {
+          <li class="delivery-process__phase">
+            <span class="delivery-process__number">{{ phase.number }}</span>
+            <h3>{{ phase.title }}</h3>
+            <p>{{ phase.copy }}</p>
+            <p class="delivery-process__outcome"><span>Outcome</span>{{ phase.outcome }}</p>
+          </li>
+        }
+      </ol>
+
+      <p class="delivery-process__closing">One accountable team across the decisions that shape the website, its launch and its agreed ongoing operation.</p>
+    </div>
+  </section>
+
+  <section class="managed-section" aria-labelledby="commercial-title">
+    <div class="xpsys-container commercial-grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">05 / MONTHLY SERVICE</p>
+        <h2 id="commercial-title">A monthly service shaped<br />around your project.</h2>
+      </div>
+      <div class="managed-copy">
+        <p>Your monthly price depends on the functionality, content, integrations, users, infrastructure and support your project needs.</p>
+        <p>Published ranges help with early planning. We confirm the final price after evaluating your scope.</p>
+      </div>
+      <aside>
+        <p class="xpsys-kicker">LIMITED CUSTOMER INTAKE</p>
+        <p>To give every client focused support, we accept new projects according to available delivery capacity.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="managed-section managed-section--mist" aria-labelledby="faq-title">
+    <div class="xpsys-container faq-grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">06 / FAQ</p>
+        <h2 id="faq-title">Before you choose.</h2>
+      </div>
+      <app-faq-list [items]="faqs" />
+    </div>
+  </section>
+
+  <section id="help-me-choose" class="managed-section managed-cta" aria-labelledby="choose-title">
+    <div class="xpsys-container">
+      <p class="xpsys-kicker text-brand-red">07 / HELP ME CHOOSE</p>
+      <div id="callback-request" class="callback-block">
+        <div>
+          <p class="xpsys-kicker text-brand-red">PREFER TO TALK?</p>
+          <h2 id="choose-title">Ask our team to call you.</h2>
+          <p>Leave your details and, if useful, add an optional project brief. A team member will review the request and call you back.</p>
+        </div>
+        <app-callback-request-form />
+      </div>
+    </div>
+  </section>
+</main>

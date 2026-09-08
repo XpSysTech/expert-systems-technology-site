@@ -1,0 +1,53 @@
+<figure class="system-diagram" [class.system-diagram--strip]="isProductSystemView()" [attr.data-kind]="kind()">
+  <figcaption [class.visually-hidden]="isProductSystemView()">
+    <span class="system-diagram__label">SYSTEM VIEW</span>
+    <strong>{{ title() }}</strong>
+    <span>{{ description() }}</span>
+  </figcaption>
+
+  @switch (kind()) {
+    @case ('clinic-lifecycle') {
+      <ol class="system-strip" role="img" aria-label="Patient lifecycle: onboard, assess, treat, follow up and monitor, connected by one longitudinal record">
+        @for (step of ['Onboard', 'Assess', 'Treat', 'Follow up', 'Monitor']; track step; let index = $index) {
+          <li><span>0{{ index + 1 }}</span><strong>{{ step }}</strong></li>
+        }
+      </ol>
+    }
+    @case ('marketplace-flow') {
+      <ol class="system-strip" role="img" aria-label="Marketplace flow: discover, request, quote, arrange, complete and review">
+        @for (step of ['Discover', 'Request', 'Quote', 'Arrange', 'Complete', 'Review']; track step; let index = $index) {
+          <li><span>0{{ index + 1 }}</span><strong>{{ step }}</strong></li>
+        }
+      </ol>
+    }
+    @case ('clinic-layers') {
+      <ol class="system-strip" role="img" aria-label="Clinic OS layers: clinical experience, workflow, longitudinal record, scheduling and prescriptions, permissions and audit, data and infrastructure">
+        @for (layer of ['Experience', 'Workflow', 'Longitudinal record', 'Scheduling & care', 'Permissions & audit', 'Data & infrastructure']; track layer; let index = $index) {
+          <li><span>0{{ index + 1 }}</span><strong>{{ layer }}</strong></li>
+        }
+      </ol>
+    }
+    @case ('marketplace-layers') {
+      <ol class="system-strip" role="img" aria-label="Help Me layers: customer experience, provider workspace, marketplace core, messaging and coordination, trust and operations, data and infrastructure">
+        @for (layer of ['Customer', 'Provider', 'Marketplace core', 'Messaging', 'Trust & operations', 'Data & infrastructure']; track layer; let index = $index) {
+          <li><span>0{{ index + 1 }}</span><strong>{{ layer }}</strong></li>
+        }
+      </ol>
+    }
+    @case ('managed-loop') {
+      <div class="loop" role="img" aria-label="Managed service loop: build, deploy, monitor, maintain, measure and improve">
+        @for (step of ['Build', 'Deploy', 'Monitor', 'Maintain', 'Measure', 'Improve']; track step; let index = $index) {
+          <div class="loop__node"><span>0{{ index + 1 }}</span><strong>{{ step }}</strong></div>
+        }
+        <div class="loop__centre">GO-LIVE<br /><span>inside the loop</span></div>
+      </div>
+    }
+    @case ('managed-delivery') {
+      <div class="flow flow--delivery" role="img" aria-label="Managed web delivery from consultation through ongoing operation">
+        @for (step of ['Consult', 'Classify', 'Scope', 'Design', 'Develop', 'Review', 'Deploy', 'Operate']; track step; let index = $index) {
+          <div class="flow__node"><span>{{ (index + 1).toString().padStart(2, '0') }}</span><strong>{{ step }}</strong></div>
+        }
+      </div>
+    }
+  }
+</figure>

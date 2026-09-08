@@ -4,6 +4,8 @@ import { RouterLink } from '@angular/router';
 export interface SalesCardContent {
   readonly code: string;
   readonly title: string;
+  readonly image?: string;
+  readonly imageAlt?: string;
   readonly audience: string;
   readonly outcome: string;
   readonly description: string;

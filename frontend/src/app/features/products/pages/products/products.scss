@@ -32,6 +32,13 @@
   margin: 0;
 }
 
+.catalog-hero__pitch .catalog-hero__support {
+  max-width: 40rem;
+  margin-top: var(--space-3);
+  color: color-mix(in srgb, var(--color-brand-charcoal) 68%, transparent);
+  line-height: 1.55;
+}
+
 .catalog-hero__actions {
   display: flex;
   flex-wrap: wrap;
@@ -51,7 +58,6 @@
 
 .catalog-intro h2,
 .catalog-cta h2 {
-  max-width: 18ch;
   margin: 0;
   font-size: var(--type-heading-2);
   font-weight: 400;
@@ -59,9 +65,9 @@
   line-height: 0.98;
 }
 
-.catalog-intro p:last-child {
+.catalog-intro__copy {
   max-width: 54ch;
-  margin: var(--space-3) 0 0;
+  margin: 0;
   color: color-mix(in srgb, var(--color-brand-charcoal) 68%, transparent);
   line-height: 1.55;
 }
@@ -98,7 +104,8 @@
   }
 
   .catalog-intro {
-    grid-template-columns: minmax(10rem, 0.45fr) minmax(0, 1fr);
+    grid-template-columns: minmax(10rem, 0.35fr) minmax(0, 0.95fr) minmax(16rem, 0.55fr);
+    align-items: end;
   }
 }
 
@@ -115,7 +122,7 @@
   }
 
   .catalog-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .catalog-cta .xpsys-container {

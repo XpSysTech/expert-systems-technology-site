@@ -1,0 +1,140 @@
+<main>
+  <header class="detail-hero">
+    <div class="xpsys-container detail-hero__grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">MANAGED WEB SERVICES / MANAGED WEB PLATFORM</p>
+        <h1>Connected web functionality,<br />continuously operated.</h1>
+      </div>
+      <div class="detail-hero__statement">
+        <p>For portals, booking systems, dashboards and authenticated web experiences that need more than an information website.</p>
+        <p class="price-statement">Scoped Monthly Engagement</p>
+        <div class="detail-actions">
+          <a class="xpsys-button xpsys-button--red" href="#scope-platform">Scope My Platform <span aria-hidden="true">↓</span></a>
+          <a class="xpsys-button" href="#platform-capabilities">View Capabilities <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="detail-section" aria-labelledby="platform-for">
+    <div class="xpsys-container detail-grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">01 / WHO THIS IS FOR</p>
+        <h2 id="platform-for">When the website becomes a working platform.</h2>
+      </div>
+      <div class="detail-copy">
+        <p>Managed Web Platform suits organisations that need customer or member portals, account areas, booking, quoting, lightweight dashboards, APIs or database-backed web functionality.</p>
+        <p>It is intentionally positioned between a public information site and a complex business-critical application environment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section detail-section--mist" aria-labelledby="platform-problems">
+    <div class="xpsys-container">
+      <p class="xpsys-kicker text-brand-red">02 / PROBLEMS THIS SOLVES</p>
+      <h2 id="platform-problems">Move repeatable interactions into a dependable web workflow.</h2>
+      <div class="content-grid content-grid--three">
+        @for (item of [
+          { title: 'Fragmented requests', copy: 'Bring forms, account interactions and status visibility into one managed experience.' },
+          { title: 'Manual coordination', copy: 'Support booking, quoting, notification and approval workflows with clear system behaviour.' },
+          { title: 'Disconnected data', copy: 'Connect appropriate APIs and database functionality without turning the public site into unmanaged custom code.' }
+        ]; track item.title) {
+          <article class="content-card"><h3>{{ item.title }}</h3><p>{{ item.copy }}</p></article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="platform-capabilities" class="detail-section" aria-labelledby="platform-responsibility">
+    <div class="xpsys-container">
+      <p class="xpsys-kicker text-brand-red">03 / RESPONSIBILITIES & CAPABILITIES</p>
+      <h2 id="platform-responsibility">A shared boundary, defined before build.</h2>
+      <div class="content-grid">
+        <article class="content-card">
+          <h3>Expert Systems Technology responsibilities</h3>
+          <ul>
+            <li>Architecture, design and development</li>
+            <li>Production hosting and deployment</li>
+            <li>Monitoring, maintenance and release management</li>
+            <li>Scoped integrations, database and access controls</li>
+          </ul>
+        </article>
+        <article class="content-card">
+          <h3>Customer responsibilities</h3>
+          <ul>
+            <li>Accurate requirements and authorised content</li>
+            <li>Timely access to systems and decision makers</li>
+            <li>Internal user, policy and process ownership</li>
+            <li>Contract-defined approvals and data responsibilities</li>
+          </ul>
+        </article>
+        <article class="content-card">
+          <h3>Typical capabilities</h3>
+          <p>Authentication, user accounts, booking, payments, dashboards, document upload, notifications, reporting, search and workflows.</p>
+        </article>
+        <article class="content-card">
+          <h3>Ongoing operation</h3>
+          <p>Monitoring, controlled releases, maintenance, agreed support, backup/restore and capacity review according to the final scope.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section detail-section--charcoal" aria-labelledby="platform-architecture">
+    <div class="xpsys-container detail-grid">
+      <div>
+        <p class="xpsys-kicker">04 / ARCHITECTURE & DELIVERY</p>
+        <h2 id="platform-architecture">Designed as an operated system.</h2>
+        <p class="detail-copy">Architecture is shaped by users, data, integrations, security, expected usage and the responsibility boundary—not by a generic package template.</p>
+      </div>
+      <ol class="architecture-flow">
+        @for (stage of ['Scope & architecture', 'Design & build', 'Security & deployment', 'Operate & improve']; track stage; let index = $index) {
+          <li><span>{{ (index + 1).toString().padStart(2, '0') }}</span>{{ stage }}</li>
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="detail-section" aria-labelledby="platform-security">
+    <div class="xpsys-container detail-grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">05 / SECURITY & RELIABILITY</p>
+        <h2 id="platform-security">Access, data and operation are scoped together.</h2>
+      </div>
+      <div class="detail-copy">
+        <p>Security and reliability decisions cover authentication, permissions, data sensitivity, integrations, infrastructure, observability and recovery expectations.</p>
+        <p>No public form should contain actual sensitive production data. The scope captures categories and operating expectations only.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section detail-section--mist" aria-labelledby="platform-pricing">
+    <div class="xpsys-container detail-grid">
+      <div>
+        <p class="xpsys-kicker text-brand-red">06 / PRICING MODEL</p>
+        <h2 id="platform-pricing">Scoped Monthly Engagement.</h2>
+      </div>
+      <div class="detail-copy">
+        <p>Price varies with functionality, user roles, data, integrations, infrastructure, traffic, support expectations, service levels and operational responsibility.</p>
+        <p>We do not publish an artificial fixed range for materially different platform scopes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section" aria-labelledby="platform-faq">
+    <div class="xpsys-container detail-grid">
+      <div><p class="xpsys-kicker text-brand-red">07 / FAQ</p><h2 id="platform-faq">Before you scope.</h2></div>
+      <app-faq-list [items]="faqs" />
+    </div>
+  </section>
+
+  <section id="scope-platform" class="detail-section detail-section--mist" aria-labelledby="scope-platform-title">
+    <div class="xpsys-container">
+      <div class="form-intro">
+        <div><p class="xpsys-kicker text-brand-red">08 / SCOPE MY PLATFORM</p><h2 id="scope-platform-title">Build a useful first scope.</h2></div>
+        <p class="detail-copy">The guided form records the organisation, users, functions, data, integrations, security and operating context. It does not ask for sensitive production data.</p>
+      </div>
+      <app-platform-scope-form />
+    </div>
+  </section>
+</main>

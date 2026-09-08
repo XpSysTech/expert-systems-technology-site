@@ -1,0 +1,7 @@
+@use '../../styles/managed-form' as managed-form;
+
+@include managed-form.layout;
+
+.callback-form {
+  max-width: none;
+}

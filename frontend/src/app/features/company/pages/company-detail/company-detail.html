@@ -1,0 +1,44 @@
+<article>
+  <header class="company-detail-hero">
+    <div class="xpsys-container company-detail-hero__layout">
+      <div>
+        <p class="xpsys-kicker text-brand-red">{{ content.eyebrow }}</p>
+        <h1>{{ content.title }}</h1>
+        @if (content.heroCtaLabel && content.heroCtaPath) {
+          <a [routerLink]="content.heroCtaPath" class="xpsys-button xpsys-button--red company-detail-hero__cta">
+            {{ content.heroCtaLabel }} <span aria-hidden="true">→</span>
+          </a>
+        }
+      </div>
+      <p>{{ content.introduction }}</p>
+    </div>
+  </header>
+
+  <section class="company-detail-content" aria-label="{{ content.title }} principles">
+    <div class="xpsys-container company-detail-list">
+      @for (item of content.items; track item.code; let index = $index) {
+        <article class="company-detail-row">
+          <div class="company-detail-row__context">
+            <p class="xpsys-kicker text-brand-red">{{ item.code }}</p>
+            <p>{{ item.description }}</p>
+          </div>
+          <span class="company-detail-row__marker" aria-hidden="true">{{ content.marker }}</span>
+          <div class="company-detail-row__destination">
+            <h2>{{ item.title }}</h2>
+            @if (item.linkLabel && item.linkPath) {
+              <a [routerLink]="item.linkPath">{{ item.linkLabel }} <span aria-hidden="true">→</span></a>
+            }
+            <span>0{{ index + 1 }}</span>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="company-detail-cta">
+    <div class="xpsys-container">
+      <p>Build for the operation, not the presentation.</p>
+      <a [routerLink]="content.ctaPath" class="xpsys-button xpsys-button--red">{{ content.ctaLabel }} <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</article>

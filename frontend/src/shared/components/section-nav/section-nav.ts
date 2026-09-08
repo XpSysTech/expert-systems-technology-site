@@ -15,7 +15,7 @@ export interface SectionNavItem {
 })
 export class SectionNav {
   readonly brand = input('Explore');
-  readonly brandPath = input('/offerings');
+  readonly brandPath = input('/');
   readonly label = input('Section navigation');
   readonly items = input.required<readonly SectionNavItem[]>();
 }

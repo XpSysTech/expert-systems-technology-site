@@ -6,9 +6,11 @@
     "wrangler": "^4.127.1"
   },
   "scripts": {
+    "start": "npm --prefix frontend run start --",
     "build:frontend": "npm --prefix frontend run build",
     "build:cloudflare": "node cloudflare/build.mjs",
     "test:worker": "vitest run --config vitest.config.mts",
+    "test:backend": "dotnet test backend/XpSys.PublicWebsite.slnx --no-restore",
     "build:backend": "dotnet build backend/XpSys.PublicWebsite.slnx",
     "test:frontend": "npm --prefix frontend test -- --watch=false",
     "test": "npm run test:frontend && npm run test:worker && npm run test:backend",

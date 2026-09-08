@@ -1,36 +1,235 @@
-.home-signal {
-  background:
-    linear-gradient(135deg, transparent 0 57%, rgba(188, 27, 32, 0.95) 57% 61%, transparent 61%),
-    linear-gradient(90deg, transparent 0 66%, rgba(255, 255, 255, 0.09) 66% 66.35%, transparent 66.35%),
-    linear-gradient(0deg, transparent 0 32%, rgba(255, 255, 255, 0.09) 32% 32.5%, transparent 32.5%);
+:host {
+  display: block;
 }
 
-.home-signal::before,
-.home-signal::after {
+.home-hero-signal {
+  background:
+    linear-gradient(132deg, transparent 0 61%, var(--color-brand-red) 61% 65%, transparent 65%),
+    linear-gradient(90deg, transparent 0 67%, color-mix(in srgb, var(--color-brand-white) 10%, transparent) 67% 67.25%, transparent 67.25%),
+    var(--color-brand-charcoal);
+}
+
+.home-hero-signal::before,
+.home-hero-signal::after {
   position: absolute;
+  aspect-ratio: 1;
   content: '';
   transform: rotate(45deg);
 }
 
-.home-signal::before {
-  right: 14%;
-  top: 17%;
-  width: clamp(3rem, 7vw, 7rem);
-  aspect-ratio: 1;
-  border: 0.75rem solid var(--xpsys-red);
+.home-hero-signal::before {
+  top: 16%;
+  right: 10%;
+  width: clamp(3rem, 6vw, 6rem);
+  border: 0.375rem solid var(--color-brand-red);
 }
 
-.home-signal::after {
-  right: 36%;
-  bottom: 13%;
-  width: clamp(1.5rem, 3.5vw, 3.5rem);
-  aspect-ratio: 1;
-  background: var(--xpsys-red);
+.home-hero-signal::after {
+  right: 29%;
+  bottom: 12%;
+  width: clamp(1.25rem, 2.5vw, 2.5rem);
+  background: var(--color-brand-red);
 }
 
-.product-grid {
+.managed-classification {
   background-image:
-    linear-gradient(to right, currentColor 0.0625rem, transparent 0.0625rem),
-    linear-gradient(to bottom, currentColor 0.0625rem, transparent 0.0625rem);
-  background-size: 2rem 2rem;
+    linear-gradient(to right, color-mix(in srgb, var(--color-brand-charcoal) 8%, transparent) var(--border-thin), transparent var(--border-thin)),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-brand-charcoal) 8%, transparent) var(--border-thin), transparent var(--border-thin));
+  background-size: 1.5rem 1.5rem;
+}
+
+.product-development-panel {
+  background:
+    linear-gradient(47deg, transparent 0 62%, color-mix(in srgb, var(--color-brand-red) 70%, transparent) 62% 62.4%, transparent 62.4%),
+    var(--color-brand-mist);
+}
+
+.product-development-panel::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(4rem, 9vw, 8rem);
+  aspect-ratio: 1;
+  background: var(--color-brand-red);
+  content: '';
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.product-development-panel--dark {
+  background:
+    linear-gradient(47deg, transparent 0 62%, color-mix(in srgb, var(--color-brand-red) 78%, transparent) 62% 62.4%, transparent 62.4%),
+    var(--color-brand-charcoal);
+  color: var(--color-brand-white);
+}
+
+.product-development-panel--dark::before {
+  background: transparent;
+  border: 0.25rem solid var(--color-brand-red);
+}
+
+.product-development-panel--artwork {
+  background: var(--color-brand-warm);
+}
+
+.product-development-panel--artwork::before {
+  display: none;
+}
+
+.product-development-panel__artwork {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.product-development-panel--artwork > span {
+  display: none;
+}
+
+.partner-voices {
+  overflow: hidden;
+  border-block: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 20%, transparent);
+  padding-block: clamp(3.5rem, 7vw, 7rem);
+}
+
+.partner-voices__header {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.partner-voices__title {
+  max-width: 17ch;
+  margin-top: var(--space-4);
+}
+
+.partner-voices__intro {
+  max-width: 39rem;
+  margin: 0;
+  align-self: end;
+  color: color-mix(in srgb, var(--color-brand-charcoal) 70%, transparent);
+  line-height: 1.6;
+}
+
+.partner-carousel {
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.partner-carousel__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 24%, transparent);
+  padding-top: var(--space-3);
+}
+
+.partner-carousel__controls {
+  display: flex;
+}
+
+.partner-carousel__control {
+  display: grid;
+  width: 3.25rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: var(--border-thin) solid var(--color-brand-charcoal);
+  background: transparent;
+  color: var(--color-brand-charcoal);
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.partner-carousel__control + .partner-carousel__control {
+  border-left: 0;
+}
+
+.partner-carousel__control:hover,
+.partner-carousel__control:focus-visible {
+  background: var(--color-brand-charcoal);
+  color: var(--color-brand-white);
+}
+
+.partner-carousel__viewport {
+  margin-top: var(--space-4);
+  overflow: hidden;
+}
+
+.partner-carousel__track {
+  display: grid;
+  grid-auto-columns: 88%;
+  grid-auto-flow: column;
+  gap: var(--space-3);
+}
+
+.partner-voice-card {
+  display: flex;
+  min-height: 34rem;
+  flex-direction: column;
+  padding: var(--space-5);
+  background: var(--color-brand-mist);
+  clip-path: polygon(0 0, calc(100% - 3rem) 0, 100% 3rem, 100% 100%, 0 100%);
+}
+
+.partner-voice-card__organisation {
+  margin: var(--space-3) 0 0;
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  text-transform: uppercase;
+}
+
+.partner-voice-card__portrait,
+.partner-voice-card__portrait-placeholder {
+  width: 5.5rem;
+  aspect-ratio: 1;
+  margin-top: var(--space-7);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.partner-voice-card__portrait-placeholder {
+  display: grid;
+  place-items: center;
+  border: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 28%, transparent);
+  color: color-mix(in srgb, var(--color-brand-charcoal) 45%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.partner-voice-card__quote {
+  margin: auto 0 var(--space-6);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.partner-voice-card__person {
+  display: grid;
+  gap: var(--space-1);
+  border-top: var(--border-thin) solid color-mix(in srgb, var(--color-brand-charcoal) 22%, transparent);
+  padding-top: var(--space-3);
+  font-family: var(--font-sans);
+}
+
+.partner-voice-card__person span {
+  color: color-mix(in srgb, var(--color-brand-charcoal) 62%, transparent);
+  font-size: 0.875rem;
+}
+
+@media (min-width: 48rem) {
+  .partner-carousel__track {
+    grid-auto-columns: calc((100% - var(--space-3)) / 2);
+  }
+}
+
+@media (min-width: 64rem) {
+  .partner-voices__header {
+    grid-template-columns: minmax(0, 1.15fr) minmax(22rem, 0.85fr);
+  }
+
+  .partner-carousel__track {
+    grid-auto-columns: calc((100% - (var(--space-3) * 2)) / 3);
+  }
 }

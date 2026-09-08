@@ -1,4 +1,6 @@
 @use "tailwindcss";
+@use "./app/features/services/managed-web-services/pages/managed-website/managed-website-global";
+@use "./app/features/services/managed-web-services/pages/overview/overview-global";
 
 :root {
   /* Brand palette: edit these values to recolour the complete site. */
@@ -175,7 +177,7 @@ img {
 }
 
 .xpsys-display {
-  font-size: var(--type-display);
+  font-size: var(--type-heading-1);
   font-weight: var(--font-weight-regular);
   letter-spacing: -0.055em;
   line-height: 0.9;

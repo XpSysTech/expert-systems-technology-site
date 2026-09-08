@@ -22,22 +22,23 @@ export class SiteFooter {
 
   protected readonly groups: readonly FooterGroup[] = [
     {
-      title: 'Offerings',
+      title: 'Products & Services',
       links: [
-        { label: 'All Offerings', path: '/offerings' },
         { label: 'Products', path: '/products' },
-        { label: 'Services', path: '/services' },
-        { label: 'Software Engineering', path: '/services/software-engineering' },
-        { label: 'Industries', path: '/industries' },
+        { label: 'Clinic OS', path: '/products/clinic-os' },
+        { label: 'Pharmacy OS', path: '/products/pharmacy-os' },
+        { label: 'Help Me', path: '/products/help-me' },
+        { label: 'Managed Web Services', path: '/services/managed-web-services' },
       ],
     },
     {
       title: 'Company',
       links: [
         { label: 'About', path: '/company/about' },
-        { label: 'Principles', path: '/company/principles' },
+        { label: 'How We Work', path: '/company/how-we-work' },
         { label: 'Security & Trust', path: '/company/security' },
         { label: 'Careers', path: '/company/careers' },
+        { label: 'Partners', path: '/company/partners' },
       ],
     },
     {
@@ -47,6 +48,7 @@ export class SiteFooter {
         { label: 'Case Studies', path: '/case-studies' },
         { label: 'Resources', path: '/resources' },
         { label: 'Documentation', path: '/docs' },
+        { label: 'Sitemap', path: '/sitemap' },
       ],
     },
   ];

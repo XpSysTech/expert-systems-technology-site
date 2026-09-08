@@ -1,33 +1,52 @@
-<app-section-nav
-  [brand]="content.brand"
-  [brandPath]="content.basePath"
-  [items]="navigation"
-  [label]="content.brand + ' sections'"
-/>
+<app-section-nav [brand]="content.brand" [brandPath]="content.basePath" [items]="navigation" [label]="content.brand + ' sections'" />
 
 <article>
-  <header class="border-b border-black/20">
-    <div class="xpsys-container grid min-h-[30rem] content-between gap-12 py-12 md:py-16 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
+  <header class="resource-hero">
+    <div class="xpsys-container resource-hero__grid">
       <div>
         <p class="xpsys-kicker text-brand-red">{{ content.code }}</p>
-        <h1 class="xpsys-heading mt-10 max-w-[13ch]">{{ content.title }}</h1>
+        @if (content.status) { <p class="resource-status">{{ content.status }}</p> }
+        <h1>{{ content.title }}</h1>
       </div>
       <div>
-        <p class="xpsys-lead">{{ content.introduction }}</p>
-        <a routerLink="/company" class="mt-8 inline-flex border-b border-black/30 pb-2 font-sans text-sm no-underline">
-          About Expert Systems Technology <span class="ml-8" aria-hidden="true">→</span>
-        </a>
+        <p class="resource-lead">{{ content.introduction }}</p>
+        <a [routerLink]="content.basePath" class="resource-back">View {{ content.brand }} overview <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </header>
 
-  <section class="xpsys-section">
-    <div class="xpsys-container">
-      <div class="grid border-t border-black/25 md:grid-cols-2 xl:grid-cols-3">
-        @for (card of cards; track card.code) {
-          <app-equal-card [content]="card" />
-        }
-      </div>
-    </div>
-  </section>
+  @if (content.statusItems?.length) {
+    <section class="status-strip" aria-label="Product status summary">
+      <dl class="xpsys-container">
+        @for (item of content.statusItems; track item.label) { <div><dt>{{ item.label }}</dt><dd>{{ item.value }}</dd></div> }
+      </dl>
+    </section>
+  }
+
+  @if (content.diagram && content.diagramTitle && content.diagramDescription) {
+    <section class="resource-section resource-section--mist">
+      <div class="xpsys-container"><app-concept-diagram [kind]="content.diagram" [title]="content.diagramTitle" [description]="content.diagramDescription" /></div>
+    </section>
+  }
+
+  @if (content.sections?.length) {
+    @for (section of content.sections; track section.code) {
+      <section class="resource-section">
+        <div class="xpsys-container resource-section__grid">
+          <div><p class="xpsys-kicker text-brand-red">{{ section.code }}</p><h2>{{ section.title }}</h2>@if (section.introduction) { <p class="section-introduction">{{ section.introduction }}</p> }</div>
+          <div class="resource-items">
+            @for (item of section.items; track item.title) {
+              <article>@if (item.meta) { <p class="item-meta">{{ item.meta }}</p> }<h3>{{ item.title }}</h3><p>{{ item.description }}</p></article>
+            }
+          </div>
+        </div>
+      </section>
+    }
+  } @else {
+    <section class="resource-section"><div class="xpsys-container"><div class="grid border-t border-black/25 md:grid-cols-2 xl:grid-cols-3">@for (card of cards; track card.code) { <app-equal-card [content]="card" /> }</div></div></section>
+  }
+
+  @if (content.ctaLabel && content.ctaPath) {
+    <section class="resource-cta"><div class="xpsys-container"><p class="xpsys-kicker">NEXT STEP</p><h2>Continue the conversation.</h2><a class="xpsys-button xpsys-button--red" [routerLink]="content.ctaPath">{{ content.ctaLabel }} <span aria-hidden="true">→</span></a></div></section>
+  }
 </article>

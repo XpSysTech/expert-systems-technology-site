@@ -1,0 +1,206 @@
+@mixin layout {
+  :host {
+    display: block;
+  }
+
+  .managed-form {
+    border-top: var(--border-thin) solid var(--xpsys-light-grey);
+    padding-top: var(--space-5);
+  }
+
+  .step-grid {
+    display: grid;
+    gap: var(--space-4);
+    padding-block: var(--space-4);
+  }
+
+  .step-grid--wide {
+    grid-template-columns: 1fr;
+  }
+
+  .option-grid {
+    display: grid;
+    gap: var(--space-2);
+    margin-block: var(--space-4);
+  }
+
+  .step-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+
+  .step-actions button {
+    border-radius: 0;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .step-panel {
+    min-height: 0;
+    padding-block: var(--space-5);
+  }
+
+  .step-panel__header {
+    display: grid;
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+  }
+
+  .step-panel__header h3 {
+    margin: 0;
+    font-size: var(--type-heading-3);
+  }
+
+  .field {
+    display: grid;
+    align-content: start;
+    gap: var(--space-2);
+    font-family: var(--font-heading);
+    font-size: var(--type-caption);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    border: 0;
+    border-bottom: var(--border-thin) solid var(--xpsys-charcoal);
+    border-radius: 0;
+    background: transparent;
+    padding: 0.875rem 0;
+    color: var(--xpsys-charcoal);
+    font-family: var(--font-body);
+    font-size: var(--type-body);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .field textarea {
+    min-height: 8rem;
+    resize: vertical;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-bottom-color: var(--xpsys-red);
+    box-shadow: 0 0.125rem 0 -0.0625rem var(--xpsys-red);
+    outline: none;
+  }
+
+  .field__error {
+    color: var(--xpsys-red);
+    font-family: var(--font-body);
+    font-size: var(--type-micro);
+  }
+
+  .choice-grid {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .choice {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    border: var(--border-thin) solid var(--xpsys-light-grey);
+    padding: var(--space-3);
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .choice input {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: 0.125rem 0 0;
+    accent-color: var(--xpsys-red);
+  }
+
+  .step-actions .xpsys-button {
+    width: 100%;
+    min-height: 4rem;
+    justify-content: space-between;
+  }
+
+  .step-note {
+    border-left: 0.1875rem solid var(--xpsys-red);
+    padding-left: var(--space-3);
+    font-family: var(--font-body);
+    font-size: var(--type-caption);
+    line-height: 1.55;
+  }
+
+  .review-grid {
+    display: grid;
+    gap: var(--space-4);
+    margin-block: var(--space-4);
+  }
+
+  .review-card {
+    border: var(--border-thin) solid var(--xpsys-light-grey);
+    padding: var(--space-4);
+  }
+
+  .review-card h3 {
+    margin: 0 0 var(--space-2);
+    font-size: var(--type-body-large);
+  }
+
+  .review-card p {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--type-caption);
+    line-height: 1.55;
+  }
+
+  .routing-note {
+    margin-block: var(--space-4);
+    border: var(--border-thin) solid var(--xpsys-red);
+    background: color-mix(in srgb, var(--xpsys-red) 7%, var(--xpsys-white));
+    padding: var(--space-4);
+  }
+
+  .routing-note h3 {
+    margin-top: 0;
+    font-size: var(--type-body-large);
+  }
+
+  .routing-note p {
+    font-family: var(--font-body);
+    line-height: 1.55;
+  }
+
+  .routing-note a {
+    color: var(--xpsys-red);
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .submission-status {
+    margin-top: var(--space-4);
+    border-left: 0.1875rem solid var(--xpsys-red);
+    padding-left: var(--space-3);
+    font-family: var(--font-body);
+  }
+
+  @media (min-width: 48rem) {
+    .step-actions .xpsys-button {
+      width: 14rem;
+    }
+
+    .step-grid--wide,
+    .review-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .option-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .choice-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}

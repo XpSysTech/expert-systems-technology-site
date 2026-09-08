@@ -29,12 +29,29 @@ describe('Products', () => {
     );
 
     expect(content).toContain('Clinic OS');
-    expect(content).toContain('Pharmacy OS');
     expect(content).toContain('Help Me');
     expect(hrefs).toEqual([
       '/products/clinic-os',
-      '/products/pharmacy-os',
       '/products/help-me',
     ]);
+    expect(content).toContain('IN DEVELOPMENT');
+    expect(
+      Array.from(
+        fixture.nativeElement.querySelectorAll('.sales-card__media img') as NodeListOf<HTMLImageElement>,
+        (image) => image.getAttribute('src'),
+      ),
+    ).toEqual([
+      '/products/clinic-os-product-card.svg',
+      '/products/help-me-horizontal-logo.svg',
+    ]);
+  });
+
+  it('frames the product portfolio for growth beyond one geography', () => {
+    const hero = fixture.nativeElement.querySelector('.catalog-hero') as HTMLElement | null;
+    const content = hero?.textContent ?? '';
+
+    expect(content).toContain('Building digital infrastructure around how work gets done.');
+    expect(content).toContain('grow with the organisations and industries they serve');
+    expect(content).not.toContain('Namibia');
   });
 });

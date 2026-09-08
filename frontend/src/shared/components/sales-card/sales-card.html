@@ -1,4 +1,10 @@
 <article class="sales-card">
+  @if (content().image) {
+    <figure class="sales-card__media">
+      <img [src]="content().image" [alt]="content().imageAlt ?? content().title + ' product logo'" />
+    </figure>
+  }
+
   <header class="sales-card__header">
     <p class="xpsys-kicker text-brand-red">{{ content().code }}</p>
     <p class="sales-card__audience">{{ content().audience }}</p>

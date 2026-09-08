@@ -1,0 +1,10 @@
+<main class="xpsys-container sitemap">
+  <p class="xpsys-kicker text-brand-red">EXPERT SYSTEMS TECHNOLOGY / SITEMAP</p>
+  <h1 class="xpsys-heading">Sitemap</h1>
+  <p class="xpsys-lead">Browse the main public pages for our products, managed web services, industry knowledge and company.</p>
+  <div class="sitemap__groups">
+    @for (group of groups; track group.title) {
+      <section><h2>{{ group.title }}</h2><ul>@for (link of group.links; track link.path) { <li><a [routerLink]="link.path">{{ link.label }} <span aria-hidden="true">→</span></a></li> }</ul></section>
+    }
+  </div>
+</main>

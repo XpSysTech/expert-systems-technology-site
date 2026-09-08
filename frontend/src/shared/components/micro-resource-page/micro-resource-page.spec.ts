@@ -22,6 +22,8 @@ describe('MicroResourcePage', () => {
                   title: 'Documentation',
                   introduction: 'Guidance for understanding and operating Clinic OS.',
                   workflowPath: '/products/clinic-os/workflows',
+                  status: 'IN DEVELOPMENT',
+                  sections: [{ code: '01 / START', title: 'Role-aware guidance', items: [{ title: 'Reception', description: 'Coordinate the visit.' }] }],
                 },
               },
             },
@@ -38,6 +40,8 @@ describe('MicroResourcePage', () => {
     const content = fixture.nativeElement.textContent as string;
     expect(content).toContain('Clinic OS');
     expect(content).toContain('Documentation');
-    expect(content).toContain('Company');
+    expect(content).not.toContain('Company');
+    expect(content).toContain('IN DEVELOPMENT');
+    expect(content).toContain('Role-aware guidance');
   });
 });
